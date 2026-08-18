@@ -1,0 +1,312 @@
+[
+  {
+    "type": "request",
+    "timestamp": 1787052887981,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/mycourse/studentstudyAjax?courseId=263837700&clazzid=147110605&chapterId=1172050672&cpi=517019981&verificationcode=&mooc2=1&toComputer=false&microTopicId=0&editorPreview=0&isPreviewVideo=false&videoWidth=0&videoHeight=0&targetVideoJobId=&cardIndex=0",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/mycourse/studentstudy?chapterId=1172050672&courseId=263837700&clazzid=147110605&cpi=517019981&enc=ea013ef07b8a9ab710af1b3cda15f1d7&mooc2=1&hidetype=0&openc=44f38f1c8faa0693a9f9f0d2d1c3504b",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "accept": "*/*",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052887994,
+    "url": "https://noteyd.chaoxing.com/apis/mirrorConfig",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/mycourse/studentstudy?chapterId=1172050672&courseId=263837700&clazzid=147110605&cpi=517019981&enc=ea013ef07b8a9ab710af1b3cda15f1d7&mooc2=1&hidetype=0&openc=44f38f1c8faa0693a9f9f0d2d1c3504b",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "accept": "*/*",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052888214,
+    "url": "https://noteyd.chaoxing.com/apis/mirrorConfig",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "transfer-encoding": "chunked",
+      "access-control-max-age": "3600",
+      "cache-control": "no-cache",
+      "pragma": "no-cache",
+      "connection": "keep-alive",
+      "access-control-allow-credentials": "true",
+      "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+      "access-control-allow-origin": "https://mooc1.chaoxing.com",
+      "date": "Tue, 18 Aug 2026 11:34:47 GMT",
+      "content-type": "application/json;charset=UTF-8",
+      "origin-agent-cluster": "?0",
+      "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    },
+    "body": "{\"result\":1,\"data\":{\"isMirrorDeploy\":false,\"domainMap\":{\"GroupStatisticsDomain\":\"https://statisticyd.chaoxing.com\",\"special2DomainHttps\":\"https://special2.rhky.com\",\"mooc1_2Domain\":\"http://mooc1-2.chaoxing.com\",\"paycenterDomain\":\"http://paycenter.fanya.chaoxing.com\",\"shareWh1DomainHttps\":\"https://sharewh1.xuexi365.com\",\"jwFyDomain\":\"http://jwdatatb.fy.chaoxing.com\",\"jcucDomainHttps\":\"https://jcuc.chaoxing.com\",\"swfilterDomain\":\"http://swfilter.chaoxing.com\",\"homeDomain\":\"http://home.yd.chaoxing.com\",\"photoDomainHttps\":\"https://p.cldisk.com\",\"mobileWxDomain\":\"http://mobilewx.chaoxing.com\",\"structureDomain\":\"http://structureyd.chaoxing.com\",\"appsDomainHttps\":\"http://apps.ananas.chaoxing.com\",\"officeDomain\":\"http://office.chaoxing.com\",\"smsDomain\":\"http://sms.chaoxing.com\",\"rec2Domain\":\"http://rec2.chaoxing.com\",\"fanYaZyk2Domain\":\"http://fanya.zyk2.chaoxing.com\",\"csDomainHttps\":\"https://cs.ananas.chaoxing.com\",\"ProxyDomain\":\"http://noteyd.chaoxing.com/proxy\",\"specialDomainHttps\":\"https://special.chaoxing.com\",\"appsWhDomain\":\"http://appswh.chaoxing.com\",\"stat2DomainHttps\":\"https://stat2-ans.chaoxing.com\",\"GroupWebDomainHttps\":\"https://groupweb.chaoxing.com\",\"v1Domain\":\"https://v1.chaoxing.com\",\"passport2Domain\":\"http://passport2.chaoxing.com\",\"aivideoHttps\":\"https://aivideo.chaoxing.com\",\"apiImDomain\":\"http://api.im.chaoxing.com\",\"NoteDomain\":\"http://noteyd.chaoxing.com\",\"iMoocDomain\":\"http://i.mooc.chaoxing.com\",\"NoticeDomain\":\"http://notice.chaoxing.com\",\"UserDomainHttps\":\"https://useryd.chaoxing.com\",\"liveSuperlibDomainHttps\":\"https://live.superlib.com\",\"guanliDomain\":\"http://v1.chaoxing.com\",\"shareWhDomain\":\"http://sharewh.chaoxing.com\",\"d0DomainHttps\":\"https://d0.ananas.chaoxing.com\",\"shareWhDomainHttps\":\"https://sharewh.chaoxing.com\",\"uc1DomainHttps\":\"https://uc1-ans.chaoxing.com\",\"ktDomain\":\"http://k.chaoxing.com\",\"tongxuesheDomainHttps\":\"https://recv1-tongxueshe.chaoxing.com\",\"panDomain\":\"http://pan-yz.chaoxing.com\",\"d0Domain\":\"http://d0.ananas.chaoxing.com\",\"transydDomainHttps\":\"https://transyd.chaoxing.com\",\"iDomain\":\"http://i.chaoxing.com\",\"bigdataDomain\":\"http://bigdata-api.chaoxing.com\",\"xDomainHttps\":\"https://x.chaoxing.com\",\"mergerDomain\":\"http://merger.yd.chaoxing.com\",\"mooc1ApiDomainHttps\":\"https://mooc1-api.chaoxing.com\",\"RobotLcHttps\":\"https://robot-lc.chaoxing.com\",\"photoDomain\":\"http://p.cldisk.com\",\"specieDomainHttps\":\"https://specie.chaoxing.com\",\"UserDomain\":\"http://user.yd.chaoxing.com\",\"AlmightyPrintHttps\":\"https://jcxygl.chaoxing.com\",\"mooc2AnsDomain\":\"https://mooc2-ans.chaoxing.com\",\"EPubDomainHttps\":\"https://appswh.chaoxing.com/epub\",\"passport2DomainHttps\":\"https://passport2.chaoxing.com\",\"studyApiDomain\":\"http://study-api.chaoxing.com\",\"previewDomainHttps\":\"https://previewyd.chaoxing.com\",\"wordDomainHttps\":\"https://wordyd.chaoxing.com\",\"shareWh2DomainHttps\":\"https://sharewh2.xuexi365.com\",\"lcydDomainHttps\":\"https://lcyd.chaoxing.com\",\"officeDomainHttps\":\"https://office.chaoxing.com\",\"d0NewDomainHttps\":\"https://d0.cldisk.com\",\"homeWhDomainHttps\":\"https://homewh.chaoxing.com\",\"structureDomainHttps\":\"https://structureyd.chaoxing.com\",\"ProxyDomainHttps\":\"https://noteyd.chaoxing.com/proxy\",\"messageDomainHttps\":\"https://message.chaoxing.com\",\"mobileLearnFyDomain\":\"http://mobilelearn.fy.chaoxing.com\",\"shareWh3DomainHttps\":\"https://sharewh3.xuexi365.com\",\"SpecialPackDomainHttps\":\"https://specialpack.chaoxing.com\",\"pcDomain\":\"http://pc.chaoxing.com\",\"ktLogDomain\":\"http://ktlog.chaoxing.com\",\"wechatDomain\":\"https://wx.chaoxing.com\",\"rkDomainHttps\":\"https://meeting.chaoxing.com\",\"appsWhDomainHttps\":\"https://appswh.chaoxing.com\",\"imDomainHttps\":\"https://im.chaoxing.com\",\"photoNewDomainHttps\":\"https://p.cldisk.com\",\"gdhydxDomainHttps\":\"http://gdhydx.jxjy.chaoxing.com\",\"fystat1_1FyDomain\":\"http://fystat1-1.fy.chaoxing.com\",\"groupweb2DomainHttps\":\"https://groupyd2.chaoxing.com\",\"GroupWebDomain\":\"http://groupweb.chaoxing.com\",\"passport2ApiDomainHttps\":\"https://passport2-api.chaoxing.com\",\"rkDomain\":\"http://meeting.chaoxing.com\",\"fyStatDomainHttps\":\"https://fystat-ans.chaoxing.com\",\"homeYdDomain\":\"http://home-yd.chaoxing.com\",\"feDomain\":\"https://fe.chaoxing.com\",\"hbqygDomain\":\"http://appswh.chaoxing.com/hbqyg\",\"convertHttps\":\"https://convertservice.chaoxing.com\",\"learnDomainHttps\":\"https://learn.chaoxing.com\",\"csDomain\":\"http://cs.ananas.chaoxing.com\",\"shortUrlDomain\":\"http://16q.cn\",\"ktLogDomainHttps\":\"https://ktlog.chaoxing.com\",\"commendDomainHttps\":\"https://commendyd.chaoxing.com\",\"exportDomain\":\"http://exportyd.chaoxing.com\",\"manageydDomainHttp\":\"http://manage.yd.chaoxing.com\",\"kbDomainHttps\":\"https://kb.chaoxing.com\",\"mobilelearnDomain\":\"http://mobilelearn.chaoxing.com\",\"manageLearnDomain\":\"http://manage.learn.chaoxing.com\",\"ssZhizhenDomain\":\"http://ss.zhizhen.com\",\"contactsDomainHttps\":\"https://contactsyd.chaoxing.com\",\"RobotHttps\":\"https://robot.chaoxing.com\",\"liveDomainHttps\":\"https://live.chaoxing.com\",\"cvDomain\":\"http://cv-p.chaoxing.com\",\"fyLbDomainHttps\":\"https://fanyalubodata.fanya.chaoxing.com\",\"mobilelearnDomainHttps\":\"https://mobilelearn.chaoxing.com\",\"commDomain\":\"https://noteyd.chaoxing.com/comm/\",\"ssoDomain\":\"http://sso.chaoxing.com\",\"photoNewDomain\":\"http://p.cldisk.com\",\"allDomain\":\"http://all.chaoxing.com\",\"imApi1Domain\":\"http://api1.im.chaoxing.com\",\"educlawDomainHttps\":\"https://educlaw.chaoxing.com\",\"ssDomain\":\"http://ss.chaoxing.com\",\"ProjectappDomainHttps\":\"https://appswh.chaoxing.com/projectapp\",\"moocDomain\":\"http://mooc.chaoxing.com\",\"ketangZhizhenDomain\":\"https://ketang-zhizhen.chaoxing.com\",\"widgetCourseDomainHttps\":\"https://widget-course.chaoxing.com\",\"d0NewDomain\":\"http://d0.cldisk.com\",\"mbtiDomainHttps\":\"https://mbti.basicedu.chaoxing.com\",\"mooc1ApiDomain\":\"http://mooc1-api.chaoxing.com\",\"imDomain\":\"http://im.chaoxing.com\",\"edasDomainHttps\":\"http://edas.chaoxing.com\",\"compDomain\":\"https://noteyd.chaoxing.com/comp/\",\"special1DomainHttps\":\"https://special1.rhky.com\",\"ucDomain\":\"https://uc.chaoxing.com\",\"allDomainHttps\":\"https://all.chaoxing.com\",\"astatsFyDomain\":\"http://astats.fy.chaoxing.com\",\"avatarDomain\":\"https://photo.chaoxing.com\",\"resourceDomainHttps\":\"https://resource.chaoxing.com\",\"p2AnanasDomain\":\"http://p2.ananas.chaoxing.com\",\"ktDomainHttps\":\"https://k.chaoxing.com\",\"NoteDomainHttps\":\"https://noteyd.chaoxing.com\",\"csAPIDomain\":\"https://cs-api.chaoxing.com\",\"uc1Domain\":\"http://uc1-ans.chaoxing.com\",\"specialRhykDomainHttps\":\"https://special.rhky.com\",\"vspaceDomain\":\"http://vspace.chaoxing.com\",\"moocDomainHttps\":\"https://mooc.chaoxing.com\",\"learnDomain\":\"http://learn.chaoxing.com\",\"GroupDomain\":\"http://groupyd.chaoxing.com\",\"panDomainHttps\":\"https://pan-yz.chaoxing.com\",\"resourceDomain\":\"http://resource.chaoxing.com\",\"menhuDomain\":\"https://mh.chaoxing.com\",\"jjDomain\":\"http://cjkt.jxjy.chaoxing.com\",\"imageproxyDomainHttps\":\"https://imageproxy.chaoxing.com\",\"mDomain\":\"http://m.chaoxing.com\",\"specialDomain\":\"http://special.chaoxing.com\",\"hustFanya\":\"https://hust.fanya.chaoxing.com\",\"mooc1_3Domain\":\"http://mooc1-3.chaoxing.com\",\"CourseDomain\":\"http://bigdata-ans.chaoxing.com\",\"appsDomain\":\"http://apps.chaoxing.com\",\"boardDomainHttps\":\"https://appswh.chaoxing.com/board\",\"aiDomainHttps\":\"https://ai.chaoxing.com\",\"qikanDomain\":\"http://qikan.chaoxing.com\",\"GroupStatisticsDomainHttps\":\"https://statisticyd.chaoxing.com\",\"taskHttps\":\"https://task.chaoxing.com\",\"GroupDomainHttps\":\"https://groupyd.chaoxing.com\",\"messageDomain\":\"http://message.chaoxing.com\",\"contestDomain\":\"https://contestyd.chaoxing.com\",\"aireadHttps\":\"https://airead.chaoxing.com\",\"cooperateDomainHttps\":\"https://cooperateyd.chaoxing.com\",\"jwDomain\":\"http://jwdatatb.chaoxing.com\",\"NoticeDomainHttps\":\"https://notice.chaoxing.com\",\"authZhizhenDomain\":\"http://auth.zhizhen.com\",\"exportDomainHttps\":\"https://exportyd.chaoxing.com\",\"intellectualDomain\":\"https://intellectual-education-k8s.chaoxing.com\",\"ypDomainHttps\":\"https://ypdownload.chaoxing.com\",\"zhiboDomainHttps\":\"https://zhibo.chaoxing.com\",\"moaDomain\":\"https://m.oa.chaoxing.com\",\"wpsDomainHttps\":\"https://wps.chaoxing.com\",\"mobileFyDomain\":\"http://mobile.fanya.chaoxing.com\",\"mooc1Domain\":\"http://mooc1.chaoxing.com\",\"SpecialPackDomain\":\"http://specialpack.chaoxing.com\",\"employmentDomainHttps\":\"https://appswh.chaoxing.com\",\"mooc1DomainHttps\":\"https://mooc1.chaoxing.com\"}}}"
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052888224,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/mycourse/studentstudyAjax?courseId=263837700&clazzid=147110605&chapterId=1172050672&cpi=517019981&verificationcode=&mooc2=1&toComputer=false&microTopicId=0&editorPreview=0&isPreviewVideo=false&videoWidth=0&videoHeight=0&targetVideoJobId=&cardIndex=0",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "transfer-encoding": "chunked",
+      "content-encoding": "gzip",
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.14.9:8080",
+      "referrer-policy": "unsafe-url",
+      "rose": "mooc-p4-1677066363-j8907",
+      "date": "Tue, 18 Aug 2026 11:34:46 GMT",
+      "content-type": "text/html;charset=UTF-8",
+      "vary": "Accept-Encoding",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "<style>\n\t.orientationleft,.orientationright{width:100px;height:40px;background:none;border: 1px solid #7b9e31;line-height: 40px;color: #7b9e31;font-size: 14px;}\n\t.orientationleft{left:50%;margin-left:-102px;}\n\t.orientationright{right:50%;margin-right:-101px;}\n\t.orientationleft.gray,.orientationright.gray{border:1px solid #ccc;color:#ccc}\n\n\t.bluebtn02{display:inline-block;height:20px;line-height:20px;padding:0 10px;background:#7b9e31;font-size:14px;color:#FFF;border-radius:3px;}\n\t.bluebtn02:hover{color:#FFF;background:#8cb833;}\n\t.editDate {height: 49px;line-height: 49px;background: #f0f0f0;border-bottom: 1px solid #e0e0e0;font-size: 16px;font-weight: bold;color: #333;padding: 0 15px;}\n\t.graybtn02{display:inline-block;height:20px;line-height:20px;padding:0 10px;background:#f4f4f4;font-size:14px;color:#202020;border-radius:3px;border:solid 1px #dcdcdc;border-bottom:solid 1px #b3b3b3;}\n\t.graybtn02:hover{color:#202020;background:#e3e0e0;}\n\t.marleft10{margin-left:20px;}\n\n\t.prebutton{width:76px;text-align:center;height:36px;line-height:36px;}\n\t.nextbutton{width:76px;text-align:center;height:36px;line-height:36px;color:#666;border:none;background:#e6e6e6;}\n\t.keepLearning{width:76px;text-align:center;height:36px;line-height:36px;border:none;background:#7b9e31;}\n\t.bd_btn{ height:28px; line-height:28px; display:block; box-shadow:0 3px 12px 0 rgba(39,125,255,0.30); color:#FFFFFF; text-align:center; border-radius: 20px;}\n\t.bd_btn_60{ width:60px; background:url(//mooc1.chaoxing.com/mooc-ans/mooc2/images/chapter/insertAftar_bnt.png) no-repeat 0 0/100px auto;}\n\t.bd_btn_60:hover{ background:url(//mooc1.chaoxing.com/mooc-ans/mooc2/images/chapter/insertAftar_bnt.png) no-repeat 0 -30px/100px auto;}\n\t.bd_btn_60:active{ background:url(//mooc1.chaoxing.com/mooc-ans/mooc2/images/chapter/insertAftar_bnt.png) no-repeat 0 -60px/100px auto;}\n\n\t.bottomDiscuss62{ height:62px;}\n\t.bottomDiscuss{ position:fixed; bottom:0; z-index:88; width:100%; height:62px;background:#FFFFFF; box-shadow:0px 1px 7px rgba(198, 204, 217, 0.58);}\n\t.bottomDiscuss_hide{ position:absolute; bottom:100%; left:20px; z-index:1; width:24px; height:12px; background:#FFFFFF url(//mooc1.chaoxing.com/mooc-ans/mooc2/images/chapter/bottomDiscuss_hide.png) no-repeat center center; box-shadow:0px 1px 7px rgba(198, 204, 217, 0.58); border-radius:4px 4px 0 0; cursor:pointer;}\n\t.bottomDiscuss_box{ position:absolute; z-index:2; left:0; right:440px; min-width:840px; height:62px; background:#FFFFFF;}\n\t.bottomDiscuss_input{ position:absolute; left:80px; right:160px; top:50%; margin-top:-18px; height:20px; line-height: 20px; padding: 7px 14px; border: solid #E2EAF0 1px; background: #FFFFFF; font-size: 14px; color: #181E33; border-radius: 4px;}\n\t.bottomDiscuss_bnt{ position:absolute; right:80px; top:50%; margin-top:-14px;}\n\t.bottomDiscuss_show{ position:fixed;  left:24px; bottom:24px; z-index:88; width:46px; height:46px; background:#FFFFFF url(//mooc1.chaoxing.com/mooc-ans/mooc2/images/chapter/bottomDiscuss_show.png) no-repeat center center; box-shadow:-1px 1px 8px rgba(1, 82, 128, 0.2); border-radius:50%; cursor:pointer;}\n\t.top-tips{margin-left:0px;display:inline-block;margin-bottom:14px;position:relative;padding:0 14px;height:34px;background:#fdf6eb;line-height:34px;border-radius:21px;font-size:0;z-index:10;max-width:100%}\n\t.top-tips .warn-img{display:inline-block;vertical-align:middle;margin-right:8px;width:16px;height:16px;background:url(//mooc1.chaoxing.com/mooc-ans/mooc2/images/chapter/icon-40-fail.png) no-repeat center center;background-size:contain}\n\t.top-tips .warn-txt{display:inline-block;vertical-align:middle;margin-right:8px;font-size:14px;color:#a18a66;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}\n\n\t.prev_title .markTag{display:inline-block;width:20px;height:20px;background:url(//mooc1.chaoxing.com/mooc-ans/mooc2/images/chapter/markIcon.png) no-repeat;background-size:100%;margin-left:10px;}\n\t\t  .top-tips{margin-left:100px;}\n\t  #prevNextFocus{padding: 20px 200px 92px 200px;}\n\t@media screen and (max-width: 1440px) {\n\t\t#prevNextFocus{padding: 20px 80px 92px 80px;}\n\t}\n\t    </style>\n\t<input type=\"hidden\" id=\"stuMoocClassId\" value=\"\">\n\t<input type=\"hidden\" id=\"stuMoocCourseId\" value=\"\">\n\t<input type=\"hidden\" id=\"stuUserId\" value=\"\">\n\t<input type=\"hidden\" id=\"stuSchoolId\" value=\"\">\n\t<input type=\"hidden\" id=\"stuH5Page\" value=\"false\">\n\t<input type=\"hidden\" id=\"chapterId\" value=\"1172050672\">\n    <input type=\"hidden\" name=\"chapterId\" id=\"chapterIdid\" value=\"1172050672\" />\n    \n\t<div class=\"maskDiv jobFinishTip\" style=\"display:none; z-index: 999\">\n\t\t<input type=\"hidden\" id=\"delTopicId\" value=\"\"/>\n\t\t<div class=\"popDiv wid440 popMove\">\n\t\t\t<div class=\"popHead\"  id=\"jobFinishTipFocus\" tabindex=\"0\" role=\"alertdialog\" >\n\t\t\t\t<a id=\"popHeadFocus\" href=\"javascript:\" class=\"popClose fr\" onclick=\"closeDeleteWindow()\" tabindex=\"-1\">\n\t\t\t\t\t<img id=\"popHeadFocusImg\" role=\"button\" tabindex=\"-1\" aria-label=\"关闭\" onkeydown=\"if(event.keyCode == 13){closeDeleteWindowFocus();}\" src=\"//mooc1.chaoxing.com/mooc-ans/mooc2/images/popClose.png\" />\n\t\t\t\t</a>\n\t\t\t\t<p class=\"fl fs18 colorDeep\" style=\"font-weight:normal;\" tabindex=\"0\" role=\"option\">提示</p>\n\t\t\t</div>\n\t\t\t<div class=\"het62\"></div>\n\t\t\t<p class=\"popWord2 fs16 colorIn jobLimitTip\" tabindex=\"0\" role=\"option\">当前章节还有任务点未完成，是否去完成？</p>\n\t\t\t<div class=\"popBottom\">\n\t\t\t\t<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 preChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.previous('1','1172050672','263837700','147110605','')\">上一节</a>\n\t\t\t\t<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 nextChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.next('1','1172050672','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a href=\"javascript:\" class=\"btnBlue btn_92_cancel fr fs14 popMoveDele\" onkeydown=\"toLearnFocus();\" onclick=\"scroll2Job()\">去学习</a>\n\t\t\t</div>\n\t\t\t<div class=\"het72\"></div>\n\t\t</div>\n\t</div>\n\n\t<div style=\"width:578px;height:190px;display:none;padding:0\" class=\"AlertCon02\" id=\"jobFinishTip\" >\n\t\t<h3 class=\"clearfix editDate\">提示</h3>\n\t\t<div class=\"con03\">\n\t\t\t<p>当前章节还有任务点未完成，是否去完成？</p>\n\t\t\t<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050672','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a class=\"bluebtn02 prebutton preChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.previous('1','1172050672','263837700','147110605','')\" >上一节</a>\n\t\t\t\t<a class=\"graybtn02 marleft10 nextbutton\" href=\"javascript:void(0)\" onclick=\"WAY.box.hide();scroll2Job()\">去学习</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n\t<div class=\"maskDiv\" style=\"display:none; z-index: 999\" id=\"freezePage2\">\n\t\t<input type=\"hidden\" id=\"delTopicId\" value=\"\"/>\n\t\t<div class=\"popDiv wid440 popMove\">\n\t\t\t<div class=\"popHead\"  id=\"jobFinishTipFocus\" tabindex=\"0\" >\n\t\t\t\t<p class=\"fl fs18 colorDeep\" style=\"font-weight:normal;\" tabindex=\"0\" >提示</p>\n\t\t\t</div>\n\t\t\t<div class=\"het62\"></div>\n\t\t\t<p class=\"popWord2 fs16 colorIn jobLimitTip\" tabindex=\"0\" id=\"freezePageInfo\"></p>\n\t\t\t<div class=\"popBottom\">\n\t\t\t\t<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14\" onclick=\"continue_learning()\">继续学习</a>\n\t\t\t</div>\n\t\t\t<div class=\"het72\"></div>\n\t\t</div>\n\t</div>\n\n\t<div style=\"width:578px;height:190px;display:none;padding:0\" class=\"AlertCon02\" id=\"freezePage\" >\n\t\t<h3 class=\"clearfix editDate\">提示</h3>\n\t\t<div class=\"con03\">\n\t\t\t<p id=\"freezePageInfo\"></p>\n\t\t\t<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 marleft10 keepLearning\" href=\"javascript:void(0)\" onclick=\"continue_learning()\">继续学习</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n                <script type=\"text/javascript\" src=\"https://fystat-ans.chaoxing.com/log/setlog?personid=517019981&courseId=263837700&classId=147110605&encode=55209f61d8d7d4afac1e43fd16e9def5&chapterId=1172050672\"></script>\n    \t                        \n            <div class=\"prev_title_pos\" tabindex=\"0\" role=\"option\">\n                                    <div class=\"prev_title\" title=\"沈克尼\t百年来日本对我国地图的盗与测\">\n                        沈克尼\t百年来日本对我国地图的盗与测\n\n                        <span class=\"markTag\" id=\"markTag_1172050672\"  style=\"display: none\" ></span>\n                    </div>\n                \n                            </div>\n                                        <div class=\"prev_list\" id=\"prev_tab\" style=\"display: none\">\n                    <ul class=\"prev_ul clearfix\">\n                                                    <li class=\"active\" title=\"\" cardid=\"1165303366\" onclick=\"changeDisplayContent(1,1,'1172050672','263837700','147110605','');\"\n                                tabindex=\"0\" role=\"option\"                                 id=\"dct1\"><div class=\"prev_white\" aria-hidden=\"true\"><span class=\"num\" style=\"margin-right:0;\" >1</span></div></li>\n                                            </ul>\n                </div>\n                            <div  style=\"min-width: 1010px;\"  class=\"course_main\" id=\"qqqq\">\n            <iframe height=\"500px\" id=\"iframe\" info=\"card\" frameborder=\"0\" scrolling=\"no\" src=\"/mooc-ans/knowledge/cards?clazzid=147110605&courseid=263837700&knowledgeid=1172050672&num=0&ut=s&cpi=517019981&v=2025-0424-1038-3&mooc2=1&isMicroCourse=false&editorPreview=0\" allowfullscreen=\"true\" webkitallowfullscreen=\"true\" mozallowfullscreen=\"true\" onload=\"clickImg()\"></iframe>\n            <input id=\"cardcount\" type=\"hidden\" value=\"1\">\n        </div>\n\n\t\t    \n\t<div id=\"prevNextFocus\" class=\"clearfix\" tabindex=\"-1\" >\n\t\t\t\t\t<div id=\"prevNextFocusNext\"  class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050672','263837700','147110605','',true)\"  onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050672','263837700','147110605','',true);}\" >下一节</div>\n\t\t\t<div id=\"prevNextFocusPrev\" class=\"btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.previous('1','1172050672','263837700','147110605','',true)\"  onkeydown=\"if(event.keyCode == 13){PCount.previous('1','1172050672','263837700','147110605','',true);}\" >上一节</div>\n\t\t\t</div>\n\n<div class=\"iconBox \">\n\t\n\t\n\t\t\t<div class=\"iconBg ewmBg\" >\n\t\t\t<span class=\"ewm\"></span>\n\t\t\t<div class=\"ewmBox\">\n\t\t\t\t<img src=\"/mooc-ans/share/stu/qrcode?knowledgeId=1172050672&courseId=263837700&width=108&height=108&classId=147110605\" width=\"108\">\n\t\t\t\t<p> 手机扫码直接学习  </p>\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t\t<div class=\"discusBg\"  style=\"width:30px;\">\n\t\t\t<div class=\"clearfix disCOntent\">\n\t\t\t\t<span class=\"discusNew\"></span>\n\t\t\t\t<div class=\"discusFontBx\" style=\"display:none\">\n\t\t\t\t\t<div class=\"textAreaBx\">\n\t\t\t\t\t\t<textarea id=\"discussTextArea\" placeholder=\"发布提问或讨论…\" contenteditable=\"true\" class=\"textcon\" style=\"height:20px;display:none\" oninput=\"textChange()\"></textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<p class=\"fabuBtn\" style=\"display:none\"><a href=\"javascript:;\" onclick=\"publishTopic()\">发布</a></p>\n\t\t\t<i class=\"disArr\" style=\"display:none\"></i>\n\t\t</div>\n\t\n\t<div class=\"iconBg backBg\" style=\"display: none;\">\n\t\t<span class=\"backTo\"></span>\n\t</div>\n</div>\n\n\n<script>\n\t$('.fht_send_three .fht_send_close').click(function(){\n\t\tvar _this = $(this).parent().parent()\n\t\t_this.find('.fht_send_one').show()\n\t\t_this.find('.fht_send_three').hide()\n\t})\n\t$('.fht_send_one .fht_send_icon').click(function(){\n\t\tvar _this = $(this).parent().parent()\n\t\t_this.find('.fht_send_one').hide()\n\t\t_this.find('.fht_send_three').show()\n\t})\n\n\t$('.fht_send_three .fht_send_area').on('input',function(){\n\t\tvar _this = $(this).parent().parent()\n\t\tif ($(this).val() != '') {\n\t\t\t_this.find('.fht_send_bnt').show()\n\t\t} else{\n\t\t\t_this.find('.fht_send_bnt').hide()\n\t\t}\n\t})\n\n\t$(function(){\n\t\t$.fn.autoHeight = function(){\n\t\t\tfunction autoHeight(elem){\n\t\t\t\telem.style.height = '20px';\n//\t            elem.scrollTop = 0; //防抖动\n\t\t\t\telem.style.height = parseInt(elem.scrollHeight) + 'px';\n\t\t\t}\n\t\t\tthis.each(function(){\n\t\t\t\t$(this).on('keyup', function(){\n\t\t\t\t\tautoHeight(this);\n\t\t\t\t\tthis.focus();\n\t\t\t\t});\n\t\t\t});\n\t\t}\n\t\t$('textarea[autoHeight]').autoHeight();\n\t})\n\n\tfunction textChange(){\n\t\t$(\".fabuBtn\").show()\n\t\t$(\".textAreaBx\").css(\"overflow\",\"auto\");\n\t\tif($(\".textcon\").val()==''){\n\t\t\t$(\".fabuBtn\").hide()\n\t\t}\n\t}\n\n\t$(function(){\n\t\ttry {\n\t\t\t//打开讨论\n\t\t\t$(\".discusNew\").click(function(){\n\t\t\t\t$(\".kefuBg\").hide();\n\t\t\t\t$(\".ewmBg\").hide();\n\t\t\t\t$(\".dayiBg\").hide();\n\t\t\t\t$(\".discusFontBx\").show();\n\t\t\t\t$(\".disArr\").show();\n\t\t\t\t$(\".rightShow .discusBg\").css(\"left\",\"-200px\")\n\t\t\t\t$(\".discusBg\").animate({\n\t\t\t\t\twidth: \"230px\",\n\t\t\t\t\tborderRadius: 10\n\t\t\t\t}, 500 );\n\t\t\t\t$(\".discusFontBx\").animate({\n\t\t\t\t\twidth: \"183px\",\n\t\t\t\t}, 500 );\n\t\t\t\t$(\".textcon\").delay(1000).show();\n\t\t\t\t$('textarea').autoHeight()\n\t\t\t\tif($(\".textcon\").val()!=''){\n\t\t\t\t\t$(\".fabuBtn\").show()\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t//关闭讨论\n\t\t\t$(\".disArr\").click(function(){\n\t\t\t\t$(\".kefuBg\").show();\n\t\t\t\t$(\".ewmBg\").show();\n\t\t\t\t$(\".dayiBg\").show();\n\t\t\t\t$(\".discusFontBx\").hide();\n\t\t\t\t$(\".disArr\").hide();\n\t\t\t\t$(\".rightShow .discusBg\").css(\"left\",\"0\")\n\t\t\t\t$(\".discusBg\").animate({\n\t\t\t\t\twidth: \"30px\",\n\t\t\t\t\tborderRadius: 4\n\t\t\t\t}, 1 );\n\t\t\t\t$(\".discusFontBx\").animate({\n\t\t\t\t\twidth: \"0\",\n\t\t\t\t},1 );\n\t\t\t\t$(\".textcon\").hide();\n\t\t\t\t$(\".fabuBtn\").hide()\n\t\t\t\t$(\".textAreaBx\").css(\"overflow\",\"hidden\");\n\t\t\t})\n\n\t\t\t$('.backBg').hide();\n\t\t\t$(window).scroll(function(){\n\t\t\t\tif($(this).scrollTop() > 100){\n\t\t\t\t\t$('.backBg').fadeIn();\n\t\t\t\t}else{\n\t\t\t\t\t$('.backBg').fadeOut();\n\t\t\t\t}\n\t\t\t});\n\n\t\t\t$('.backBg').click(function(){\n\t\t\t\t$('html ,body').animate({scrollTop: 0}, 500);\n\t\t\t\treturn false;\n\t\t\t});\n\t\t} catch (e) {\n\t\t\tconsole.log(e);\n\t\t}\n\t});\n\n\tfunction openNewWindow(url) {\n\t\twindow.open(url,\"_blank\")\n\t}\n\n\tfunction publishTopic() {\n\t\tvar title = $(\".prev_title\").text();\n\t\tif(title.length > 150){\n\t\t\ttitle = title.substring(0,150);\n\t\t}\n\t\tvar content = $(\"#discussTextArea\").val();\n\t\tif(content == \"\" || content.trim() == ''){\n\t\t\talert(\"请输入话题内容！\");\n\t\t\treturn false;\n\t\t}\n\t\tcontent = content.replace(/<\\/?[^>]+>/g,\"\").trim();\n\t\tjQuery.post(_HOST_CP2_ + \"/bbscircle/grouptopic/publish\",\n\t\t\t\t{\n\t\t\t\t\tcourseId: '263837700',\n\t\t\t\t\tclazzid: '147110605',\n\t\t\t\t\ttitle: title,\n\t\t\t\t\tcontent:content,\n\t\t\t\t\ttype:2,\n\t\t\t\t\tfiles: \"\",\n\t\t\t\t\tveridyCode: \"\",\n\t\t\t\t\tchapterId: $(\"#chapterIdid\").val(),\n\t\t\t\t\tattachmentFile: \"\",\n\t\t\t\t\tcpi: '517019981',\n\t\t\t\t\tmooc2: 1\n\t\t\t\t}, function(data) {\n\t\t\t\t\tdata = data.replace(/(^\\s*)|(\\s*$)/g, \"\");\n\t\t\t\t\tif (data.indexOf('error') == 0) {\n\t\t\t\t\t\talert(\"发帖失败 \" + data.replace('error;', ''));\n\t\t\t\t\t} else {\n\t\t\t\t\t\t$(\"#discussTextArea\").val(\"\");\n\t\t\t\t\t\tgetChapterRightDiscuss();\n\t\t\t\t\t\tchangePan('2');\n\t\t\t\t\t}\n\t\t\t\t})\n\t}\n\n\t$('.bottomDiscuss_hide').click(function(){\n\t\t$(this).parent().hide()\n\t\t$('.bottomDiscuss_show').show()\n\t\t$('.bottomDiscuss62').hide()\n\n\t})\n\t$('.bottomDiscuss_show').click(function(){\n\t\t$(this).hide()\n\t\t$('.bottomDiscuss').show()\n\t\t$('.bottomDiscuss62').show()\n\n\t})\n\t//tab标题导航下拉滚动条\n\tfunction prev_select_Scroll(){\n\t\t$(\"#prev_select_Scroll\").niceScroll({cursorborder:\"\",cursorwidth:8,cursorcolor:\"#CFD8E6\",boxzoom:false,autohidemode:true});\n\t\tsetInterval(function(){\n\t\t\t$(\"#prev_select_Scroll\").getNiceScroll().resize(); //检测滚动条是否重置大小（当窗口改变大小时）\n\t\t},300)\n\t}\n\tprev_select_Scroll()\n//tab标题导航下拉\n$('.prev_select_name').click(function(){\n\tif($(this).next().is(':visible')){\n\t\t$(this).next().slideUp(300)\n\t\t$(this).parent().removeClass('prev_select_white')\n\t}else{\n\t\t$(this).next().slideDown(300)\n\t\t$(this).parent().addClass('prev_select_white')\n\t}\n\tprev_select_Scroll()\n})\n\t$('.prev_select_con li').click(function(){\n\t\t$(this).addClass('active').siblings().removeClass('active')\n\t\t$(this).parent().parent().slideUp(300)\n\t\t$(this).parent().parent().parent().removeClass('prev_select_white')\n\t})\n\t//点击div1外任何地方，div2消失\n\t$(document).mouseup(function (e) {\n\t\tvar _con = $('.prev_select');\n\t\tif (!_con.is(e.target) && _con.has(e.target).length === 0) {\n\t\t\t$('.prev_select_con').slideUp(300)\n\t\t\t$('.prev_select_con').parent().removeClass('prev_select_white')\n\t\t}\n\t})\n\t//tab 标题导航下拉联动\n\t$(\".prev_select_con li\").on(\"click\",function(){\n\t\tvar val = $(this).index()\n\t\tconsole.log('val：'+val)\n\t\t//是否重复\n\t\tvar isData = false;\n\t\t//可以展示的宽度\n\t\tvar w = $(\".prev_list\").outerWidth();\n\t\t//单元素的宽度\n\t\tvar cw = $(\".prev_list li\").outerWidth()+10;\n\t\tconsole.log(cw)\n\t\t//获取展示区域第一个（展示区域第一个=left隐藏的个数（left/cw））\n\t\tvar beginIndex = Math.abs(parseInt($(\".prev_ul\").css(\"left\")))/cw;\n\t\t//展示区域最后一个索引\n\t\tvar rightIndex = beginIndex + (w/cw-1); //最右边的index\n\n\t\t//当前点击对象是否在tab，在：判断是否在展示区域，在，则设置背景，不在：滚动\n\t\t//                    不在：追加并滚动\n\t\t//当前点击对象是否在tab\n\t\tvar thisObj = val;\n\t\tconsole.log(\"tab的索引：\" + thisObj);\n\t\tif(thisObj != -1){//存在\n\t\t\tisData = true;\n\t\t\t//已经存在，则判断是否在展示区域，在，则设置背景，不在：滚动\n\t\t\tif(thisObj>=beginIndex && thisObj<=rightIndex){//在展示区间\n\t\t\t\t$(\".prev_ul li\").eq(thisObj).addClass('active').siblings().removeClass('active')\n\t\t\t}else{//不再展示区间，需要滚动\n\t\t\t\tif(thisObj < beginIndex){//当前按钮小于开始的索引，向前滚动。展示为第一个\n\t\t\t\t\t$(\".prev_ul\").animate({\n\t\t\t\t\t\tleft:-cw*thisObj\n\t\t\t\t\t})\n\t\t\t\t}else if(thisObj > rightIndex){//当前按钮大于展示区的最后索引，向后滚动。展示为最后一个\n\n\t\t\t\t\t$(\".prev_ul\").animate({\n\t\t\t\t\t\tleft:-cw*thisObj+(w-cw)\n\t\t\t\t\t})\n\t\t\t\t}\n\t\t\t\t$(\".prev_ul li\").eq(thisObj).addClass('active').siblings().removeClass('active')\n\t\t\t}\n\t\t}else{//不存在\n\t\t\tisData = false;\n\t\t}\n\t});\n</script>\n<script>\n//进入ajax页面要改变浏览器的三个参数以便刷新时仍在此页面\nvar chapterId = $(\"#chapterId\").val();\n\nvar browserURL = document.URL;\nif (browserURL.indexOf(\"chapterId=\") != -1) {\n    browserURL = browserURL.replace(/(?![?&])(chapterId)=(0|[1-9][0-9]*|d*)/gi, \"chapterId=\" + chapterId);\n} else {\n    browserURL += \"&chapterId=\" + chapterId;\n}\n\nhistory.pushState(null, null, browserURL);\n\n$(\"#curChapterId\").val(chapterId);\n\tvar cardid = $(\"#prev_tab ul li.active\").attr(\"cardid\");\n\t$(\"#curCardId\").val(cardid);\n\nfunction toLearnFocus() {\n\t$(\"#popHeadFocusImg\").attr(\"tabindex\",\"-1\");\n\tif(event.keyCode == 9){\n\t\tpopHeadFocus();\n\t}\n\tif(event.keyCode == 13){\n\t\t$(\"#prevNextFocusPrev\").attr(\"tabindex\",\"-1\")\n\t\t$(\"#prevNextFocusNext\").attr(\"tabindex\",\"-1\")\n\t\t$(\"#prevNextFocus\").attr(\"tabindex\",\"-1\")\n\t\t$(\"#popCloseFocusImg\").attr(\"tabindex\",\"-1\");\n\t}\n}\nfunction popHeadFocus() {\n\t$(\"#popHeadFocusImg\").attr(\"tabindex\",\"0\");\n\t$(\"#popHeadFocus\").focus();\n}\nfunction closeDeleteWindowFocus() {\n\t$(\"#popHeadFocusImg\").attr(\"tabindex\",\"-1\");\n\tcloseDeleteWindow();\n}\n</script>"
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052888231,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/mycourse/studentstudycourselist?courseId=263837700&chapterId=1172050672&clazzid=147110605&cpi=517019981&mooc2=1&isMicroCourse=false",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/mycourse/studentstudy?chapterId=1172050672&courseId=263837700&clazzid=147110605&cpi=517019981&enc=ea013ef07b8a9ab710af1b3cda15f1d7&mooc2=1&hidetype=0&openc=44f38f1c8faa0693a9f9f0d2d1c3504b",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "accept": "text/html, */*; q=0.01",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052888312,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/mycourse/studentstudycourselist?courseId=263837700&chapterId=1172050672&clazzid=147110605&cpi=517019981&mooc2=1&isMicroCourse=false",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "transfer-encoding": "chunked",
+      "content-encoding": "gzip",
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.14.9:8080",
+      "referrer-policy": "unsafe-url",
+      "rose": "mooc-p4-1677066363-j8907",
+      "date": "Tue, 18 Aug 2026 11:34:47 GMT",
+      "content-type": "text/html;charset=UTF-8",
+      "vary": "Accept-Encoding",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "<input type=\"hidden\" id=\"_studystate\" value=\"{nextChapterId:1172050673,unfinishCount:18}\"/>\n<input type=\"hidden\" id=\"countListSearchChapter\" value=\"-1\"/>\n<!-- 第一级开始 -->\n<ul>\n\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t<div class=\"posCatalog_select firstLayer\" id=\"1172050585\"><span class=\"posCatalog_title posCatalog_rotate titleIcon\" title=\"红色经典\"><em class=\"posCatalog_sbar\">1</em>  红色经典 </span></div>\n\t\t\t\t<!--第二级开始-->\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_level\" style=\"display: block;\">\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050670\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"张立文\t“五四精神”：不悔的青春\"  onclick=\"getTeacherAjax('263837700','147110605','1172050670');\"><em class=\"posCatalog_sbar\">1.1</em>   张立文\t“五四精神”：不悔的青春 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"icon_Completed prevTips\"><span class=\"prevHoverTips\">已完成<i></i></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050672\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"沈克尼\t百年来日本对我国地图的盗与测\"  onclick=\"getTeacherAjax('263837700','147110605','1172050672');\"><em class=\"posCatalog_sbar\">1.2</em>   沈克尼\t百年来日本对我国地图的盗与测 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"icon_Completed prevTips\"><span class=\"prevHoverTips\">已完成<i></i></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050673\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"俞源\t长征中的共产党人\"  onclick=\"getTeacherAjax('263837700','147110605','1172050673');\"><em class=\"posCatalog_sbar\">1.3</em>   俞源\t长征中的共产党人 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050674\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"陈仲丹\t“军神”刘伯承元帅\"  onclick=\"getTeacherAjax('263837700','147110605','1172050674');\"><em class=\"posCatalog_sbar\">1.4</em>   陈仲丹\t“军神”刘伯承元帅 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050676\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"李育民  辛亥革命的胜与败\"  onclick=\"getTeacherAjax('263837700','147110605','1172050676');\"><em class=\"posCatalog_sbar\">1.5</em>   李育民  辛亥革命的胜与败 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050678\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"经盛鸿\t日本侵华史与南京大屠杀\"  onclick=\"getTeacherAjax('263837700','147110605','1172050678');\"><em class=\"posCatalog_sbar\">1.6</em>   经盛鸿\t日本侵华史与南京大屠杀 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050680\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"赵铁锁\t井冈山的斗争\"  onclick=\"getTeacherAjax('263837700','147110605','1172050680');\"><em class=\"posCatalog_sbar\">1.7</em>   赵铁锁\t井冈山的斗争 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050682\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"孙立新\t德国为何占领胶州湾？\"  onclick=\"getTeacherAjax('263837700','147110605','1172050682');\"><em class=\"posCatalog_sbar\">1.8</em>   孙立新\t德国为何占领胶州湾？ </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050684\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"陈海懿\t国际联盟与“九一八”事变的处理（1931-1933）\"  onclick=\"getTeacherAjax('263837700','147110605','1172050684');\"><em class=\"posCatalog_sbar\">1.9</em>   陈海懿\t国际联盟与“九一八”事变的处理（1931-1933） </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050687\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"马军\t北四川路大桥大楼：民族苦难与抗战记忆的见证\"  onclick=\"getTeacherAjax('263837700','147110605','1172050687');\"><em class=\"posCatalog_sbar\">1.10</em>   马军\t北四川路大桥大楼：民族苦难与抗战记忆的见证 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!--第二级结束-->\n\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t<div class=\"posCatalog_select firstLayer\" id=\"1172050666\"><span class=\"posCatalog_title posCatalog_rotate titleIcon\" title=\"AI赋能\"><em class=\"posCatalog_sbar\">2</em>  AI赋能 </span></div>\n\t\t\t\t<!--第二级开始-->\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_level\" style=\"display: block;\">\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050689\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"周志华\tAI的前世今生\"  onclick=\"getTeacherAjax('263837700','147110605','1172050689');\"><em class=\"posCatalog_sbar\">2.1</em>   周志华\tAI的前世今生 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050690\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"沈为\tAI如何看世界——计算机视觉\"  onclick=\"getTeacherAjax('263837700','147110605','1172050690');\"><em class=\"posCatalog_sbar\">2.2</em>   沈为\tAI如何看世界——计算机视觉 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050691\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"秦建军\t农业机器人的核心技术与应用挑战\"  onclick=\"getTeacherAjax('263837700','147110605','1172050691');\"><em class=\"posCatalog_sbar\">2.3</em>   秦建军\t农业机器人的核心技术与应用挑战 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050692\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"王福华\t互联网司法背景下的AI法官\"  onclick=\"getTeacherAjax('263837700','147110605','1172050692');\"><em class=\"posCatalog_sbar\">2.4</em>   王福华\t互联网司法背景下的AI法官 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050693\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"万宏瑜\t人工智能时代的口译：挑战与机遇\"  onclick=\"getTeacherAjax('263837700','147110605','1172050693');\"><em class=\"posCatalog_sbar\">2.5</em>   万宏瑜\t人工智能时代的口译：挑战与机遇 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050695\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"李伟\t音乐人工智能与计算机听觉\"  onclick=\"getTeacherAjax('263837700','147110605','1172050695');\"><em class=\"posCatalog_sbar\">2.6</em>   李伟\t音乐人工智能与计算机听觉 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050696\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"侯成义\t智能纤维与未来服装\"  onclick=\"getTeacherAjax('263837700','147110605','1172050696');\"><em class=\"posCatalog_sbar\">2.7</em>   侯成义\t智能纤维与未来服装 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050698\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"杜骏飞\t人工智能时代，何以为人？\"  onclick=\"getTeacherAjax('263837700','147110605','1172050698');\"><em class=\"posCatalog_sbar\">2.8</em>   杜骏飞\t人工智能时代，何以为人？ </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050699\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"吴冠军\tAI浪潮下的政治智慧与爱的觉醒\"  onclick=\"getTeacherAjax('263837700','147110605','1172050699');\"><em class=\"posCatalog_sbar\">2.9</em>   吴冠军\tAI浪潮下的政治智慧与爱的觉醒 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t<div class=\"posCatalog_select\"  id=\"cur1172050700\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"卢宝荣\t基因、生物技术与国家粮食安全\"  onclick=\"getTeacherAjax('263837700','147110605','1172050700');\"><em class=\"posCatalog_sbar\">2.10</em>   卢宝荣\t基因、生物技术与国家粮食安全 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\"/>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- 第三级开始  -->\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<!--第三级结束-->\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!--第二级结束-->\n\t\t\t</li>\n\t\t\t\t\t\t\t<!-- 第一级结束  -->\n</ul>\n"
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052889092,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/chapter-document/marklists?courseid=263837700&knowledgeid=1172050672&clazzid=147110605&cpi=517019981&cardid=1165303366&ut=s",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/mooc-ans/knowledge/cards?clazzid=147110605&courseid=263837700&knowledgeid=1172050672&num=0&ut=s&cpi=517019981&v=2025-0424-1038-3&mooc2=1&isMicroCourse=false&editorPreview=0",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "accept": "application/json, text/javascript, */*; q=0.01",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052889283,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/chapter-document/marklists?courseid=263837700&knowledgeid=1172050672&clazzid=147110605&cpi=517019981&cardid=1165303366&ut=s",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.14.9:8080",
+      "referrer-policy": "unsafe-url",
+      "content-length": "49",
+      "rose": "mooc-p4-1677066363-j8907",
+      "date": "Tue, 18 Aug 2026 11:34:48 GMT",
+      "content-type": "text/html;charset=UTF-8",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "{\"result\":1,\"msg\":\"获取数据成功\",\"data\":[]}"
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052889799,
+    "url": "https://mooc1.chaoxing.com/ananas/status/5af96c4fd420f1eba7a77e52929d08c3?k=&flag=normal&ro=0&_dc=1787052889797",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/ananas/modules/video/index.html?v=2026-0814-1624",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052889857,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/richvideo/initdatawithviewerV2?mid=13826289523771778738005722&cpi=517019981&classid=147110605&courseid=263837700&_dc=1787052889853",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/ananas/modules/video/index.html?v=2026-0814-1624",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052889905,
+    "url": "https://mooc1.chaoxing.com/ananas/getpoints?courseid=263837700&mid=13826289523771778738005722&_dc=1787052889902",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/ananas/modules/video/index.html?v=2026-0814-1624",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052889968,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/richvideo/viewpic?url=https://p2.cldisk.com/sv-w9/video/d3/6b/5d/5af96c4fd420f1eba7a77e52929d08c3/thumbnails/&enc=0f6bd8804047595d38f3844c7fd42452&_dc=1787052889965",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/ananas/modules/video/index.html?v=2026-0814-1624",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052889971,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/richvideo/initdatawithviewerV2?mid=13826289523771778738005722&cpi=517019981&classid=147110605&courseid=263837700&_dc=1787052889853",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.14.9:8080",
+      "referrer-policy": "unsafe-url",
+      "content-length": "2",
+      "rose": "mooc-p4-1677066363-j8907",
+      "date": "Tue, 18 Aug 2026 11:34:48 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "[]"
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052889973,
+    "url": "https://mooc1.chaoxing.com/ananas/status/5af96c4fd420f1eba7a77e52929d08c3?k=&flag=normal&ro=0&_dc=1787052889797",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "transfer-encoding": "chunked",
+      "content-encoding": "gzip",
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.70.11:8080",
+      "referrer-policy": "unsafe-url",
+      "rose": "html-editor-a-2543354240-7mhjl",
+      "date": "Tue, 18 Aug 2026 11:34:48 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "vary": "Accept-Encoding",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "{\"length\":480072902,\"thumbnailsEnc\":\"0f6bd8804047595d38f3844c7fd42452\",\"screenshot\":\"https://p2.cldisk.com/sv-w9/video/d3/6b/5d/5af96c4fd420f1eba7a77e52929d08c3/snapshot.jpg\",\"dtoken\":\"a9c944bc2df1b64e8edc99613b3a6ad6\",\"duration\":1582,\"mp3\":\"https://s2.cldisk.com/sv-w9/video/d3/6b/5d/5af96c4fd420f1eba7a77e52929d08c3/mp3/\",\"download\":\"http://d0.cldisk.com/download/5af96c4fd420f1eba7a77e52929d08c3?at_=1787048128742&ak_=0cfabd07b2b71d053f98f8f80402e833&ad_=725f81afb647bf5b4cdfc5f1309611d4\",\"filename\":\"（沈克尼）百年来日本对我国地图的盗与测.mp4\",\"crc\":\"b1a75a7d4dac220aecdca00f81cde8e5\",\"public_cdn_prefix\":[\"s2\",\"s1\"],\"http\":\"https://s2.cldisk.com/sv-w9/video/d3/6b/5d/5af96c4fd420f1eba7a77e52929d08c3/sd.mp4?at_=1787048128744&ak_=27ceff6d9f4286577190156bbabd1e37&ad_=70ec820f303d43ba104e94da61c959a3\",\"thumbnails\":\"https://p2.cldisk.com/sv-w9/video/d3/6b/5d/5af96c4fd420f1eba7a77e52929d08c3/thumbnails/\",\"objectid\":\"5af96c4fd420f1eba7a77e52929d08c3\",\"key\":\"dee7eea9b12e391680ea98d961e2462d\",\"status\":\"success\"}"
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052889977,
+    "url": "https://mooc1.chaoxing.com/ananas/getpoints?courseid=263837700&mid=13826289523771778738005722&_dc=1787052889902",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.70.11:8080",
+      "referrer-policy": "unsafe-url",
+      "content-length": "25",
+      "rose": "html-editor-a-2543354240-7mhjl",
+      "date": "Tue, 18 Aug 2026 11:34:48 GMT",
+      "content-type": "text/html;charset=UTF-8",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "{\"list\":[],\"status\":true}"
+  },
+  {
+    "type": "request",
+    "timestamp": 1787052889987,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/richvideo/allsubtitle?mid=13826289523771778738005722&objectid=5af96c4fd420f1eba7a77e52929d08c3&courseid=263837700&_dc=1787052889985",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://mooc1.chaoxing.com/ananas/modules/video/index.html?v=2026-0814-1624",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"151\", \"Not=A?Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "postData": null
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052890010,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/richvideo/viewpic?url=https://p2.cldisk.com/sv-w9/video/d3/6b/5d/5af96c4fd420f1eba7a77e52929d08c3/thumbnails/&enc=0f6bd8804047595d38f3844c7fd42452&_dc=1787052889965",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.14.9:8080",
+      "referrer-policy": "unsafe-url",
+      "content-length": "2",
+      "rose": "mooc-p4-1677066363-j8907",
+      "date": "Tue, 18 Aug 2026 11:34:48 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "[]"
+  },
+  {
+    "type": "response",
+    "timestamp": 1787052890037,
+    "url": "https://mooc1.chaoxing.com/mooc-ans/richvideo/allsubtitle?mid=13826289523771778738005722&objectid=5af96c4fd420f1eba7a77e52929d08c3&courseid=263837700&_dc=1787052889985",
+    "method": "GET",
+    "status": 200,
+    "headers": {
+      "connection": "keep-alive",
+      "upstreamdocker": "172.177.14.9:8080",
+      "referrer-policy": "unsafe-url",
+      "content-length": "2",
+      "rose": "mooc-p4-1677066363-j8907",
+      "date": "Tue, 18 Aug 2026 11:34:48 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "origin-agent-cluster": "?0"
+    },
+    "body": "[]"
+  }
+]

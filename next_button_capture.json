@@ -1,0 +1,1783 @@
+{
+  "mainPage": {
+    "label": "main_page",
+    "elements": [
+      {
+        "tag": "DIV",
+        "id": null,
+        "className": "left",
+        "text": "返回课程\n章节详情\n俞源 长征中的共产党人\n下一节\n上一节",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"left\">\n\t<div class=\"content\" style=\"background:none\">\n\t\t\t\t\t\t\t\t\t<div class=\"subNav z-index99\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu?courseid=263837700&amp;clazzid=147110605&amp;cpi=517019981&amp;enc=8a8fb60325bcbc701a50becada34ce59&amp;t=1787051637011&amp;pageHeader=1\" id=\"contentFocus\" class=\"subBack fl\" tabindex=\"0\"><i class=\"icon-BackIcon\"></i>返回课程</a>\n\t\t\t\t\t\t\t\t\t\t<h2>章节详情</h2>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"height:40px;width:100%\"></div>\n\t\t\t\t\t\n\t\t\t\t\t<",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1272,
+          "height": 100
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": null,
+        "className": "content",
+        "text": "返回课程\n章节详情\n俞源 长征中的共产党人\n下一节\n上一节",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"content\" style=\"background:none\">\n\t\t\t\t\t\t\t\t\t<div class=\"subNav z-index99\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu?courseid=263837700&amp;clazzid=147110605&amp;cpi=517019981&amp;enc=8a8fb60325bcbc701a50becada34ce59&amp;t=1787051637011&amp;pageHeader=1\" id=\"contentFocus\" class=\"subBack fl\" tabindex=\"0\"><i class=\"icon-BackIcon\"></i>返回课程</a>\n\t\t\t\t\t\t\t\t\t\t<h2>章节详情</h2>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"height:40px;width:100%\"></div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"main prev",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 1272,
+          "height": 100
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": "mainid",
+        "className": "main prev_box  fanyaPreview_right  ",
+        "text": "俞源 长征中的共产党人\n下一节\n上一节",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"main prev_box  fanyaPreview_right  \" id=\"mainid\" style=\"margin-bottom:80px;width:auto;min-width:auto;box-shadow:none;\"><style>\n\t.orientationleft,.orientationright{width:100px;height:40px;background:none;border: 1px solid #7b9e31;line-height: 40px;color: #7b9e31;font-size: 14px;}\n\t.orientationleft{left:50%;margin-left:-102px;}\n\t.orientationright{right:50%;margin-right:-101px;}\n\t.orientationleft.gray,.orientationright.gray{border:1px solid #ccc;color:#ccc}\n\n\t.bluebtn02{display:inline-b",
+        "rect": {
+          "x": 0,
+          "y": 80,
+          "width": 1272,
+          "height": 938
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": null,
+        "className": "maskDiv jobFinishTip",
+        "text": "提示\n\t\t\t\n\t\t\t\n\t\t\t当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t上一节\n\t\t\t\t下一节\n\t\t\t\t去学习",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"maskDiv jobFinishTip\" style=\"display:none; z-index: 999\">\n\t\t<input type=\"hidden\" id=\"delTopicId\" value=\"\">\n\t\t<div class=\"popDiv wid440 popMove\">\n\t\t\t<div class=\"popHead\" id=\"jobFinishTipFocus\" tabindex=\"0\" role=\"alertdialog\">\n\t\t\t\t<a id=\"popHeadFocus\" href=\"javascript:\" class=\"popClose fr\" onclick=\"closeDeleteWindow()\" tabindex=\"-1\">\n\t\t\t\t\t<img id=\"popHeadFocusImg\" role=\"button\" tabindex=\"-1\" aria-label=\"关闭\" onkeydown=\"if(event.keyCode == 13){closeDeleteWindowFocus();}\" src=\"//mooc1.cha",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": null,
+        "className": "popDiv wid440 popMove",
+        "text": "提示\n\t\t\t\n\t\t\t\n\t\t\t当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t上一节\n\t\t\t\t下一节\n\t\t\t\t去学习",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"popDiv wid440 popMove\">\n\t\t\t<div class=\"popHead\" id=\"jobFinishTipFocus\" tabindex=\"0\" role=\"alertdialog\">\n\t\t\t\t<a id=\"popHeadFocus\" href=\"javascript:\" class=\"popClose fr\" onclick=\"closeDeleteWindow()\" tabindex=\"-1\">\n\t\t\t\t\t<img id=\"popHeadFocusImg\" role=\"button\" tabindex=\"-1\" aria-label=\"关闭\" onkeydown=\"if(event.keyCode == 13){closeDeleteWindowFocus();}\" src=\"//mooc1.chaoxing.com/mooc-ans/mooc2/images/popClose.png\">\n\t\t\t\t</a>\n\t\t\t\t<p class=\"fl fs18 colorDeep\" style=\"font-weight:normal;\" tabi",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": null,
+        "className": "popBottom",
+        "text": "上一节\n\t\t\t\t下一节\n\t\t\t\t去学习",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"popBottom\">\n\t\t\t\t<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 preChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.previous('1','1172050673','263837700','147110605','')\">上一节</a>\n\t\t\t\t<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 nextChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a href=\"javascript:\" class=\"btnBlue btn_92_cancel fr fs14 popMoveDele\" onkeydown=\"toLearnFoc",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "className": "jb_btn jb_btn_92 fr fs14 nextChapter",
+        "text": "下一节",
+        "href": "javascript:",
+        "onclick": "closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')",
+        "outerHTML": "<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 nextChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": "jobFinishTip",
+        "className": "AlertCon02",
+        "text": "提示\n\t\t\n\t\t\t当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t下一节\n\t\t\t\t上一节\n\t\t\t\t去学习",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div style=\"width:578px;height:190px;display:none;padding:0\" class=\"AlertCon02\" id=\"jobFinishTip\">\n\t\t<h3 class=\"clearfix editDate\">提示</h3>\n\t\t<div class=\"con03\">\n\t\t\t<p>当前章节还有任务点未完成，是否去完成？</p>\n\t\t\t<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a class=\"bluebtn02 prebutton preChapter\" href=\"javascript:void(0)\" style=\"display: none\" oncl",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": null,
+        "className": "con03",
+        "text": "当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t下一节\n\t\t\t\t上一节\n\t\t\t\t去学习",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"con03\">\n\t\t\t<p>当前章节还有任务点未完成，是否去完成？</p>\n\t\t\t<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a class=\"bluebtn02 prebutton preChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.previous('1','1172050673','263837700','147110605','')\">上一节</a>\n\t\t\t\t<a class=\"graybtn02 marleft10 nextbutton\" href=",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": null,
+        "className": "marTop30",
+        "text": "下一节\n\t\t\t\t上一节\n\t\t\t\t去学习",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a class=\"bluebtn02 prebutton preChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.previous('1','1172050673','263837700','147110605','')\">上一节</a>\n\t\t\t\t<a class=\"graybtn02 marleft10 nextbutton\" href=\"javascript:void(0)\" onclick=\"WAY.box.hide();scroll2J",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "A",
+        "id": null,
+        "className": "bluebtn02 prebutton nextChapter",
+        "text": "下一节",
+        "href": "javascript:void(0)",
+        "onclick": "WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')",
+        "outerHTML": "<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": "prevNextFocus",
+        "className": "clearfix",
+        "text": "下一节\n上一节",
+        "href": null,
+        "onclick": null,
+        "outerHTML": "<div id=\"prevNextFocus\" class=\"clearfix\" tabindex=\"-1\">\n\t\t\t\t\t<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>\n\t\t\t<div id=\"prevNextFocusPrev\" class=\"btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto\" tabindex=\"-1\" ro",
+        "rect": {
+          "x": 0,
+          "y": 870,
+          "width": 972,
+          "height": 148
+        }
+      },
+      {
+        "tag": "DIV",
+        "id": "prevNextFocusNext",
+        "className": "jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto",
+        "text": "下一节",
+        "href": null,
+        "onclick": "PCount.next('1','1172050673','263837700','147110605','',true)",
+        "outerHTML": "<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>",
+        "rect": {
+          "x": 810,
+          "y": 890,
+          "width": 82,
+          "height": 36
+        }
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "1172050585",
+        "className": "posCatalog_select firstLayer",
+        "text": "1 红色经典",
+        "href": null,
+        "onclick": null,
+        "childCount": 1,
+        "outerHTML": "<div class=\"posCatalog_select firstLayer\" id=\"1172050585\"><span class=\"posCatalog_title posCatalog_rotate titleIcon\" title=\"红色经典\"><em class=\"posCatalog_sbar\">1</em>  红色经典 </span></div>"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050670",
+        "className": "posCatalog_select",
+        "text": "1.1 张立文 “五四精神”：不悔的青春",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050670\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"张立文\t“五四精神”：不悔的青春\" onclick=\"getTeacherAjax('263837700','147110605','1172050670');\"><em class=\"posCatalog_sbar\">1.1</em>   张立文\t“五四精神”：不悔的青春 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"icon_Completed prevTips\"><span class=\"prevHoverTips\">已完成<i></i></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span></div>"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050672",
+        "className": "posCatalog_select",
+        "text": "1.2 沈克尼 百年来日本对我国地图的盗与测",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050672\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"沈克尼\t百年来日本对我国地图的盗与测\" onclick=\"getTeacherAjax('263837700','147110605','1172050672');\"><em class=\"posCatalog_sbar\">1.2</em>   沈克尼\t百年来日本对我国地图的盗与测 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"icon_Completed prevTips\"><span class=\"prevHoverTips\">已完成<i></i></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span></div>"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050673",
+        "className": "posCatalog_select posCatalog_active",
+        "text": "1.3 俞源 长征中的共产党人\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select posCatalog_active\" id=\"cur1172050673\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"俞源\t长征中的共产党人\" onclick=\"getTeacherAjax('263837700','147110605','1172050673');\"><em class=\"posCatalog_sbar\">1.3</em>   俞源\t长征中的共产党人 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050674",
+        "className": "posCatalog_select",
+        "text": "1.4 陈仲丹 “军神”刘伯承元帅\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050674\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"陈仲丹\t“军神”刘伯承元帅\" onclick=\"getTeacherAjax('263837700','147110605','1172050674');\"><em class=\"posCatalog_sbar\">1.4</em>   陈仲丹\t“军神”刘伯承元帅 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050676",
+        "className": "posCatalog_select",
+        "text": "1.5 李育民 辛亥革命的胜与败\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050676\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"李育民  辛亥革命的胜与败\" onclick=\"getTeacherAjax('263837700','147110605','1172050676');\"><em class=\"posCatalog_sbar\">1.5</em>   李育民  辛亥革命的胜与败 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050678",
+        "className": "posCatalog_select",
+        "text": "1.6 经盛鸿 日本侵华史与南京大屠杀\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050678\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"经盛鸿\t日本侵华史与南京大屠杀\" onclick=\"getTeacherAjax('263837700','147110605','1172050678');\"><em class=\"posCatalog_sbar\">1.6</em>   经盛鸿\t日本侵华史与南京大屠杀 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050680",
+        "className": "posCatalog_select",
+        "text": "1.7 赵铁锁 井冈山的斗争\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050680\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"赵铁锁\t井冈山的斗争\" onclick=\"getTeacherAjax('263837700','147110605','1172050680');\"><em class=\"posCatalog_sbar\">1.7</em>   赵铁锁\t井冈山的斗争 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050682",
+        "className": "posCatalog_select",
+        "text": "1.8 孙立新 德国为何占领胶州湾？\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050682\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"孙立新\t德国为何占领胶州湾？\" onclick=\"getTeacherAjax('263837700','147110605','1172050682');\"><em class=\"posCatalog_sbar\">1.8</em>   孙立新\t德国为何占领胶州湾？ </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050684",
+        "className": "posCatalog_select",
+        "text": "1.9 陈海懿 国际联盟与“九一八”事变的处理（1931-1933）\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050684\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"陈海懿\t国际联盟与“九一八”事变的处理（1931-1933）\" onclick=\"getTeacherAjax('263837700','147110605','1172050684');\"><em class=\"posCatalog_sbar\">1.9</em>   陈海懿\t国际联盟与“九一八”事变的处理（1931-1933） </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNe"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050687",
+        "className": "posCatalog_select",
+        "text": "1.10 马军 北四川路大桥大楼：民族苦难与抗战记忆的见证\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050687\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"马军\t北四川路大桥大楼：民族苦难与抗战记忆的见证\" onclick=\"getTeacherAjax('263837700','147110605','1172050687');\"><em class=\"posCatalog_sbar\">1.10</em>   马军\t北四川路大桥大楼：民族苦难与抗战记忆的见证 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span>"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "1172050666",
+        "className": "posCatalog_select firstLayer",
+        "text": "2 AI赋能",
+        "href": null,
+        "onclick": null,
+        "childCount": 1,
+        "outerHTML": "<div class=\"posCatalog_select firstLayer\" id=\"1172050666\"><span class=\"posCatalog_title posCatalog_rotate titleIcon\" title=\"AI赋能\"><em class=\"posCatalog_sbar\">2</em>  AI赋能 </span></div>"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050689",
+        "className": "posCatalog_select",
+        "text": "2.1 周志华 AI的前世今生\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050689\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"周志华\tAI的前世今生\" onclick=\"getTeacherAjax('263837700','147110605','1172050689');\"><em class=\"posCatalog_sbar\">2.1</em>   周志华\tAI的前世今生 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050690",
+        "className": "posCatalog_select",
+        "text": "2.2 沈为 AI如何看世界——计算机视觉\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050690\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"沈为\tAI如何看世界——计算机视觉\" onclick=\"getTeacherAjax('263837700','147110605','1172050690');\"><em class=\"posCatalog_sbar\">2.2</em>   沈为\tAI如何看世界——计算机视觉 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050691",
+        "className": "posCatalog_select",
+        "text": "2.3 秦建军 农业机器人的核心技术与应用挑战\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050691\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"秦建军\t农业机器人的核心技术与应用挑战\" onclick=\"getTeacherAjax('263837700','147110605','1172050691');\"><em class=\"posCatalog_sbar\">2.3</em>   秦建军\t农业机器人的核心技术与应用挑战 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050692",
+        "className": "posCatalog_select",
+        "text": "2.4 王福华 互联网司法背景下的AI法官\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050692\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"王福华\t互联网司法背景下的AI法官\" onclick=\"getTeacherAjax('263837700','147110605','1172050692');\"><em class=\"posCatalog_sbar\">2.4</em>   王福华\t互联网司法背景下的AI法官 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050693",
+        "className": "posCatalog_select",
+        "text": "2.5 万宏瑜 人工智能时代的口译：挑战与机遇\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050693\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"万宏瑜\t人工智能时代的口译：挑战与机遇\" onclick=\"getTeacherAjax('263837700','147110605','1172050693');\"><em class=\"posCatalog_sbar\">2.5</em>   万宏瑜\t人工智能时代的口译：挑战与机遇 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050695",
+        "className": "posCatalog_select",
+        "text": "2.6 李伟 音乐人工智能与计算机听觉\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050695\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"李伟\t音乐人工智能与计算机听觉\" onclick=\"getTeacherAjax('263837700','147110605','1172050695');\"><em class=\"posCatalog_sbar\">2.6</em>   李伟\t音乐人工智能与计算机听觉 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050696",
+        "className": "posCatalog_select",
+        "text": "2.7 侯成义 智能纤维与未来服装\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050696\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"侯成义\t智能纤维与未来服装\" onclick=\"getTeacherAjax('263837700','147110605','1172050696');\"><em class=\"posCatalog_sbar\">2.7</em>   侯成义\t智能纤维与未来服装 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050698",
+        "className": "posCatalog_select",
+        "text": "2.8 杜骏飞 人工智能时代，何以为人？\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050698\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"杜骏飞\t人工智能时代，何以为人？\" onclick=\"getTeacherAjax('263837700','147110605','1172050698');\"><em class=\"posCatalog_sbar\">2.8</em>   杜骏飞\t人工智能时代，何以为人？ </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050699",
+        "className": "posCatalog_select",
+        "text": "2.9 吴冠军 AI浪潮下的政治智慧与爱的觉醒\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050699\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"吴冠军\tAI浪潮下的政治智慧与爱的觉醒\" onclick=\"getTeacherAjax('263837700','147110605','1172050699');\"><em class=\"posCatalog_sbar\">2.9</em>   吴冠军\tAI浪潮下的政治智慧与爱的觉醒 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_select",
+        "tag": "DIV",
+        "id": "cur1172050700",
+        "className": "posCatalog_select",
+        "text": "2.10 卢宝荣 基因、生物技术与国家粮食安全\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050700\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"卢宝荣\t基因、生物技术与国家粮食安全\" onclick=\"getTeacherAjax('263837700','147110605','1172050700');\"><em class=\"posCatalog_sbar\">2.10</em>   卢宝荣\t基因、生物技术与国家粮食安全 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t"
+      },
+      {
+        "matchedSelector": ".posCatalog_active",
+        "tag": "DIV",
+        "id": "cur1172050673",
+        "className": "posCatalog_select posCatalog_active",
+        "text": "1.3 俞源 长征中的共产党人\n1",
+        "href": null,
+        "onclick": null,
+        "childCount": 3,
+        "outerHTML": "<div class=\"posCatalog_select posCatalog_active\" id=\"cur1172050673\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"俞源\t长征中的共产党人\" onclick=\"getTeacherAjax('263837700','147110605','1172050673');\"><em class=\"posCatalog_sbar\">1.3</em>   俞源\t长征中的共产党人 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t"
+      },
+      {
+        "matchedSelector": ".active",
+        "tag": "LI",
+        "id": "dct1",
+        "className": "active",
+        "text": "1",
+        "href": null,
+        "onclick": "changeDisplayContent(1,1,'1172050673','263837700','147110605','');",
+        "childCount": 1,
+        "outerHTML": "<li class=\"active\" title=\"\" cardid=\"1165303367\" onclick=\"changeDisplayContent(1,1,'1172050673','263837700','147110605','');\" tabindex=\"0\" role=\"option\" id=\"dct1\"><div class=\"prev_white\" aria-hidden=\"true\"><span class=\"num\" style=\"margin-right:0;\">1</span></div></li>"
+      },
+      {
+        "matchedSelector": ".active",
+        "tag": "LI",
+        "id": "tit1",
+        "className": "active",
+        "text": "目录",
+        "href": null,
+        "onclick": "changePan('1');",
+        "childCount": 0,
+        "outerHTML": "<li id=\"tit1\" onclick=\"changePan('1');\" class=\"active\" style=\"display: block;\">目录</li>"
+      },
+      {
+        "matchedSelector": "[class*=\"next\"]",
+        "tag": "A",
+        "id": null,
+        "className": "jb_btn jb_btn_92 fr fs14 nextChapter",
+        "text": "下一节",
+        "href": "javascript:",
+        "onclick": "closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')",
+        "childCount": 0,
+        "outerHTML": "<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 nextChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>"
+      },
+      {
+        "matchedSelector": "[class*=\"next\"]",
+        "tag": "A",
+        "id": null,
+        "className": "bluebtn02 prebutton nextChapter",
+        "text": "下一节",
+        "href": "javascript:void(0)",
+        "onclick": "WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')",
+        "childCount": 0,
+        "outerHTML": "<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>"
+      },
+      {
+        "matchedSelector": "[class*=\"next\"]",
+        "tag": "A",
+        "id": null,
+        "className": "graybtn02 marleft10 nextbutton",
+        "text": "去学习",
+        "href": "javascript:void(0)",
+        "onclick": "WAY.box.hide();scroll2Job()",
+        "childCount": 0,
+        "outerHTML": "<a class=\"graybtn02 marleft10 nextbutton\" href=\"javascript:void(0)\" onclick=\"WAY.box.hide();scroll2Job()\">去学习</a>"
+      },
+      {
+        "matchedSelector": "[class*=\"next\"]",
+        "tag": "DIV",
+        "id": "prevNextFocusNext",
+        "className": "jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto",
+        "text": "下一节",
+        "href": null,
+        "onclick": "PCount.next('1','1172050673','263837700','147110605','',true)",
+        "childCount": 0,
+        "outerHTML": "<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>"
+      },
+      {
+        "matchedSelector": "[class*=\"next\"]",
+        "tag": "DIV",
+        "id": "prevNextFocusPrev",
+        "className": "btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto",
+        "text": "上一节",
+        "href": null,
+        "onclick": "PCount.previous('1','1172050673','263837700','147110605','',true)",
+        "childCount": 0,
+        "outerHTML": "<div id=\"prevNextFocusPrev\" class=\"btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.previous('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.previous('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">上一节</div>"
+      },
+      {
+        "matchedSelector": "[class*=\"next\"]",
+        "tag": "DIV",
+        "id": "edui98",
+        "className": "edui-box edui-button edui-for-insertrownext edui-default edui-state-disabled",
+        "text": "",
+        "href": null,
+        "onclick": null,
+        "childCount": 1,
+        "outerHTML": "<div id=\"edui98\" class=\"edui-box edui-button edui-for-insertrownext edui-default edui-state-disabled\"><div id=\"edui98_state\" onmousedown=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseDown(event, this);\" onmouseup=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseUp(event, this);\" onmouseover=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseOver(event, this);\" onmouseout=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseOut(event, this);\" class=\"edui-default\"><div class=\"edui-button-wrap edui-default\"><"
+      },
+      {
+        "matchedSelector": "[class*=\"next\"]",
+        "tag": "DIV",
+        "id": "edui101",
+        "className": "edui-box edui-button edui-for-insertcolnext edui-default edui-state-disabled",
+        "text": "",
+        "href": null,
+        "onclick": null,
+        "childCount": 1,
+        "outerHTML": "<div id=\"edui101\" class=\"edui-box edui-button edui-for-insertcolnext edui-default edui-state-disabled\"><div id=\"edui101_state\" onmousedown=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseDown(event, this);\" onmouseup=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseUp(event, this);\" onmouseover=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseOver(event, this);\" onmouseout=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseOut(event, this);\" class=\"edui-default\"><div class=\"edui-button-wrap edui-defa"
+      },
+      {
+        "matchedSelector": "[class*=\"chapter\"]",
+        "tag": "DIV",
+        "id": "content1",
+        "className": "chapter",
+        "text": "1 红色经典\n1.1 张立文 “五四精神”：不悔的青春\n1.2 沈克尼 百年来日本对我国地图的盗与测\n1.3 俞源 长征中的共产党人\n1\n1.4 陈仲丹 “军神”刘伯承元帅\n1\n1.5 李育民 辛亥革命的胜与败\n1\n1.6 经盛鸿 日本侵华史与南京大屠杀\n1\n1.7 赵铁锁 井冈山的斗争\n1\n1.8 孙立新 德国为何占领胶州湾？\n1\n1.9 陈海懿 国际联盟与“九一八”事变的处理（1931-193",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<div class=\"chapter\" style=\"display: block; background: rgb(255, 255, 255); overflow: hidden visible; height: 652px;\" id=\"content1\" tabindex=\"-1\">\n\t\t\t    <div class=\"dataSearch_chapter \" style=\" margin: 10px 20px 10px;\">\n                    <div class=\"fl DySeleft\">\n                                                     <a class=\"dataSearch_dele_chapter \" href=\"javascript:\" style=\"display: none;\"></a>\n                                                <input tabindex=\"-1\" type=\"text\" id=\"searchChapte"
+      },
+      {
+        "matchedSelector": "[class*=\"chapter\"]",
+        "tag": "DIV",
+        "id": null,
+        "className": "dataSearch_chapter ",
+        "text": "",
+        "href": null,
+        "onclick": null,
+        "childCount": 1,
+        "outerHTML": "<div class=\"dataSearch_chapter \" style=\" margin: 10px 20px 10px;\">\n                    <div class=\"fl DySeleft\">\n                                                     <a class=\"dataSearch_dele_chapter \" href=\"javascript:\" style=\"display: none;\"></a>\n                                                <input tabindex=\"-1\" type=\"text\" id=\"searchChapterListByName\" name=\"searchChapterListByName\" value=\"\" class=\"dataSearch_input_chapter fl \" placeholder=\"搜索\" style=\"\">\n                        <input tabind"
+      },
+      {
+        "matchedSelector": "[class*=\"chapter\"]",
+        "tag": "A",
+        "id": null,
+        "className": "dataSearch_dele_chapter ",
+        "text": "",
+        "href": "javascript:",
+        "onclick": null,
+        "childCount": 0,
+        "outerHTML": "<a class=\"dataSearch_dele_chapter \" href=\"javascript:\" style=\"display: none;\"></a>"
+      },
+      {
+        "matchedSelector": "[class*=\"chapter\"]",
+        "tag": "INPUT",
+        "id": "searchChapterListByName",
+        "className": "dataSearch_input_chapter fl ",
+        "text": "",
+        "href": null,
+        "onclick": null,
+        "childCount": 0,
+        "outerHTML": "<input tabindex=\"-1\" type=\"text\" id=\"searchChapterListByName\" name=\"searchChapterListByName\" value=\"\" class=\"dataSearch_input_chapter fl \" placeholder=\"搜索\" style=\"\">"
+      },
+      {
+        "matchedSelector": "[class*=\"chapter\"]",
+        "tag": "INPUT",
+        "id": null,
+        "className": "dataSearch_bnt_chapter fl ",
+        "text": "",
+        "href": null,
+        "onclick": "searchChapterListByName()",
+        "childCount": 0,
+        "outerHTML": "<input tabindex=\"-1\" type=\"button\" onclick=\"searchChapterListByName()\" value=\"\" class=\"dataSearch_bnt_chapter fl \" style=\"top:18px\">"
+      },
+      {
+        "matchedSelector": "[class*=\"chapter\"]",
+        "tag": "DIV",
+        "id": "content4",
+        "className": "bookMakBx chapterlabellist",
+        "text": "",
+        "href": null,
+        "onclick": null,
+        "childCount": 0,
+        "outerHTML": "<div id=\"content4\" class=\"bookMakBx chapterlabellist\" style=\"display:none\">\n\n\t\t\t</div>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": "[class*=\"catalog\"]",
+        "tag": "SPAN",
+        "id": null,
+        "className": "catalog_points_yi prevTips",
+        "text": "1",
+        "href": null,
+        "onclick": null,
+        "childCount": 2,
+        "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+      },
+      {
+        "matchedSelector": ".prev_next",
+        "tag": "DIV",
+        "id": "prevNextFocusNext",
+        "className": "jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto",
+        "text": "下一节",
+        "href": null,
+        "onclick": "PCount.next('1','1172050673','263837700','147110605','',true)",
+        "childCount": 0,
+        "outerHTML": "<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>"
+      },
+      {
+        "matchedSelector": ".prev_next",
+        "tag": "DIV",
+        "id": "prevNextFocusPrev",
+        "className": "btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto",
+        "text": "上一节",
+        "href": null,
+        "onclick": "PCount.previous('1','1172050673','263837700','147110605','',true)",
+        "childCount": 0,
+        "outerHTML": "<div id=\"prevNextFocusPrev\" class=\"btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.previous('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.previous('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">上一节</div>"
+      }
+    ]
+  },
+  "frames": [
+    {
+      "label": "frame_0_https://mooc1.chaoxing.com/mycourse/studentstudy?chapterId=1172050673&courseId=2",
+      "elements": [
+        {
+          "tag": "DIV",
+          "id": null,
+          "className": "left",
+          "text": "返回课程\n章节详情\n俞源 长征中的共产党人\n下一节\n上一节",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"left\">\n\t<div class=\"content\" style=\"background:none\">\n\t\t\t\t\t\t\t\t\t<div class=\"subNav z-index99\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu?courseid=263837700&amp;clazzid=147110605&amp;cpi=517019981&amp;enc=8a8fb60325bcbc701a50becada34ce59&amp;t=1787051637011&amp;pageHeader=1\" id=\"contentFocus\" class=\"subBack fl\" tabindex=\"0\"><i class=\"icon-BackIcon\"></i>返回课程</a>\n\t\t\t\t\t\t\t\t\t\t<h2>章节详情</h2>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"height:40px;width:100%\"></div>\n\t\t\t\t\t\n\t\t\t\t\t<",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1272,
+            "height": 100
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": null,
+          "className": "content",
+          "text": "返回课程\n章节详情\n俞源 长征中的共产党人\n下一节\n上一节",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"content\" style=\"background:none\">\n\t\t\t\t\t\t\t\t\t<div class=\"subNav z-index99\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu?courseid=263837700&amp;clazzid=147110605&amp;cpi=517019981&amp;enc=8a8fb60325bcbc701a50becada34ce59&amp;t=1787051637011&amp;pageHeader=1\" id=\"contentFocus\" class=\"subBack fl\" tabindex=\"0\"><i class=\"icon-BackIcon\"></i>返回课程</a>\n\t\t\t\t\t\t\t\t\t\t<h2>章节详情</h2>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"height:40px;width:100%\"></div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"main prev",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 1272,
+            "height": 100
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": "mainid",
+          "className": "main prev_box  fanyaPreview_right  ",
+          "text": "俞源 长征中的共产党人\n下一节\n上一节",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"main prev_box  fanyaPreview_right  \" id=\"mainid\" style=\"margin-bottom:80px;width:auto;min-width:auto;box-shadow:none;\"><style>\n\t.orientationleft,.orientationright{width:100px;height:40px;background:none;border: 1px solid #7b9e31;line-height: 40px;color: #7b9e31;font-size: 14px;}\n\t.orientationleft{left:50%;margin-left:-102px;}\n\t.orientationright{right:50%;margin-right:-101px;}\n\t.orientationleft.gray,.orientationright.gray{border:1px solid #ccc;color:#ccc}\n\n\t.bluebtn02{display:inline-b",
+          "rect": {
+            "x": 0,
+            "y": 80,
+            "width": 1272,
+            "height": 938
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": null,
+          "className": "maskDiv jobFinishTip",
+          "text": "提示\n\t\t\t\n\t\t\t\n\t\t\t当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t上一节\n\t\t\t\t下一节\n\t\t\t\t去学习",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"maskDiv jobFinishTip\" style=\"display:none; z-index: 999\">\n\t\t<input type=\"hidden\" id=\"delTopicId\" value=\"\">\n\t\t<div class=\"popDiv wid440 popMove\">\n\t\t\t<div class=\"popHead\" id=\"jobFinishTipFocus\" tabindex=\"0\" role=\"alertdialog\">\n\t\t\t\t<a id=\"popHeadFocus\" href=\"javascript:\" class=\"popClose fr\" onclick=\"closeDeleteWindow()\" tabindex=\"-1\">\n\t\t\t\t\t<img id=\"popHeadFocusImg\" role=\"button\" tabindex=\"-1\" aria-label=\"关闭\" onkeydown=\"if(event.keyCode == 13){closeDeleteWindowFocus();}\" src=\"//mooc1.cha",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": null,
+          "className": "popDiv wid440 popMove",
+          "text": "提示\n\t\t\t\n\t\t\t\n\t\t\t当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t上一节\n\t\t\t\t下一节\n\t\t\t\t去学习",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"popDiv wid440 popMove\">\n\t\t\t<div class=\"popHead\" id=\"jobFinishTipFocus\" tabindex=\"0\" role=\"alertdialog\">\n\t\t\t\t<a id=\"popHeadFocus\" href=\"javascript:\" class=\"popClose fr\" onclick=\"closeDeleteWindow()\" tabindex=\"-1\">\n\t\t\t\t\t<img id=\"popHeadFocusImg\" role=\"button\" tabindex=\"-1\" aria-label=\"关闭\" onkeydown=\"if(event.keyCode == 13){closeDeleteWindowFocus();}\" src=\"//mooc1.chaoxing.com/mooc-ans/mooc2/images/popClose.png\">\n\t\t\t\t</a>\n\t\t\t\t<p class=\"fl fs18 colorDeep\" style=\"font-weight:normal;\" tabi",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": null,
+          "className": "popBottom",
+          "text": "上一节\n\t\t\t\t下一节\n\t\t\t\t去学习",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"popBottom\">\n\t\t\t\t<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 preChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.previous('1','1172050673','263837700','147110605','')\">上一节</a>\n\t\t\t\t<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 nextChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a href=\"javascript:\" class=\"btnBlue btn_92_cancel fr fs14 popMoveDele\" onkeydown=\"toLearnFoc",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "A",
+          "id": null,
+          "className": "jb_btn jb_btn_92 fr fs14 nextChapter",
+          "text": "下一节",
+          "href": "javascript:",
+          "onclick": "closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')",
+          "outerHTML": "<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 nextChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": "jobFinishTip",
+          "className": "AlertCon02",
+          "text": "提示\n\t\t\n\t\t\t当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t下一节\n\t\t\t\t上一节\n\t\t\t\t去学习",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div style=\"width:578px;height:190px;display:none;padding:0\" class=\"AlertCon02\" id=\"jobFinishTip\">\n\t\t<h3 class=\"clearfix editDate\">提示</h3>\n\t\t<div class=\"con03\">\n\t\t\t<p>当前章节还有任务点未完成，是否去完成？</p>\n\t\t\t<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a class=\"bluebtn02 prebutton preChapter\" href=\"javascript:void(0)\" style=\"display: none\" oncl",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": null,
+          "className": "con03",
+          "text": "当前章节还有任务点未完成，是否去完成？\n\t\t\t\n\t\t\t\t下一节\n\t\t\t\t上一节\n\t\t\t\t去学习",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"con03\">\n\t\t\t<p>当前章节还有任务点未完成，是否去完成？</p>\n\t\t\t<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a class=\"bluebtn02 prebutton preChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.previous('1','1172050673','263837700','147110605','')\">上一节</a>\n\t\t\t\t<a class=\"graybtn02 marleft10 nextbutton\" href=",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": null,
+          "className": "marTop30",
+          "text": "下一节\n\t\t\t\t上一节\n\t\t\t\t去学习",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div class=\"marTop30\">\n\t\t\t\t<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>\n\t\t\t\t<a class=\"bluebtn02 prebutton preChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.previous('1','1172050673','263837700','147110605','')\">上一节</a>\n\t\t\t\t<a class=\"graybtn02 marleft10 nextbutton\" href=\"javascript:void(0)\" onclick=\"WAY.box.hide();scroll2J",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "A",
+          "id": null,
+          "className": "bluebtn02 prebutton nextChapter",
+          "text": "下一节",
+          "href": "javascript:void(0)",
+          "onclick": "WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')",
+          "outerHTML": "<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": "prevNextFocus",
+          "className": "clearfix",
+          "text": "下一节\n上一节",
+          "href": null,
+          "onclick": null,
+          "outerHTML": "<div id=\"prevNextFocus\" class=\"clearfix\" tabindex=\"-1\">\n\t\t\t\t\t<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>\n\t\t\t<div id=\"prevNextFocusPrev\" class=\"btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto\" tabindex=\"-1\" ro",
+          "rect": {
+            "x": 0,
+            "y": 870,
+            "width": 972,
+            "height": 148
+          }
+        },
+        {
+          "tag": "DIV",
+          "id": "prevNextFocusNext",
+          "className": "jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto",
+          "text": "下一节",
+          "href": null,
+          "onclick": "PCount.next('1','1172050673','263837700','147110605','',true)",
+          "outerHTML": "<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>",
+          "rect": {
+            "x": 810,
+            "y": 890,
+            "width": 82,
+            "height": 36
+          }
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "1172050585",
+          "className": "posCatalog_select firstLayer",
+          "text": "1 红色经典",
+          "href": null,
+          "onclick": null,
+          "childCount": 1,
+          "outerHTML": "<div class=\"posCatalog_select firstLayer\" id=\"1172050585\"><span class=\"posCatalog_title posCatalog_rotate titleIcon\" title=\"红色经典\"><em class=\"posCatalog_sbar\">1</em>  红色经典 </span></div>"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050670",
+          "className": "posCatalog_select",
+          "text": "1.1 张立文 “五四精神”：不悔的青春",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050670\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"张立文\t“五四精神”：不悔的青春\" onclick=\"getTeacherAjax('263837700','147110605','1172050670');\"><em class=\"posCatalog_sbar\">1.1</em>   张立文\t“五四精神”：不悔的青春 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"icon_Completed prevTips\"><span class=\"prevHoverTips\">已完成<i></i></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span></div>"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050672",
+          "className": "posCatalog_select",
+          "text": "1.2 沈克尼 百年来日本对我国地图的盗与测",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050672\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"沈克尼\t百年来日本对我国地图的盗与测\" onclick=\"getTeacherAjax('263837700','147110605','1172050672');\"><em class=\"posCatalog_sbar\">1.2</em>   沈克尼\t百年来日本对我国地图的盗与测 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"icon_Completed prevTips\"><span class=\"prevHoverTips\">已完成<i></i></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span></div>"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050673",
+          "className": "posCatalog_select posCatalog_active",
+          "text": "1.3 俞源 长征中的共产党人\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select posCatalog_active\" id=\"cur1172050673\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"俞源\t长征中的共产党人\" onclick=\"getTeacherAjax('263837700','147110605','1172050673');\"><em class=\"posCatalog_sbar\">1.3</em>   俞源\t长征中的共产党人 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050674",
+          "className": "posCatalog_select",
+          "text": "1.4 陈仲丹 “军神”刘伯承元帅\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050674\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"陈仲丹\t“军神”刘伯承元帅\" onclick=\"getTeacherAjax('263837700','147110605','1172050674');\"><em class=\"posCatalog_sbar\">1.4</em>   陈仲丹\t“军神”刘伯承元帅 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050676",
+          "className": "posCatalog_select",
+          "text": "1.5 李育民 辛亥革命的胜与败\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050676\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"李育民  辛亥革命的胜与败\" onclick=\"getTeacherAjax('263837700','147110605','1172050676');\"><em class=\"posCatalog_sbar\">1.5</em>   李育民  辛亥革命的胜与败 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050678",
+          "className": "posCatalog_select",
+          "text": "1.6 经盛鸿 日本侵华史与南京大屠杀\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050678\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"经盛鸿\t日本侵华史与南京大屠杀\" onclick=\"getTeacherAjax('263837700','147110605','1172050678');\"><em class=\"posCatalog_sbar\">1.6</em>   经盛鸿\t日本侵华史与南京大屠杀 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050680",
+          "className": "posCatalog_select",
+          "text": "1.7 赵铁锁 井冈山的斗争\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050680\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"赵铁锁\t井冈山的斗争\" onclick=\"getTeacherAjax('263837700','147110605','1172050680');\"><em class=\"posCatalog_sbar\">1.7</em>   赵铁锁\t井冈山的斗争 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050682",
+          "className": "posCatalog_select",
+          "text": "1.8 孙立新 德国为何占领胶州湾？\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050682\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"孙立新\t德国为何占领胶州湾？\" onclick=\"getTeacherAjax('263837700','147110605','1172050682');\"><em class=\"posCatalog_sbar\">1.8</em>   孙立新\t德国为何占领胶州湾？ </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050684",
+          "className": "posCatalog_select",
+          "text": "1.9 陈海懿 国际联盟与“九一八”事变的处理（1931-1933）\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050684\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"陈海懿\t国际联盟与“九一八”事变的处理（1931-1933）\" onclick=\"getTeacherAjax('263837700','147110605','1172050684');\"><em class=\"posCatalog_sbar\">1.9</em>   陈海懿\t国际联盟与“九一八”事变的处理（1931-1933） </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNe"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050687",
+          "className": "posCatalog_select",
+          "text": "1.10 马军 北四川路大桥大楼：民族苦难与抗战记忆的见证\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050687\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"马军\t北四川路大桥大楼：民族苦难与抗战记忆的见证\" onclick=\"getTeacherAjax('263837700','147110605','1172050687');\"><em class=\"posCatalog_sbar\">1.10</em>   马军\t北四川路大桥大楼：民族苦难与抗战记忆的见证 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span>"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "1172050666",
+          "className": "posCatalog_select firstLayer",
+          "text": "2 AI赋能",
+          "href": null,
+          "onclick": null,
+          "childCount": 1,
+          "outerHTML": "<div class=\"posCatalog_select firstLayer\" id=\"1172050666\"><span class=\"posCatalog_title posCatalog_rotate titleIcon\" title=\"AI赋能\"><em class=\"posCatalog_sbar\">2</em>  AI赋能 </span></div>"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050689",
+          "className": "posCatalog_select",
+          "text": "2.1 周志华 AI的前世今生\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050689\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"周志华\tAI的前世今生\" onclick=\"getTeacherAjax('263837700','147110605','1172050689');\"><em class=\"posCatalog_sbar\">2.1</em>   周志华\tAI的前世今生 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050690",
+          "className": "posCatalog_select",
+          "text": "2.2 沈为 AI如何看世界——计算机视觉\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050690\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"沈为\tAI如何看世界——计算机视觉\" onclick=\"getTeacherAjax('263837700','147110605','1172050690');\"><em class=\"posCatalog_sbar\">2.2</em>   沈为\tAI如何看世界——计算机视觉 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050691",
+          "className": "posCatalog_select",
+          "text": "2.3 秦建军 农业机器人的核心技术与应用挑战\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050691\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"秦建军\t农业机器人的核心技术与应用挑战\" onclick=\"getTeacherAjax('263837700','147110605','1172050691');\"><em class=\"posCatalog_sbar\">2.3</em>   秦建军\t农业机器人的核心技术与应用挑战 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050692",
+          "className": "posCatalog_select",
+          "text": "2.4 王福华 互联网司法背景下的AI法官\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050692\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"王福华\t互联网司法背景下的AI法官\" onclick=\"getTeacherAjax('263837700','147110605','1172050692');\"><em class=\"posCatalog_sbar\">2.4</em>   王福华\t互联网司法背景下的AI法官 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050693",
+          "className": "posCatalog_select",
+          "text": "2.5 万宏瑜 人工智能时代的口译：挑战与机遇\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050693\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"万宏瑜\t人工智能时代的口译：挑战与机遇\" onclick=\"getTeacherAjax('263837700','147110605','1172050693');\"><em class=\"posCatalog_sbar\">2.5</em>   万宏瑜\t人工智能时代的口译：挑战与机遇 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050695",
+          "className": "posCatalog_select",
+          "text": "2.6 李伟 音乐人工智能与计算机听觉\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050695\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"李伟\t音乐人工智能与计算机听觉\" onclick=\"getTeacherAjax('263837700','147110605','1172050695');\"><em class=\"posCatalog_sbar\">2.6</em>   李伟\t音乐人工智能与计算机听觉 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050696",
+          "className": "posCatalog_select",
+          "text": "2.7 侯成义 智能纤维与未来服装\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050696\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"侯成义\t智能纤维与未来服装\" onclick=\"getTeacherAjax('263837700','147110605','1172050696');\"><em class=\"posCatalog_sbar\">2.7</em>   侯成义\t智能纤维与未来服装 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050698",
+          "className": "posCatalog_select",
+          "text": "2.8 杜骏飞 人工智能时代，何以为人？\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050698\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"杜骏飞\t人工智能时代，何以为人？\" onclick=\"getTeacherAjax('263837700','147110605','1172050698');\"><em class=\"posCatalog_sbar\">2.8</em>   杜骏飞\t人工智能时代，何以为人？ </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t\t\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050699",
+          "className": "posCatalog_select",
+          "text": "2.9 吴冠军 AI浪潮下的政治智慧与爱的觉醒\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050699\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"吴冠军\tAI浪潮下的政治智慧与爱的觉醒\" onclick=\"getTeacherAjax('263837700','147110605','1172050699');\"><em class=\"posCatalog_sbar\">2.9</em>   吴冠军\tAI浪潮下的政治智慧与爱的觉醒 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_select",
+          "tag": "DIV",
+          "id": "cur1172050700",
+          "className": "posCatalog_select",
+          "text": "2.10 卢宝荣 基因、生物技术与国家粮食安全\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select\" id=\"cur1172050700\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"卢宝荣\t基因、生物技术与国家粮食安全\" onclick=\"getTeacherAjax('263837700','147110605','1172050700');\"><em class=\"posCatalog_sbar\">2.10</em>   卢宝荣\t基因、生物技术与国家粮食安全 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t\t\t\t"
+        },
+        {
+          "matchedSelector": ".posCatalog_active",
+          "tag": "DIV",
+          "id": "cur1172050673",
+          "className": "posCatalog_select posCatalog_active",
+          "text": "1.3 俞源 长征中的共产党人\n1",
+          "href": null,
+          "onclick": null,
+          "childCount": 3,
+          "outerHTML": "<div class=\"posCatalog_select posCatalog_active\" id=\"cur1172050673\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"posCatalog_name\" title=\"俞源\t长征中的共产党人\" onclick=\"getTeacherAjax('263837700','147110605','1172050673');\"><em class=\"posCatalog_sbar\">1.3</em>   俞源\t长征中的共产党人 </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"hidden\" value=\"1\" class=\"jobUnfinishCount\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>\n\t"
+        },
+        {
+          "matchedSelector": ".active",
+          "tag": "LI",
+          "id": "dct1",
+          "className": "active",
+          "text": "1",
+          "href": null,
+          "onclick": "changeDisplayContent(1,1,'1172050673','263837700','147110605','');",
+          "childCount": 1,
+          "outerHTML": "<li class=\"active\" title=\"\" cardid=\"1165303367\" onclick=\"changeDisplayContent(1,1,'1172050673','263837700','147110605','');\" tabindex=\"0\" role=\"option\" id=\"dct1\"><div class=\"prev_white\" aria-hidden=\"true\"><span class=\"num\" style=\"margin-right:0;\">1</span></div></li>"
+        },
+        {
+          "matchedSelector": ".active",
+          "tag": "LI",
+          "id": "tit1",
+          "className": "active",
+          "text": "目录",
+          "href": null,
+          "onclick": "changePan('1');",
+          "childCount": 0,
+          "outerHTML": "<li id=\"tit1\" onclick=\"changePan('1');\" class=\"active\" style=\"display: block;\">目录</li>"
+        },
+        {
+          "matchedSelector": "[class*=\"next\"]",
+          "tag": "A",
+          "id": null,
+          "className": "jb_btn jb_btn_92 fr fs14 nextChapter",
+          "text": "下一节",
+          "href": "javascript:",
+          "onclick": "closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')",
+          "childCount": 0,
+          "outerHTML": "<a href=\"javascript:\" class=\"jb_btn jb_btn_92 fr fs14 nextChapter\" style=\"display: none\" onclick=\"closeDeleteWindow();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>"
+        },
+        {
+          "matchedSelector": "[class*=\"next\"]",
+          "tag": "A",
+          "id": null,
+          "className": "bluebtn02 prebutton nextChapter",
+          "text": "下一节",
+          "href": "javascript:void(0)",
+          "onclick": "WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')",
+          "childCount": 0,
+          "outerHTML": "<a class=\"bluebtn02 prebutton nextChapter\" href=\"javascript:void(0)\" style=\"display: none\" onclick=\"WAY.box.hide();PCount.next('1','1172050673','263837700','147110605','')\">下一节</a>"
+        },
+        {
+          "matchedSelector": "[class*=\"next\"]",
+          "tag": "A",
+          "id": null,
+          "className": "graybtn02 marleft10 nextbutton",
+          "text": "去学习",
+          "href": "javascript:void(0)",
+          "onclick": "WAY.box.hide();scroll2Job()",
+          "childCount": 0,
+          "outerHTML": "<a class=\"graybtn02 marleft10 nextbutton\" href=\"javascript:void(0)\" onclick=\"WAY.box.hide();scroll2Job()\">去学习</a>"
+        },
+        {
+          "matchedSelector": "[class*=\"next\"]",
+          "tag": "DIV",
+          "id": "prevNextFocusNext",
+          "className": "jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto",
+          "text": "下一节",
+          "href": null,
+          "onclick": "PCount.next('1','1172050673','263837700','147110605','',true)",
+          "childCount": 0,
+          "outerHTML": "<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>"
+        },
+        {
+          "matchedSelector": "[class*=\"next\"]",
+          "tag": "DIV",
+          "id": "prevNextFocusPrev",
+          "className": "btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto",
+          "text": "上一节",
+          "href": null,
+          "onclick": "PCount.previous('1','1172050673','263837700','147110605','',true)",
+          "childCount": 0,
+          "outerHTML": "<div id=\"prevNextFocusPrev\" class=\"btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.previous('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.previous('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">上一节</div>"
+        },
+        {
+          "matchedSelector": "[class*=\"next\"]",
+          "tag": "DIV",
+          "id": "edui98",
+          "className": "edui-box edui-button edui-for-insertrownext edui-default edui-state-disabled",
+          "text": "",
+          "href": null,
+          "onclick": null,
+          "childCount": 1,
+          "outerHTML": "<div id=\"edui98\" class=\"edui-box edui-button edui-for-insertrownext edui-default edui-state-disabled\"><div id=\"edui98_state\" onmousedown=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseDown(event, this);\" onmouseup=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseUp(event, this);\" onmouseover=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseOver(event, this);\" onmouseout=\"$EDITORUI[&quot;edui98&quot;].Stateful_onMouseOut(event, this);\" class=\"edui-default\"><div class=\"edui-button-wrap edui-default\"><"
+        },
+        {
+          "matchedSelector": "[class*=\"next\"]",
+          "tag": "DIV",
+          "id": "edui101",
+          "className": "edui-box edui-button edui-for-insertcolnext edui-default edui-state-disabled",
+          "text": "",
+          "href": null,
+          "onclick": null,
+          "childCount": 1,
+          "outerHTML": "<div id=\"edui101\" class=\"edui-box edui-button edui-for-insertcolnext edui-default edui-state-disabled\"><div id=\"edui101_state\" onmousedown=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseDown(event, this);\" onmouseup=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseUp(event, this);\" onmouseover=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseOver(event, this);\" onmouseout=\"$EDITORUI[&quot;edui101&quot;].Stateful_onMouseOut(event, this);\" class=\"edui-default\"><div class=\"edui-button-wrap edui-defa"
+        },
+        {
+          "matchedSelector": "[class*=\"chapter\"]",
+          "tag": "DIV",
+          "id": "content1",
+          "className": "chapter",
+          "text": "1 红色经典\n1.1 张立文 “五四精神”：不悔的青春\n1.2 沈克尼 百年来日本对我国地图的盗与测\n1.3 俞源 长征中的共产党人\n1\n1.4 陈仲丹 “军神”刘伯承元帅\n1\n1.5 李育民 辛亥革命的胜与败\n1\n1.6 经盛鸿 日本侵华史与南京大屠杀\n1\n1.7 赵铁锁 井冈山的斗争\n1\n1.8 孙立新 德国为何占领胶州湾？\n1\n1.9 陈海懿 国际联盟与“九一八”事变的处理（1931-193",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<div class=\"chapter\" style=\"display: block; background: rgb(255, 255, 255); overflow: hidden visible; height: 652px;\" id=\"content1\" tabindex=\"-1\">\n\t\t\t    <div class=\"dataSearch_chapter \" style=\" margin: 10px 20px 10px;\">\n                    <div class=\"fl DySeleft\">\n                                                     <a class=\"dataSearch_dele_chapter \" href=\"javascript:\" style=\"display: none;\"></a>\n                                                <input tabindex=\"-1\" type=\"text\" id=\"searchChapte"
+        },
+        {
+          "matchedSelector": "[class*=\"chapter\"]",
+          "tag": "DIV",
+          "id": null,
+          "className": "dataSearch_chapter ",
+          "text": "",
+          "href": null,
+          "onclick": null,
+          "childCount": 1,
+          "outerHTML": "<div class=\"dataSearch_chapter \" style=\" margin: 10px 20px 10px;\">\n                    <div class=\"fl DySeleft\">\n                                                     <a class=\"dataSearch_dele_chapter \" href=\"javascript:\" style=\"display: none;\"></a>\n                                                <input tabindex=\"-1\" type=\"text\" id=\"searchChapterListByName\" name=\"searchChapterListByName\" value=\"\" class=\"dataSearch_input_chapter fl \" placeholder=\"搜索\" style=\"\">\n                        <input tabind"
+        },
+        {
+          "matchedSelector": "[class*=\"chapter\"]",
+          "tag": "A",
+          "id": null,
+          "className": "dataSearch_dele_chapter ",
+          "text": "",
+          "href": "javascript:",
+          "onclick": null,
+          "childCount": 0,
+          "outerHTML": "<a class=\"dataSearch_dele_chapter \" href=\"javascript:\" style=\"display: none;\"></a>"
+        },
+        {
+          "matchedSelector": "[class*=\"chapter\"]",
+          "tag": "INPUT",
+          "id": "searchChapterListByName",
+          "className": "dataSearch_input_chapter fl ",
+          "text": "",
+          "href": null,
+          "onclick": null,
+          "childCount": 0,
+          "outerHTML": "<input tabindex=\"-1\" type=\"text\" id=\"searchChapterListByName\" name=\"searchChapterListByName\" value=\"\" class=\"dataSearch_input_chapter fl \" placeholder=\"搜索\" style=\"\">"
+        },
+        {
+          "matchedSelector": "[class*=\"chapter\"]",
+          "tag": "INPUT",
+          "id": null,
+          "className": "dataSearch_bnt_chapter fl ",
+          "text": "",
+          "href": null,
+          "onclick": "searchChapterListByName()",
+          "childCount": 0,
+          "outerHTML": "<input tabindex=\"-1\" type=\"button\" onclick=\"searchChapterListByName()\" value=\"\" class=\"dataSearch_bnt_chapter fl \" style=\"top:18px\">"
+        },
+        {
+          "matchedSelector": "[class*=\"chapter\"]",
+          "tag": "DIV",
+          "id": "content4",
+          "className": "bookMakBx chapterlabellist",
+          "text": "",
+          "href": null,
+          "onclick": null,
+          "childCount": 0,
+          "outerHTML": "<div id=\"content4\" class=\"bookMakBx chapterlabellist\" style=\"display:none\">\n\n\t\t\t</div>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "SPAN",
+          "id": null,
+          "className": "catalog_points_yi prevTips",
+          "text": "1",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<span class=\"catalog_points_yi prevTips\"><span class=\"prevHoverTips\">1个待完成任务点<i></i></span><span class=\"orangeNew\">1</span></span>"
+        },
+        {
+          "matchedSelector": ".prev_next",
+          "tag": "DIV",
+          "id": "prevNextFocusNext",
+          "className": "jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto",
+          "text": "下一节",
+          "href": null,
+          "onclick": "PCount.next('1','1172050673','263837700','147110605','',true)",
+          "childCount": 0,
+          "outerHTML": "<div id=\"prevNextFocusNext\" class=\"jb_btn jb_btn_92 fs14 prev_next next fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.next('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.next('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">下一节</div>"
+        },
+        {
+          "matchedSelector": ".prev_next",
+          "tag": "DIV",
+          "id": "prevNextFocusPrev",
+          "className": "btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto",
+          "text": "上一节",
+          "href": null,
+          "onclick": "PCount.previous('1','1172050673','263837700','147110605','',true)",
+          "childCount": 0,
+          "outerHTML": "<div id=\"prevNextFocusPrev\" class=\"btnBlue btn_92 fs14 prev_next marginRight30 prev fr btnWidAuto\" tabindex=\"-1\" role=\"button\" onclick=\"PCount.previous('1','1172050673','263837700','147110605','',true)\" onkeydown=\"if(event.keyCode == 13){PCount.previous('1','1172050673','263837700','147110605','',true);}\" style=\"display: block;\">上一节</div>"
+        }
+      ]
+    },
+    {
+      "label": "frame_1_about:blank",
+      "elements": []
+    },
+    {
+      "label": "frame_2_https://mooc1.chaoxing.com/mooc-ans/knowledge/cards?clazzid=147110605&courseid=2",
+      "elements": []
+    },
+    {
+      "label": "frame_3_about:blank",
+      "elements": []
+    },
+    {
+      "label": "frame_4_about:blank",
+      "elements": []
+    },
+    {
+      "label": "frame_5_about:blank",
+      "elements": []
+    },
+    {
+      "label": "frame_6_https://mooc1.chaoxing.com/ananas/modules/video/index.html?v=2026-0814-1624",
+      "elements": [
+        {
+          "matchedSelector": ".active",
+          "tag": "LI",
+          "id": "ext-gen1057",
+          "className": "vjs-sub-item active",
+          "text": "公网1",
+          "href": null,
+          "onclick": null,
+          "childCount": 0,
+          "outerHTML": "<li index=\"0\" class=\"vjs-sub-item active\" id=\"ext-gen1057\">公网1</li>"
+        },
+        {
+          "matchedSelector": ".active",
+          "tag": "LI",
+          "id": "ext-gen1059",
+          "className": "vjs-sub-item active",
+          "text": "高清",
+          "href": null,
+          "onclick": null,
+          "childCount": 0,
+          "outerHTML": "<li index=\"0\" class=\"vjs-sub-item active\" id=\"ext-gen1059\">高清</li>"
+        },
+        {
+          "matchedSelector": ".active",
+          "tag": "LI",
+          "id": null,
+          "className": "videoSummaryBtn show active",
+          "text": "视频摘要",
+          "href": null,
+          "onclick": "setTab(this)",
+          "childCount": 0,
+          "outerHTML": "<li class=\"videoSummaryBtn show active\" onclick=\"setTab(this)\">视频摘要</li>"
+        },
+        {
+          "matchedSelector": ".active",
+          "tag": "DIV",
+          "id": null,
+          "className": "sum_pack-btn active",
+          "text": "折叠",
+          "href": null,
+          "onclick": null,
+          "childCount": 2,
+          "outerHTML": "<div class=\"sum_pack-btn active\">\n                <span>折叠</span>\n                <i></i>\n            </div>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "DIV",
+          "id": null,
+          "className": "sp_tanmu fl sp_tanmu_blue catalog_tishi80",
+          "text": "关闭弹幕",
+          "href": null,
+          "onclick": null,
+          "childCount": 1,
+          "outerHTML": "<div class=\"sp_tanmu fl sp_tanmu_blue catalog_tishi80\">\n                    <div class=\"bntHoverPos\"><span class=\"bntHoverEditor\">关闭弹幕</span><i class=\"bntHoverArrow\"></i></div>\n                </div>"
+        },
+        {
+          "matchedSelector": "[class*=\"catalog\"]",
+          "tag": "DIV",
+          "id": null,
+          "className": "sp_barrage fl catalog_tishi80",
+          "text": "弹幕列表",
+          "href": null,
+          "onclick": null,
+          "childCount": 1,
+          "outerHTML": "<div class=\"sp_barrage fl catalog_tishi80\"><div class=\"bntHoverPos\"><span class=\"bntHoverEditor\">弹幕列表</span><i class=\"bntHoverArrow\"></i></div></div>"
+        }
+      ]
+    },
+    {
+      "label": "frame_7_about:blank",
+      "elements": []
+    },
+    {
+      "label": "frame_8_about:blank",
+      "elements": []
+    },
+    {
+      "label": "frame_9_",
+      "elements": []
+    }
+  ]
+}
