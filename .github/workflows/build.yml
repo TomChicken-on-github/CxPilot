@@ -21,11 +21,17 @@ jobs:
         with:
           node-version: 24
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Allow esbuild build script
+        run: echo "allow-build[]=esbuild" >> .npmrc
+
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build Executable
-        run: npm run build:exe
+        run: pnpm run build:exe
 
       - name: Update Development Release (Push to main)
         uses: softprops/action-gh-release@v2
