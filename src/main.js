@@ -664,17 +664,29 @@ if (!lockResult.ok) {
               const video = document.querySelector('video');
               if (!video) return;
               
-              // 彻底剥夺前端业务脚本主动暂停视频的权利
+              // 获取底层原生的倍速和播放方法，防止被网页 JS 劫持重写
               const originalPlay = HTMLMediaElement.prototype.play;
+              const originalPlaybackRateDesc = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'playbackRate');
+              const setOriginalRate = (val) => {
+                try {
+                  if (originalPlaybackRateDesc && originalPlaybackRateDesc.set) {
+                    originalPlaybackRateDesc.set.call(video, val);
+                  } else {
+                    video.playbackRate = val;
+                  }
+                } catch(e) {}
+              };
+
+              // 彻底剥夺前端业务脚本主动暂停视频的权利
               video.pause = () => { console.log('[DEFENSE] 拦截到网页前端的 pause() 请求，已静默驳回。'); };
 
               // 开启高频状态守护进程（无论几倍速都开启防暂停）
               setInterval(() => {
                 if (window._reached90) return;
                 
-                // 1. 强锁倍速
+                // 1. 强锁倍速 (直接走底层原型链)
                 if (speed !== 1 && video.playbackRate !== speed) {
-                  video.playbackRate = speed;
+                  setOriginalRate(speed);
                 }
                 
                 // 2. 强锁播放状态：如果因为高倍速网络断流或者防作弊机制导致视频停下，立刻强制唤醒
