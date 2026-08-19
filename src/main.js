@@ -1,4 +1,20 @@
 const fs = require('fs');
+
+// Mock inspector to prevent ERR_INSPECTOR_NOT_AVAILABLE in pkg
+try {
+  require('inspector');
+} catch (e) {
+  const m = new (require('module'))();
+  m.exports = {
+    Session: class { connect(){} post(){} disconnect(){} },
+    url: () => undefined,
+    open: () => {},
+    close: () => {}
+  };
+  require.cache['inspector'] = m;
+  require.cache['node:inspector'] = m;
+}
+
 const { chromium } = require('playwright');
 const logger = require('./lib/logger');
 const lock = require('./lib/lock');

@@ -12,7 +12,8 @@
 	},
 	"pkg": {
 		"assets": [
-			"src/**/*"
+			"src/**/*",
+			"node_modules/**/browsers.json"
 		],
 		"targets": [
 			"node24-win-x64"
