@@ -611,23 +611,39 @@ if (!lockResult.ok) {
           try { await simulateHumanBehavior(page); } catch (e) { /* ignore */ }
         }, 15000 + Math.floor(Math.random() * 30000)); // 每 15-45s 做一次
 
-        // Wait for VIDEO_REACHED_90 marker up to 10 minutes
-        // Poll window._reached90 directly in videoFrame (console logs don't propagate from iframes)
+        // 超时策略：不设总时长上限，只要视频在正常播放（currentTime 有变化）就一直等。
+        // 若 5 分钟内 currentTime 完全没有任何变化，才判定为卡死并超时退出。
+        const STUCK_TIMEOUT_MS = 5 * 60 * 1000; // 5 分钟进度不动才算超时
         const lessonStartTimestamp = Date.now();
         const reached90 = await (async () => {
-          const startMarker = Date.now();
-          while (Date.now() - startMarker < 10 * 60 * 1000) {
+          let lastCurrentTime = -1;
+          let lastProgressTime = Date.now();
+
+          while (true) {
             // Primary: check the flag directly in the video frame
             try {
-              const flag = await videoFrame.evaluate(() => window._reached90);
-              if (flag === true) return true;
+              const state = await videoFrame.evaluate(() => ({
+                reached: window._reached90,
+                currentTime: document.querySelector('video')?.currentTime ?? -1,
+              }));
+              if (state.reached) return true;
+
+              // 进度有变化，刷新"最后有进度时间"
+              if (state.currentTime !== lastCurrentTime && state.currentTime >= 0) {
+                lastCurrentTime = state.currentTime;
+                lastProgressTime = Date.now();
+              }
             } catch (e) { /* frame may have been detached */ }
-            // Fallback: also check captured console logs (must be newer than lessonStartTimestamp)
+
+            // Fallback: check captured console logs
             const idx = captured.findIndex(c => c.type === 'videolog' && c.timestamp > lessonStartTimestamp && c.text && c.text.includes('[VIDEO_REACHED_90]'));
             if (idx !== -1) return true;
+
+            // 超时判断：仅在进度卡死（5分钟内毫无变化）时才退出
+            if (Date.now() - lastProgressTime > STUCK_TIMEOUT_MS) return false;
+
             await page.waitForTimeout(1000);
           }
-          return false;
         })();
 
         clearInterval(behaviorInterval);
