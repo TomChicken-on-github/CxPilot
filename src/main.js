@@ -352,7 +352,6 @@ if (!lockResult.ok) {
 
   // ─── T1: 主流程用 try/catch 包裹 ───
   try {
-    browser = await chromium.launch({ headless: false });
     context = await browser.newContext(hasStoredSession ? { storageState: storagePath } : {});
     page = await context.newPage();
 
