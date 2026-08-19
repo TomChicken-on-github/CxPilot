@@ -41,7 +41,7 @@ if (!lockResult.ok) {
     if (fs.existsSync(exePath)) return exePath;
 
     console.log('\n[环境检测] 系统中未找到 Chromium 内核浏览器 (Edge/Chrome)。');
-    console.log('[补齐依赖] 发起 Chromium 内核浏览器下载任务 (自动化专用轻量版)...');
+    console.log('[补齐依赖] 发起 Chromium 内核浏览器下载任务...');
     
     if (!fs.existsSync(chromeDir)) fs.mkdirSync(chromeDir, { recursive: true });
     const zipPath = path.join(chromeDir, 'chromium.zip');
