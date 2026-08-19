@@ -43,6 +43,7 @@ function log(level, event, data = {}) {
     case 'stop': humanMsg = `✅ [任务完成] 共处理 ${data.lessonsProcessed} 节课`; break;
     case 'lesson_start': humanMsg = `📚 [章节开始] 第 ${data.lessonIndex} 节，等待页面加载...`; break;
     case 'video_found': humanMsg = `🎥 [视频就绪] 正在注入进度检测与防作弊点击`; break;
+    case 'video_progress': humanMsg = `📈 [播放进度] 当前已播放 ${data.pct}%`; break;
     case 'progress_90': humanMsg = `🎉 [进度达标] 视频进度已 >= 90% (将等待 ${data.waitMs}ms 后跳章)`; break;
     case 'complete': humanMsg = `💾 [保存记录] 章节 ${data.chapterId} 已标记为完成`; break;
     case 'click_next_method': humanMsg = `🖱️ [触发跳章] 采用方案: ${data.method === 'bottom_next_button' ? '播放器下方按钮' : data.method}`; break;

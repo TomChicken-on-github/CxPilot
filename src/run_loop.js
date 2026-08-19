@@ -39,12 +39,23 @@ function chooseStartUrl(arg) {
 logger.info('runner_start', { mode: 'single-run', pid: process.pid });
 
 // Single-run: choose start URL and run capture once, then exit.
-const startUrl = chooseStartUrl(process.argv[2]);
-logger.info('runner_launch', { startUrl });
+const arg = process.argv[2];
+let targetChapterNum = null;
+
+if (arg && /^\d+(?:\.\d+)*$/.test(arg) && !/^\d{5,}$/.test(arg)) {
+  targetChapterNum = arg;
+}
+
+const startUrl = chooseStartUrl(arg);
+logger.info('runner_launch', { startUrl, targetChapterNum });
 
 const mainScript = path.join(__dirname, 'main.js');
+const env = { ...process.env, PLAY_START_URL: startUrl };
+if (targetChapterNum) env.TARGET_CHAPTER_NUM = targetChapterNum;
+
 const res = spawnSync('node', [mainScript, startUrl], {
   stdio: 'inherit',
+  env,
   timeout: 30 * 60 * 1000
 });
 

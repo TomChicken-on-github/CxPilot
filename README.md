@@ -45,11 +45,14 @@ npx playwright open --save-storage=data/storage.json https://mooc1.chaoxing.com
 ### 运行
 
 ```bash
-# 传入 chapterId（纯数字）或完整播放页 URL
-node src/run_loop.js 1172050672
+# 默认从上次中断的进度继续播放
+node src/run_loop.js
+
+# 指定从某个具体的章节序号开始（例如 2.1）
+node src/run_loop.js 2.1
 
 # 或使用 npm 脚本
-pnpm start 1172050672
+pnpm start 2.1
 ```
 
 ---

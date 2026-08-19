@@ -208,29 +208,43 @@ if (!lockResult.ok) {
     try {
       // 方法1：从侧边栏 DOM 解析并根据章节前缀序号 (如 1.1, 1.2) 严格排序
       const rawChapters = await safeEval(page, () => {
-        // 尽量只在侧边栏容器中寻找，排除顶部或底部的无关推荐链接
-        const containers = document.querySelectorAll('.posCatalog_box, #courselist, .side-catalog, .chapter_item, .timeline');
-        let links = [];
-        if (containers.length > 0) {
-          containers.forEach(c => { links.push(...Array.from(c.querySelectorAll('a[href*="chapterId"]'))); });
-        } else {
-          links = Array.from(document.querySelectorAll('a[href*="chapterId"]'));
-        }
-
-        // 提取带序号的节点
-        let parsed = links.map(a => {
-          const href = a.href || '';
-          const text = (a.innerText || a.textContent || '').trim();
-          const m = href.match(/[?&]chapterId=(\d+)/);
-          if (!m) return null;
+        // 提取侧边栏的章节列表 (支持 span onclick 和 a href)
+        const nodes = Array.from(document.querySelectorAll('.posCatalog_name, a[href*="chapterId"]'));
+        let parsed = [];
+        
+        for (const node of nodes) {
+          const text = (node.innerText || node.textContent || '').trim();
+          let chapterId = null;
+          let href = node.href || '';
+          
+          if (node.tagName.toLowerCase() === 'a') {
+            const m = href.match(/[?&]chapterId=(\d+)/);
+            if (m) chapterId = m[1];
+          } else if (node.hasAttribute('onclick')) {
+            const oc = node.getAttribute('onclick');
+            // getTeacherAjax('courseId','clazzid','chapterId')
+            const m = oc.match(/getTeacherAjax\([^,]+,\s*[^,]+,\s*'(\d+)'/);
+            if (m) chapterId = m[1];
+            else {
+              const m2 = oc.match(/changePan\('(\d+)'\)/);
+              if (m2) chapterId = m2[1];
+            }
+          }
+          
+          if (!chapterId) continue;
+          
+          // 如果是 span，没有原生 href，从当前 URL 替换构造
+          if (!href || href.includes('javascript:void')) {
+            href = window.location.href.replace(/chapterId=\d+/, 'chapterId=' + chapterId);
+          }
           
           let nums = [];
           const numMatch = text.match(/^(\d+(?:\.\d+)*)/);
           if (numMatch) {
             nums = numMatch[1].split('.').map(Number);
           }
-          return { chapterId: m[1], url: href, text, nums };
-        }).filter(Boolean);
+          parsed.push({ chapterId, url: href, text, nums });
+        }
 
         // 去重
         const seen = new Set();
@@ -257,7 +271,7 @@ if (!lockResult.ok) {
             return 0;
           });
         }
-        return unique.map(u => ({ chapterId: u.chapterId, url: u.url }));
+        return unique;
       }, []);
 
       if (rawChapters && rawChapters.length > 1) {
@@ -374,9 +388,29 @@ if (!lockResult.ok) {
     await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(1500);
 
+    let currentUrl = startUrl;
+
+    if (process.env.TARGET_CHAPTER_NUM) {
+      // 等待侧边栏加载，最多等 10 秒
+      try {
+        await page.waitForSelector('.posCatalog_box, #courselist, .posCatalog_name, a[href*="chapterId"]', { timeout: 10000 });
+      } catch (e) { /* ignore timeout */ }
+      
+      await parseChapterList(page, currentUrl);
+      const targetStr = process.env.TARGET_CHAPTER_NUM;
+      const target = chapterList.find(c => c.nums && c.nums.join('.') === targetStr);
+      if (target && target.url !== currentUrl) {
+        logger.info('navigate', { source: 'jump_to_target', targetStr, url: target.url });
+        currentUrl = target.url;
+        await page.goto(currentUrl, { waitUntil: 'domcontentloaded' });
+        await page.waitForTimeout(1500);
+      } else if (!target) {
+        console.warn(`[TARGET_NOT_FOUND] Could not find chapter matching ${targetStr}. Available:`, chapterList.map(c => c.nums ? c.nums.join('.') : '?').join(', '));
+      }
+    }
+
     // ─── 主循环 ───
     let lessonIndex = 0;
-    let currentUrl = startUrl;
 
     while (lessonIndex < maxLessons) {
       lessonIndex += 1;
@@ -498,8 +532,16 @@ if (!lockResult.ok) {
         // Listen to console logs for progress messages
         page.on('console', msg => {
           const text = msg.text();
-          if (text && (text.includes('[VIDEO_PROGRESS]') || text.includes('[VIDEO_REACHED_90]') || text.includes('[VIDEO_REACHED_END]'))) {
-            captured.push({ type: 'videolog', timestamp: Date.now(), text });
+          if (text) {
+            if (text.includes('[VIDEO_PROGRESS]')) {
+              captured.push({ type: 'videolog', timestamp: Date.now(), text });
+              const m = text.match(/pct=([\d.]+)/);
+              if (m) {
+                logger.info('video_progress', { pct: m[1], lessonIndex });
+              }
+            } else if (text.includes('[VIDEO_REACHED_90]') || text.includes('[VIDEO_REACHED_END]')) {
+              captured.push({ type: 'videolog', timestamp: Date.now(), text });
+            }
           }
         });
 
