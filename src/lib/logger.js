@@ -108,6 +108,7 @@ function log(level, event, data = {}) {
       process.stdout.write(currentProgress);
       return;
     case 'progress_90': 
+      clearProgress(); // 必须先清除终端上的进度条
       currentProgress = ''; // 达标后清空进度显示
       humanMsg = `🎉 [进度达标] 视频进度已 >= 90% (将等待 ${data.waitMs}ms 后跳章)`; 
       break;
