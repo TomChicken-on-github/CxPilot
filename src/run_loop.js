@@ -91,7 +91,7 @@ async function runInteractiveMenu() {
   const speedRes = await prompts({
     type: 'select',
     name: 'speed',
-    message: '请选择视频播放倍速 (超星防作弊，过高可能有风险):',
+    message: '请选择视频播放倍速 (过高可能有风险):',
     choices: [
       { title: '1x', value: '1' },
       { title: '1.25x', value: '1.25' },
