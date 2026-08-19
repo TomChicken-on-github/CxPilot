@@ -95,6 +95,32 @@ if (!lockResult.ok) {
     } catch (e) { /* ignore */ }
   }
 
+  // ─── T6+: 章节列表缓存（解决 chapterId 乱序问题）───
+  // 保存格式：[{ chapterId, url }, ...]，按页面侧边栏显示顺序排列
+  const chapterListPath = 'chapter_list.json';
+  let chapterList = [];
+  try {
+    if (fs.existsSync(chapterListPath)) {
+      chapterList = JSON.parse(fs.readFileSync(chapterListPath, 'utf8')) || [];
+    }
+  } catch (e) { /* ignore */ }
+
+  function saveChapterList() {
+    try { fs.writeFileSync(chapterListPath, JSON.stringify(chapterList, null, 2)); } catch (e) { /* ignore */ }
+  }
+
+  // 从缓存中找到当前章节的下一节 URL（不依赖 ID 数值）
+  function getNextChapterUrl(currentUrl) {
+    if (!chapterList.length) return null;
+    const curId = extractChapterId(currentUrl);
+    const idx = chapterList.findIndex(c => String(c.chapterId) === String(curId));
+    if (idx !== -1 && idx + 1 < chapterList.length) {
+      logger.info('navigate', { source: 'chapter_list_cache', chapterId: chapterList[idx + 1].chapterId });
+      return chapterList[idx + 1].url;
+    }
+    return null;
+  }
+
   // ─── Helper: 保存抓包数据 ───
   function saveCaptured() {
     try { fs.writeFileSync(outCaptured, JSON.stringify(captured, null, 2)); } catch (e) { /* ignore */ }
@@ -176,27 +202,35 @@ if (!lockResult.ok) {
   // ─── T6: 章节列表解析 ───
   async function parseChapterList(page, currentUrl) {
     try {
-      // 方法1：从页面 DOM 解析章节列表
-      const chapters = await safeEval(page, () => {
+      // 方法1：从页面 DOM 解析完整章节列表，同时更新本地缓存
+      const rawChapters = await safeEval(page, () => {
         const links = Array.from(document.querySelectorAll('a[href*="chapterId"], .chapter_item a, .catalogFolder a, .posCatalog_select a'));
-        return links.map(a => ({
-          text: (a.innerText || a.textContent || '').trim(),
-          href: a.href || null
-        })).filter(c => c.href);
+        const seen = new Set();
+        return links.reduce((acc, a) => {
+          const href = a.href || null;
+          if (!href) return acc;
+          const m = href.match(/[?&]chapterId=(\d+)/);
+          if (!m || seen.has(m[1])) return acc;
+          seen.add(m[1]);
+          acc.push({ chapterId: m[1], url: href });
+          return acc;
+        }, []);
       }, []);
 
-      if (chapters && chapters.length > 1) {
-        const currentChapter = extractChapterId(currentUrl);
-        let foundCurrent = false;
-        for (const ch of chapters) {
-          if (foundCurrent) return ch.href; // 返回当前章节的下一个
-          if (extractChapterId(ch.href) === currentChapter) foundCurrent = true;
+      if (rawChapters && rawChapters.length > 1) {
+        // 更新缓存（章节数更多时才覆盖，避免页面局部渲染导致列表缩水）
+        if (rawChapters.length >= chapterList.length) {
+          chapterList = rawChapters;
+          saveChapterList();
+          logger.info('chapter_list_updated', { count: chapterList.length });
         }
+        // 从列表中找当前章节的下一节
+        const next = getNextChapterUrl(currentUrl);
+        if (next) return next;
       }
 
-      // 方法2：尝试侧边栏章节列表
+      // 方法2：侧边栏活跃节点的下一个兄弟（快速回退）
       const sidebarNext = await safeEval(page, () => {
-        // 查找当前激活/高亮的章节项，然后取下一个兄弟
         const active = document.querySelector('.current_select, .active, .posCatalog_active, [class*="current"]');
         if (active) {
           let next = active.nextElementSibling;
@@ -380,13 +414,11 @@ if (!lockResult.ok) {
               }
             } catch (e) { /* ignore */ }
 
-            // 回退3：chapterId 数值 +1
-            const m = String(currentUrl).match(/([?&]chapterId=)(\d+)/);
-            if (m) {
-              const nextId = String(Number(m[2]) + 1);
-              const candidate = String(currentUrl).replace(/([?&]chapterId=)\d+/, `$1${nextId}`);
-              logger.info('navigate', { source: 'chapterId_increment', chapterId: nextId, url: candidate });
-              currentUrl = candidate;
+            // 回退3：从章节列表缓存取下一节（不依赖 ID 数值，兼容乱序）
+            const cachedNext = getNextChapterUrl(currentUrl);
+            if (cachedNext) {
+              logger.info('navigate', { source: 'chapter_list_cache_skip', url: cachedNext });
+              currentUrl = cachedNext;
               await page.waitForTimeout(500);
               continue;
             }
@@ -459,23 +491,49 @@ if (!lockResult.ok) {
         });
 
         // ─── 注入进度监听 ───
+        // 录播课不可拖拽进度，但每次启动会从上次断点续播。
+        // 若断点进度已 ≥90%，需在注入时立即检测，避免等待 timeupdate 触发超时。
         await safeEval(videoFrame, () => {
           try {
             const video = document.querySelector('video');
             if (!video) return;
-            video.play().catch(() => {});
             if (window._reached90 == null) window._reached90 = false;
 
-            const handler = () => {
+            const checkProgress = () => {
+              if (window._reached90) return;
               const pct = video.duration ? (video.currentTime / video.duration) : 0;
               console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);
-              if (!window._reached90 && pct >= 0.90) {
+              if (pct >= 0.90) {
+                window._reached90 = true;
+                console.log('[VIDEO_REACHED_90] (startup_check)');
+              }
+            };
+
+            // ① 立即检查：视频已从断点恢复，可能进度已 ≥90%
+            if (video.readyState >= 1 && video.duration) {
+              checkProgress();
+            }
+
+            // ② loadedmetadata 兜底：元数据尚未就绪时，加载后再检查一次
+            if (!window._reached90) {
+              video.addEventListener('loadedmetadata', checkProgress, { once: true });
+            }
+
+            // ③ timeupdate 持续监听：正常播放过程中实时检测
+            const handler = () => {
+              if (window._reached90) { video.removeEventListener('timeupdate', handler); return; }
+              const pct = video.duration ? (video.currentTime / video.duration) : 0;
+              console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);
+              if (pct >= 0.90) {
                 window._reached90 = true;
                 console.log('[VIDEO_REACHED_90]');
                 video.removeEventListener('timeupdate', handler);
               }
             };
             video.addEventListener('timeupdate', handler);
+
+            // ④ 尝试继续播放（不可拖拽但可以 play）
+            video.play().catch(() => {});
           } catch (e) { console.error(e); }
         });
 
