@@ -721,7 +721,10 @@ if (!lockResult.ok) {
                 const state = await frame.evaluate(() => ({
                   reached:     window._reached90,
                   currentTime: document.querySelector('video')?.currentTime ?? -1,
+                  hasEncError: document.body ? document.body.innerText.includes('enc校验') : false
                 }));
+                
+                if (state.hasEncError) return 'enc_expired';
                 if (state.reached) return 'done';
 
                 if (state.currentTime !== lastCurrentTime && state.currentTime >= 0) {
@@ -730,6 +733,12 @@ if (!lockResult.ok) {
                 }
               } catch (e) { /* frame detached — framenavigated handler will update videoFrame */ }
             }
+
+            // 也检查一下整个主页面是否出现了 enc 错误文字
+            try {
+              const pageHasEncError = await page.evaluate(() => document.body ? document.body.innerText.includes('enc校验') : false);
+              if (pageHasEncError) return 'enc_expired';
+            } catch(e) {}
 
             // Fallback: check captured console logs
             const idx = captured.findIndex(c =>
