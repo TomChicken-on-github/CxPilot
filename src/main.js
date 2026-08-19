@@ -504,9 +504,16 @@ if (!lockResult.ok) {
           if (text) {
             if (text.includes('[VIDEO_PROGRESS]')) {
               captured.push({ type: 'videolog', timestamp: Date.now(), text });
-              const m = text.match(/pct=([\d.]+)/);
-              if (m) {
-                logger.info('video_progress', { pct: m[1], lessonIndex });
+              const mPct = text.match(/pct=([\d.]+)/);
+              const mCur = text.match(/current=([\d.]+)/);
+              const mDur = text.match(/duration=([\d.]+)/);
+              if (mPct) {
+                logger.info('video_progress', { 
+                  pct: mPct[1], 
+                  current: mCur ? parseFloat(mCur[1]) : 0,
+                  duration: mDur ? parseFloat(mDur[1]) : 0,
+                  lessonIndex 
+                });
               }
             } else if (text.includes('[VIDEO_START]')) {
               const m = text.match(/pct=([\d.]+)/);

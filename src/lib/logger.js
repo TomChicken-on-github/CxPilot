@@ -32,6 +32,23 @@ function createProgressBar(pctString, length = 25) {
   return `[${filledStr}${emptyStr}]`;
 }
 
+function formatProgressTime(currentSec, durationSec) {
+  const pad = (n) => n.toString().padStart(2, '0');
+  const durH = Math.floor(durationSec / 3600);
+  const durM = Math.floor((durationSec % 3600) / 60);
+  const durS = Math.floor(durationSec % 60);
+  
+  const curH = Math.floor(currentSec / 3600);
+  const curM = Math.floor((currentSec % 3600) / 60);
+  const curS = Math.floor(currentSec % 60);
+  
+  if (durH > 0) {
+    return `[${pad(curH)}:${pad(curM)}:${pad(curS)}/${pad(durH)}:${pad(durM)}:${pad(durS)}]`;
+  } else {
+    return `[${pad(curM)}:${pad(curS)}/${pad(durM)}:${pad(durS)}]`;
+  }
+}
+
 let currentProgress = '';
 
 function clearProgress() {
@@ -86,7 +103,8 @@ function log(level, event, data = {}) {
       clearProgress();
       const timeStr = formatTime(new Date());
       const bar = createProgressBar(data.pct);
-      currentProgress = `[${timeStr}] 📈 [播放进度] ${bar} ${data.pct}%`;
+      const timeProgress = formatProgressTime(data.current || 0, data.duration || 0);
+      currentProgress = `[${timeStr}] 📈 [播放进度] ${timeProgress} ${bar} ${data.pct}%`;
       process.stdout.write(currentProgress);
       return;
     case 'progress_90': 
