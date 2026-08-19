@@ -2,6 +2,7 @@ const fs = require('fs');
 const { chromium } = require('playwright');
 const logger = require('./lib/logger');
 const lock = require('./lib/lock');
+const config = require('./config');
 
 // Usage:
 //   node capture_play_requests_entry.js <start_playback_url>
@@ -25,9 +26,8 @@ if (!lockResult.ok) {
   const outCaptured = 'data/captured_requests.json';
   const completedPath = 'data/completed_lessons.json';
   const progressPath = 'data/progress.json';
-  const defaultCourseUrl = 'https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu?courseid=263837700&clazzid=147110605&cpi=517019981&enc=1c0c74b9a48543e4ae307613f2ebf9ad&t=1787037581265&pageHeader=1';
-  const startUrl = process.argv[2] || defaultCourseUrl;
-  const maxLessons = 20; // safety limit
+  const startUrl = process.argv[2] || config.DEFAULT_COURSE_URL;
+  const maxLessons = config.MAX_LESSONS; // 从 config 引入
 
   let browser = null;
   let context = null;
@@ -100,7 +100,6 @@ if (!lockResult.ok) {
   }
 
   // ─── T6+: 章节列表缓存（解决 chapterId 乱序问题）───
-  // 保存格式：[{ chapterId, url }, ...]，按页面侧边栏显示顺序排列
   const chapterListPath = 'data/chapter_list.json';
   let chapterList = [];
   try {
@@ -142,7 +141,6 @@ if (!lockResult.ok) {
       try {
         const el = await frameOrPage.waitForSelector(selector, { timeout, state: 'visible' });
         if (el) {
-          // 确认元素可交互
           const box = await el.boundingBox();
           if (box) {
             await el.click();
@@ -169,14 +167,14 @@ if (!lockResult.ok) {
     return null;
   }
 
-  // ─── T3: 安全执行（处理 "Target page, context or browser has been closed"） ───
+  // ─── T3: 安全执行 ───
   async function safeEval(frameOrPage, fn, fallback = null) {
     try {
       return await frameOrPage.evaluate(fn);
     } catch (e) {
       if (e.message && e.message.includes('Target page, context or browser has been closed')) {
         logger.error('target_closed', { message: e.message });
-        throw e; // 向上传播让全局 catch 处理
+        throw e;
       }
       return fallback;
     }
@@ -185,135 +183,92 @@ if (!lockResult.ok) {
   // ─── T8: 用户行为模拟 ───
   async function simulateHumanBehavior(page) {
     try {
-      // 随机鼠标移动
       const viewportSize = page.viewportSize() || { width: 1280, height: 720 };
       const x = 100 + Math.floor(Math.random() * (viewportSize.width - 200));
       const y = 100 + Math.floor(Math.random() * (viewportSize.height - 200));
       await page.mouse.move(x, y, { steps: 5 + Math.floor(Math.random() * 10) });
-
-      // 随机短滚动
       const scrollY = -50 + Math.floor(Math.random() * 100);
       await page.mouse.wheel(0, scrollY);
-
-      // 随机暂停再微移
       await page.waitForTimeout(500 + Math.floor(Math.random() * 1500));
       const x2 = x + Math.floor(Math.random() * 60) - 30;
       const y2 = y + Math.floor(Math.random() * 60) - 30;
-      await page.mouse.move(x2, y2, { steps: 3 + Math.floor(Math.random() * 5) });
-    } catch (e) { /* ignore — 行为模拟失败不影响主流程 */ }
+      await page.mouse.move(x2, y2, { steps: 3 });
+    } catch (e) { /* ignore */ }
   }
 
-  // ─── T6: 章节列表解析 ───
+  // ─── 新增：按前缀匹配侧边栏编号提取章节 ───
   async function parseChapterList(page, currentUrl) {
     try {
-      // 方法1：从侧边栏 DOM 解析并根据章节前缀序号 (如 1.1, 1.2) 严格排序
-      const rawChapters = await safeEval(page, () => {
-        // 提取侧边栏的章节列表 (支持 span onclick 和 a href)
-        const nodes = Array.from(document.querySelectorAll('.posCatalog_name, a[href*="chapterId"]'));
-        let parsed = [];
-        
-        for (const node of nodes) {
-          const text = (node.innerText || node.textContent || '').trim();
-          let chapterId = null;
-          let href = node.href || '';
-          
-          if (node.tagName.toLowerCase() === 'a') {
-            const m = href.match(/[?&]chapterId=(\d+)/);
-            if (m) chapterId = m[1];
-          } else if (node.hasAttribute('onclick')) {
-            const oc = node.getAttribute('onclick');
-            // getTeacherAjax('courseId','clazzid','chapterId')
-            const m = oc.match(/getTeacherAjax\([^,]+,\s*[^,]+,\s*'(\d+)'/);
-            if (m) chapterId = m[1];
-            else {
-              const m2 = oc.match(/changePan\('(\d+)'\)/);
-              if (m2) chapterId = m2[1];
-            }
+      const list = await safeEval(page, () => {
+        const items = Array.from(document.querySelectorAll('.posCatalog_name'));
+        return items.map(el => {
+          let url = '';
+          const onclick = el.getAttribute('onclick');
+          if (onclick && onclick.includes('getTeacherAjax')) {
+            const match = onclick.match(/getTeacherAjax\('([^']+)','([^']+)','([^']+)'\)/);
+            if (match) url = `/mycourse/studentstudy?courseId=${match[1]}&clazzid=${match[2]}&chapterId=${match[3]}`;
+          }
+          if (!url && onclick && onclick.includes('changePan')) {
+            const match = onclick.match(/changePan\('([^']+)'\)/);
+            if (match) url = `?chapterId=${match[1]}`;
           }
           
-          if (!chapterId) continue;
-          
-          // 如果是 span，没有原生 href，从当前 URL 替换构造
-          if (!href || href.includes('javascript:void')) {
-            href = window.location.href.replace(/chapterId=\d+/, 'chapterId=' + chapterId);
-          }
-          
+          let title = (el.innerText || '').trim();
           let nums = [];
-          const numMatch = text.match(/^(\d+(?:\.\d+)*)/);
-          if (numMatch) {
-            nums = numMatch[1].split('.').map(Number);
+          const prefixMatch = title.match(/^([\d\.]+)/);
+          if (prefixMatch) {
+            nums = prefixMatch[1].split('.').filter(n => n.length > 0).map(Number);
           }
-          parsed.push({ chapterId, url: href, text, nums });
-        }
+          
+          return {
+            title,
+            nums,
+            url,
+            chapterId: url ? (url.match(/chapterId=([^&]+)/) || [])[1] : null
+          };
+        }).filter(item => item.chapterId);
+      });
 
-        // 去重
-        const seen = new Set();
-        const unique = [];
-        for (const item of parsed) {
-          if (!seen.has(item.chapterId)) {
-            seen.add(item.chapterId);
-            unique.push(item);
-          }
-        }
-
-        // 如果存在序号，则按照序号严格排序 (例如 1.1 -> 1.2 -> 2.1)
-        const hasNumbering = unique.some(i => i.nums.length > 0);
-        if (hasNumbering) {
-          unique.sort((a, b) => {
-            if (a.nums.length === 0 && b.nums.length > 0) return 1;
-            if (b.nums.length === 0 && a.nums.length > 0) return -1;
-            const len = Math.max(a.nums.length, b.nums.length);
-            for (let i = 0; i < len; i++) {
-              const valA = a.nums[i] || 0;
-              const valB = b.nums[i] || 0;
-              if (valA !== valB) return valA - valB;
-            }
-            return 0;
-          });
-        }
-        return unique;
-      }, []);
-
-      if (rawChapters && rawChapters.length > 1) {
-        // 更新缓存（章节数更多时才覆盖，避免页面局部渲染导致列表缩水）
-        if (rawChapters.length >= chapterList.length) {
-          chapterList = rawChapters;
+      if (list && list.length > 0) {
+        if (list.length > chapterList.length) {
+          chapterList = list;
           saveChapterList();
           logger.info('chapter_list_updated', { count: chapterList.length });
         }
-        // 从列表中找当前章节的下一节
+        
+        const curId = extractChapterId(currentUrl);
+        const idx = list.findIndex(item => item.chapterId === curId);
+        if (idx !== -1 && idx + 1 < list.length) {
+          let nextPath = list[idx + 1].url;
+          if (nextPath.startsWith('?')) {
+            const urlObj = new URL(currentUrl, 'https://mooc1.chaoxing.com');
+            const newChapterId = nextPath.match(/chapterId=([^&]+)/)[1];
+            urlObj.searchParams.set('chapterId', newChapterId);
+            return urlObj.toString();
+          } else if (nextPath.startsWith('/')) {
+            return `https://mooc1.chaoxing.com${nextPath}`;
+          }
+        }
+      }
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+
+  // ─── 备用逻辑：找下一节 URL ───
+  async function findNextLessonUrl(page, currentUrl) {
+    try {
+      const nextFromParse = await parseChapterList(page, currentUrl);
+      if (nextFromParse) return nextFromParse;
+      if (chapterList.length > 0) {
         const next = getNextChapterUrl(currentUrl);
         if (next) return next;
       }
-
-      // 方法2：侧边栏活跃节点的下一个兄弟（快速回退）
-      const sidebarNext = await safeEval(page, () => {
-        const active = document.querySelector('.current_select, .active, .posCatalog_active, [class*="current"]');
-        if (active) {
-          let next = active.nextElementSibling;
-          while (next) {
-            const link = next.querySelector('a[href]');
-            if (link && link.href) return link.href;
-            next = next.nextElementSibling;
-          }
-        }
-        return null;
-      }, null);
-
-      if (sidebarNext) return sidebarNext;
-    } catch (e) {
-      logger.warn('chapter_parse_error', { message: e.message });
-    }
+    } catch (e) { /* ignore */ }
     return null;
   }
 
   // ─── 检查 storage.json ───
   const hasStoredSession = fs.existsSync(storagePath);
-
-  // 登录态文件只是优化项：首次运行或登录态过期时，允许在打开的浏览器中手动登录。
-  if (!hasStoredSession) {
-    logger.warn('no_storage', { path: storagePath, action: 'manual_login_required' });
-  }
 
   logger.info('start', { startUrl, pid: process.pid, maxLessons });
 
@@ -323,7 +278,10 @@ if (!lockResult.ok) {
     context = await browser.newContext(hasStoredSession ? { storageState: storagePath } : {});
     page = await context.newPage();
 
-    // auto-accept JS dialogs and record them
+    if (!hasStoredSession) {
+      logger.warn('no_storage', { path: storagePath, action: 'manual_login_required' });
+    }
+
     page.on('dialog', async dialog => {
       try {
         captured.push({ type: 'dialog', timestamp: Date.now(), dialogType: dialog.type(), message: dialog.message() });
@@ -331,7 +289,6 @@ if (!lockResult.ok) {
       } catch (e) { }
     });
 
-    // helper to override window.confirm/alert/prompt in all frames
     async function overrideConfirms() {
       try {
         await page.evaluate(() => {
@@ -347,7 +304,6 @@ if (!lockResult.ok) {
       }
     }
 
-    // Generic network capture for XHR/fetch/POST
     context.on('request', req => {
       try {
         const resourceType = req.resourceType();
@@ -384,14 +340,22 @@ if (!lockResult.ok) {
       } catch (e) { }
     });
 
-    // (logger.info('start', ...) 已在上面记录)
     await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(1500);
 
-    let currentUrl = startUrl;
+    // ─── 检测并等待手动登录 ───
+    if (page.url().includes('login') || page.url().includes('passport')) {
+      logger.warn('no_storage', {});
+      while (page.url().includes('login') || page.url().includes('passport')) {
+        await page.waitForTimeout(2000);
+      }
+      await context.storageState({ path: storagePath }).catch(() => {});
+      logger.info('complete', { message: 'Manual login detected and session saved.' });
+    }
+
+    let currentUrl = page.url();
 
     if (process.env.TARGET_CHAPTER_NUM) {
-      // 等待侧边栏加载，最多等 10 秒
       try {
         await page.waitForSelector('.posCatalog_box, #courselist, .posCatalog_name, a[href*="chapterId"]', { timeout: 10000 });
       } catch (e) { /* ignore timeout */ }

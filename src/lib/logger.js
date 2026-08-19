@@ -12,10 +12,34 @@ const logsDir = path.join(process.cwd(), 'logs');
 if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir, { recursive: true });
 const LOG_FILE = path.join(logsDir, 'run.log');
 
+function formatTime(date) {
+  const yy = String(date.getFullYear()).slice(-2);
+  const MM = String(date.getMonth() + 1).padStart(2, '0');
+  const DD = String(date.getDate()).padStart(2, '0');
+  const HH = String(date.getHours()).padStart(2, '0');
+  const mm = String(date.getMinutes()).padStart(2, '0');
+  const ss = String(date.getSeconds()).padStart(2, '0');
+  return `${yy}-${MM}-${DD} ${HH}:${mm}:${ss}`;
+}
+
+let currentProgress = '';
+
+function clearProgress() {
+  if (currentProgress) {
+    process.stdout.write('\x1b[2K\r'); // 清除当前行并回车
+  }
+}
+
+function restoreProgress() {
+  if (currentProgress) {
+    process.stdout.write(currentProgress);
+  }
+}
+
 /**
  * 写入一行 JSON Lines 日志
  * @param {'info'|'warn'|'error'} level
- * @param {string} event - 事件类型，如 start / stop / error / navigate / complete / skip / click / progress
+ * @param {string} event - 事件类型
  * @param {object} [data] - 附加数据
  */
 function log(level, event, data = {}) {
@@ -26,11 +50,14 @@ function log(level, event, data = {}) {
     ...data
   };
   try {
-    fs.appendFileSync(LOG_FILE, JSON.stringify(entry) + '\n');
+    // 进度日志太频繁，不写入 JSON 文件以防暴增
+    if (event !== 'video_progress') {
+      fs.appendFileSync(LOG_FILE, JSON.stringify(entry) + '\n');
+    }
   } catch (e) {
-    // 日志写入失败不应导致主流程中断
     console.error('[LOGGER] Failed to write log:', e.message);
   }
+
   // ─── 控制台人性化输出 ───
   let humanMsg = '';
   switch (event) {
@@ -43,8 +70,17 @@ function log(level, event, data = {}) {
     case 'stop': humanMsg = `✅ [任务完成] 共处理 ${data.lessonsProcessed} 节课`; break;
     case 'lesson_start': humanMsg = `📚 [章节开始] 第 ${data.lessonIndex} 节，等待页面加载...`; break;
     case 'video_found': humanMsg = `🎥 [视频就绪] 正在注入进度检测与防作弊点击`; break;
-    case 'video_progress': humanMsg = `📈 [播放进度] 当前已播放 ${data.pct}%`; break;
-    case 'progress_90': humanMsg = `🎉 [进度达标] 视频进度已 >= 90% (将等待 ${data.waitMs}ms 后跳章)`; break;
+    case 'video_progress':
+      // 进度条专门逻辑：单行覆盖
+      clearProgress();
+      const timeStr = formatTime(new Date());
+      currentProgress = `[${timeStr}] 📈 [播放进度] 当前已播放 ${data.pct}%`;
+      process.stdout.write(currentProgress);
+      return;
+    case 'progress_90': 
+      currentProgress = ''; // 达标后清空进度显示
+      humanMsg = `🎉 [进度达标] 视频进度已 >= 90% (将等待 ${data.waitMs}ms 后跳章)`; 
+      break;
     case 'complete': humanMsg = `💾 [保存记录] 章节 ${data.chapterId} 已标记为完成`; break;
     case 'click_next_method': humanMsg = `🖱️ [触发跳章] 采用方案: ${data.method === 'bottom_next_button' ? '播放器下方按钮' : data.method}`; break;
     case 'click_next': humanMsg = `🖱️ [点击下一节] 触发结果: ${data.clicked ? '成功' : '失败'}`; break;
@@ -62,16 +98,18 @@ function log(level, event, data = {}) {
     case 'no_video': humanMsg = `🈳 [未找到视频] 当前页面不存在视频控件`; break;
     case 'target_closed': humanMsg = `💥 [连接丢失] 浏览器页面已被外部关闭`; break;
     case 'lock_denied': humanMsg = `🔒 [进程互斥] 无法启动: ${data.reason}`; break;
-    case 'no_storage': humanMsg = `🔑 [需要登录] 找不到 storage.json，将开启手动登录模式`; break;
+    case 'no_storage': humanMsg = `🔑 [等待登录] 凭证不存在或失效，请在弹出的浏览器中手动登录...`; break;
     case 'fatal':
     case 'uncaught_exception':
     case 'unhandled_rejection': humanMsg = `🔥 [致命错误] ${data.message}`; break;
     default: humanMsg = `[${event}] ${Object.keys(data).length ? JSON.stringify(data) : ''}`;
   }
 
-  // 根据 level 设置基础前缀颜色/图标 (Node终端不一定全彩，这里用Emoji区分)
+  // 普通日志输出前，先清除进度条，再输出，然后再恢复进度条
+  clearProgress();
   const prefix = level === 'error' ? '❌' : level === 'warn' ? '⚠️' : 'ℹ️';
-  console.log(`${prefix} ${humanMsg}`);
+  console.log(`[${formatTime(new Date())}] ${prefix} ${humanMsg}`);
+  restoreProgress();
 }
 
 function info(event, data) { log('info', event, data); }
