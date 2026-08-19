@@ -37,12 +37,10 @@ function chooseStartUrl(arg) {
 }
 
 logger.info('runner_start', { mode: 'single-run', pid: process.pid });
-console.log('Runner (single-run mode) started. Auto-restart loop disabled to avoid spawning multiple browsers.');
 
 // Single-run: choose start URL and run capture once, then exit.
 const startUrl = chooseStartUrl(process.argv[2]);
 logger.info('runner_launch', { startUrl });
-console.log(`[${new Date().toISOString()}] Starting single capture run with URL: ${startUrl}`);
 
 const mainScript = path.join(__dirname, 'main.js');
 const res = spawnSync('node', [mainScript, startUrl], {
@@ -52,7 +50,6 @@ const res = spawnSync('node', [mainScript, startUrl], {
 
 const exitCode = res.status || 0;
 logger.info('runner_child_exit', { status: exitCode, signal: res.signal || null });
-console.log(`Child exited with status ${exitCode}`);
 
 // after child exits, attempt to read progress.json to decide next start (saved for manual restart)
 const p = readProgress();
@@ -64,5 +61,4 @@ if (p.nextLesson) {
 }
 
 logger.info('runner_stop', { exitCode });
-console.log('Single-run complete. To run again, invoke this script manually.');
 process.exit(exitCode);

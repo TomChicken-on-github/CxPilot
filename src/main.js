@@ -255,11 +255,11 @@ if (!lockResult.ok) {
   }
 
   // ─── 检查 storage.json ───
-  if (!fs.existsSync(storagePath)) {
-    console.error('storage.json not found. Please ensure you saved storage.json from Playwright open.');
-    logger.error('no_storage', { path: storagePath });
-    lock.release();
-    process.exit(1);
+  const hasStoredSession = fs.existsSync(storagePath);
+
+  // 登录态文件只是优化项：首次运行或登录态过期时，允许在打开的浏览器中手动登录。
+  if (!hasStoredSession) {
+    logger.warn('no_storage', { path: storagePath, action: 'manual_login_required' });
   }
 
   logger.info('start', { startUrl, pid: process.pid, maxLessons });
@@ -267,7 +267,7 @@ if (!lockResult.ok) {
   // ─── T1: 主流程用 try/catch 包裹 ───
   try {
     browser = await chromium.launch({ headless: false });
-    context = await browser.newContext({ storageState: storagePath });
+    context = await browser.newContext(hasStoredSession ? { storageState: storagePath } : {});
     page = await context.newPage();
 
     // auto-accept JS dialogs and record them
@@ -331,7 +331,7 @@ if (!lockResult.ok) {
       } catch (e) { }
     });
 
-    console.log(`Opening start URL: ${startUrl}`);
+    // (logger.info('start', ...) 已在上面记录)
     await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(1500);
 
@@ -568,7 +568,6 @@ if (!lockResult.ok) {
 
         if (!reached90) {
           logger.warn('timeout_90', { url: currentUrl, lessonIndex });
-          console.log('Did not observe VIDEO_REACHED_90 marker within timeout; stopping progression.');
           saveCaptured();
           break;
         }
@@ -662,7 +661,6 @@ if (!lockResult.ok) {
             continue;
           }
 
-          console.log('Did not detect navigation after attempting to click next — stopping progression.');
           saveCaptured();
           break;
         }
@@ -705,14 +703,12 @@ if (!lockResult.ok) {
       }
 
       logger.info('no_next', { lessonIndex, url: currentUrl });
-      console.log('No next lesson detected. Stopping loop.');
       break;
     }
 
     // Final save
     saveCaptured();
     logger.info('stop', { lessonsProcessed: lessonIndex, finalUrl: currentUrl });
-    console.log(`Capture complete. Saved to ${outCaptured}`);
     await browser.close();
     browser = null;
     lock.release();
@@ -726,7 +722,6 @@ if (!lockResult.ok) {
       stack: err.stack,
       isTargetClosed
     });
-    console.error(`Fatal error: ${err.message}`);
     saveCaptured();
     try { if (browser) await browser.close(); } catch (e) { /* ignore */ }
     lock.release();
