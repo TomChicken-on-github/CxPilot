@@ -503,13 +503,18 @@ if (!lockResult.ok) {
             if (!video) return;
             if (window._reached90 == null) window._reached90 = false;
 
+            let lastLogTime = 0;
             const checkProgress = () => {
               if (window._reached90) return;
               const pct = video.duration ? (video.currentTime / video.duration) : 0;
-              console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);
+              const now = Date.now();
+              if (now - lastLogTime > 5000) {
+                console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);
+                lastLogTime = now;
+              }
               if (pct >= 0.90) {
                 window._reached90 = true;
-                console.log('[VIDEO_REACHED_90] (startup_check)');
+                console.log('[VIDEO_REACHED_90]');
               }
             };
 
@@ -523,20 +528,24 @@ if (!lockResult.ok) {
               video.addEventListener('loadedmetadata', checkProgress, { once: true });
             }
 
-            // ③ timeupdate 持续监听：正常播放过程中实时检测
+            // ③ setInterval 主动轮询：防止视频被浏览器拦截自动播放（处于暂停状态）导致 timeupdate 不触发
+            // 播放器通常会异步从服务器获取上次进度并 seek 到该位置，此时即使视频没播放，currentTime 也会更新。
+            const progressInterval = setInterval(() => {
+              if (window._reached90) {
+                clearInterval(progressInterval);
+                return;
+              }
+              checkProgress();
+            }, 500);
+
+            // ④ timeupdate 持续监听 (双保险)
             const handler = () => {
               if (window._reached90) { video.removeEventListener('timeupdate', handler); return; }
-              const pct = video.duration ? (video.currentTime / video.duration) : 0;
-              console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);
-              if (pct >= 0.90) {
-                window._reached90 = true;
-                console.log('[VIDEO_REACHED_90]');
-                video.removeEventListener('timeupdate', handler);
-              }
+              checkProgress();
             };
             video.addEventListener('timeupdate', handler);
 
-            // ④ 尝试继续播放（不可拖拽但可以 play）
+            // ⑤ 尝试继续播放（不可拖拽但可以 play）
             video.play().catch(() => {});
           } catch (e) { console.error(e); }
         });
@@ -548,6 +557,7 @@ if (!lockResult.ok) {
 
         // Wait for VIDEO_REACHED_90 marker up to 10 minutes
         // Poll window._reached90 directly in videoFrame (console logs don't propagate from iframes)
+        const lessonStartTimestamp = Date.now();
         const reached90 = await (async () => {
           const startMarker = Date.now();
           while (Date.now() - startMarker < 10 * 60 * 1000) {
@@ -556,8 +566,8 @@ if (!lockResult.ok) {
               const flag = await videoFrame.evaluate(() => window._reached90);
               if (flag === true) return true;
             } catch (e) { /* frame may have been detached */ }
-            // Fallback: also check captured console logs
-            const idx = captured.findIndex(c => c.type === 'videolog' && c.text && c.text.includes('[VIDEO_REACHED_90]'));
+            // Fallback: also check captured console logs (must be newer than lessonStartTimestamp)
+            const idx = captured.findIndex(c => c.type === 'videolog' && c.timestamp > lessonStartTimestamp && c.text && c.text.includes('[VIDEO_REACHED_90]'));
             if (idx !== -1) return true;
             await page.waitForTimeout(1000);
           }
