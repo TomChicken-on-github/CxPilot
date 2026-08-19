@@ -664,40 +664,49 @@ if (!lockResult.ok) {
               const video = document.querySelector('video');
               if (!video) return;
               
-              // 获取底层原生的倍速和播放方法，防止被网页 JS 劫持重写
+              // ─── 底层原生方法引用（在超星 JS 劫持之前抢先获取）───
               const originalPlay = HTMLMediaElement.prototype.play;
               const originalPlaybackRateDesc = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'playbackRate');
-              const setOriginalRate = (val) => {
+
+              const forceSpeed = () => {
+                if (window._reached90) return;
                 try {
                   if (originalPlaybackRateDesc && originalPlaybackRateDesc.set) {
-                    originalPlaybackRateDesc.set.call(video, val);
+                    originalPlaybackRateDesc.set.call(video, speed);
                   } else {
-                    video.playbackRate = val;
+                    video.playbackRate = speed;
                   }
                 } catch(e) {}
               };
 
-              // 彻底剥夺前端业务脚本主动暂停视频的权利
+              const forcePlay = () => {
+                if (window._reached90) return;
+                if (video.paused) {
+                  originalPlay.call(video).catch(() => {});
+                }
+              };
+
+              // ─── 立即设置倍速 ───
+              forceSpeed();
+
+              // ─── 监听所有可能导致倍速被重置的事件 ───
+              ['play', 'playing', 'ratechange', 'loadedmetadata', 'canplay', 'canplaythrough', 'seeking', 'seeked'].forEach(evt => {
+                video.addEventListener(evt, forceSpeed);
+              });
+
+              // ─── 彻底剥夺前端业务脚本主动暂停视频的权利 ───
               try {
                 video.pause = () => { console.log('[DEFENSE] 拦截到网页前端的 pause() 请求，已静默驳回。'); };
               } catch (e) {
                 console.log('[DEFENSE] 无法覆写 pause 方法: ' + e.message);
               }
 
-              // 开启高频状态守护进程（无论几倍速都开启防暂停）
+              // ─── 200ms 高频守护：双重保险（处理不走事件的底层重置）───
               setInterval(() => {
                 if (window._reached90) return;
-                
-                // 1. 强锁倍速 (直接走底层原型链)
-                if (speed !== 1 && video.playbackRate !== speed) {
-                  setOriginalRate(speed);
-                }
-                
-                // 2. 强锁播放状态：如果因为高倍速网络断流或者防作弊机制导致视频停下，立刻强制唤醒
-                if (video.paused) {
-                  originalPlay.call(video).catch(() => {});
-                }
-              }, 500);
+                if (video.playbackRate !== speed) forceSpeed();
+                forcePlay();
+              }, 200);
 
               window._reached90 = false;
 
