@@ -88,7 +88,41 @@ async function runInteractiveMenu() {
     }
   }
 
-  return { startUrl, targetChapterNum };
+  const speedRes = await prompts({
+    type: 'select',
+    name: 'speed',
+    message: '请选择视频播放倍速 (超星防作弊，过高可能有风险):',
+    choices: [
+      { title: '1x (正常速度, 最安全)', value: '1' },
+      { title: '1.25x', value: '1.25' },
+      { title: '1.5x', value: '1.5' },
+      { title: '2x (常规推荐上限)', value: '2' },
+      { title: '3x (较高风险)', value: '3' },
+      { title: '5x (极高风险)', value: '5' },
+      { title: '自定义倍速 (最高32倍)', value: 'custom' }
+    ],
+    initial: 0
+  });
+
+  if (!speedRes.speed) process.exit(0);
+
+  let playSpeed = speedRes.speed;
+  if (playSpeed === 'custom') {
+    const customRes = await prompts({
+      type: 'text',
+      name: 'speed',
+      message: '请输入自定义倍速 (0.1 ~ 32，支持小数):',
+      validate: value => {
+        const n = parseFloat(value);
+        if (isNaN(n) || n < 0.1 || n > 32) return '倍速必须在 0.1 到 32 之间';
+        return true;
+      }
+    });
+    if (!customRes.speed) process.exit(0);
+    playSpeed = customRes.speed;
+  }
+
+  return { startUrl, targetChapterNum, playSpeed };
 }
 
 function runMainProcess(mainScript, startUrl, env) {
@@ -121,11 +155,13 @@ async function start() {
   // 如果是作为守护进程直接被重启拉起，跳过菜单
   let startUrl = config.DEFAULT_COURSE_URL;
   let targetChapterNum = null;
+  let playSpeed = '1';
 
   if (process.env.AUTO_RESTART !== '1') {
     const result = await runInteractiveMenu();
     startUrl = result.startUrl;
     targetChapterNum = result.targetChapterNum;
+    playSpeed = result.playSpeed;
   } else {
     // 读取上一次的记录继续
     const p = readProgress();
@@ -139,9 +175,9 @@ async function start() {
   let retries = 0;
 
   while (true) {
-    logger.info('runner_launch', { startUrl, targetChapterNum, retries });
+    logger.info('runner_launch', { startUrl, targetChapterNum, retries, playSpeed });
 
-    const env = { ...process.env, PLAY_START_URL: startUrl };
+    const env = { ...process.env, PLAY_START_URL: startUrl, PLAY_SPEED: playSpeed };
     if (targetChapterNum) env.TARGET_CHAPTER_NUM = targetChapterNum;
 
     // 使用异步 spawn 代替 spawnSync，让事件循环能处理 SIGINT

@@ -657,10 +657,22 @@ if (!lockResult.ok) {
 
         // ─── 进度监听注入（可复用，刷新后重新调用）───
         const injectProgressListener = async (frame) => {
-          await safeEval(frame, () => {
-            try {
+          const targetSpeed = process.env.PLAY_SPEED || '1';
+          try {
+            await frame.evaluate((speedStr) => {
+              const speed = parseFloat(speedStr) || 1;
               const video = document.querySelector('video');
               if (!video) return;
+              
+              if (speed !== 1) {
+                video.playbackRate = speed;
+                setInterval(() => {
+                  if (video.playbackRate !== speed) {
+                    video.playbackRate = speed;
+                  }
+                }, 500);
+              }
+
               window._reached90 = false;
 
               let lastLogTime = 0;
@@ -704,8 +716,10 @@ if (!lockResult.ok) {
               if (video.readyState < 3) {
                 video.addEventListener('canplay', tryPlay, { once: true });
               }
-            } catch (e) { console.error(e); }
-          });
+            }, targetSpeed);
+          } catch (e) {
+            console.error('Failed to inject progress listener:', e);
+          }
         };
 
         // ─── 自动重新注入：监听 iframe 刷新 / 用户手动刷新 / 视频页重建 ───
