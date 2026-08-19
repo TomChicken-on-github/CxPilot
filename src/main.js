@@ -344,9 +344,16 @@ if (!lockResult.ok) {
       logger.warn('no_storage', { path: storagePath, action: 'manual_login_required' });
     }
 
+    let encExpired = false;
+
     page.on('dialog', async dialog => {
       try {
-        captured.push({ type: 'dialog', timestamp: Date.now(), dialogType: dialog.type(), message: dialog.message() });
+        const msg = dialog.message() || '';
+        captured.push({ type: 'dialog', timestamp: Date.now(), dialogType: dialog.type(), message: msg });
+        if (msg.includes('enc')) {
+          encExpired = true;
+          logger.warn('enc_error', { message: '拦截到 enc 校验失败弹窗！将在下一次刷新时自动返回目录重签。' });
+        }
         await dialog.accept();
       } catch (e) { }
     });
@@ -402,7 +409,26 @@ if (!lockResult.ok) {
       } catch (e) { }
     });
 
-    await page.goto(startUrl, { waitUntil: 'domcontentloaded' });
+    let currentUrl = startUrl;
+
+    // ─── 启动安全防御：防止因为读取了旧的 progress.json 中的过期 enc 导致启动无限崩溃 ───
+    if (currentUrl !== config.DEFAULT_COURSE_URL && currentUrl.includes('chapterId=') && currentUrl.includes('enc=')) {
+      logger.info('resume_repair', { message: '安全启动：探测到可能过期的 enc 签名，正在通过课程主页重新签发...' });
+      await page.goto(config.DEFAULT_COURSE_URL, { waitUntil: 'domcontentloaded' });
+      await page.waitForTimeout(2000);
+      
+      const targetChapterId = extractChapterId(currentUrl);
+      if (targetChapterId) {
+        await parseChapterList(page, config.DEFAULT_COURSE_URL);
+        const targetNode = chapterList.find(c => c.chapterId === targetChapterId);
+        if (targetNode && targetNode.url) {
+          currentUrl = targetNode.url;
+          logger.info('resume_repair', { message: '成功获取全新签名的安全链接' });
+        }
+      }
+    }
+
+    await page.goto(currentUrl, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(1500);
 
     // ─── 检测并等待手动登录 ───
@@ -415,7 +441,7 @@ if (!lockResult.ok) {
       logger.info('complete', { message: 'Manual login detected and session saved.' });
     }
 
-    let currentUrl = page.url();
+    currentUrl = page.url();
 
     if (process.env.TARGET_CHAPTER_NUM) {
       try {
@@ -687,6 +713,8 @@ if (!lockResult.ok) {
           let lastProgressTime = Date.now() + gracePeriodMs;
 
           while (true) {
+            if (encExpired) return 'enc_expired';
+            
             const frame = getFrame();
             if (frame) {
               try {
@@ -723,13 +751,30 @@ if (!lockResult.ok) {
         // 初次等待（卡死限制：3 分钟，无宽限期）
         let waitResult = await waitFor90(() => videoFrame, STUCK_TIMEOUT_MS);
 
-        while (waitResult === 'stuck' && refreshCount < MAX_REFRESH_RETRIES) {
+        while ((waitResult === 'stuck' || waitResult === 'enc_expired') && refreshCount < MAX_REFRESH_RETRIES) {
           refreshCount++;
-          logger.warn('video_stuck_refresh', { lessonIndex, refreshCount, url: currentUrl });
+          
           try {
-            // 重置 videoFrame，让 framenavigated 处理器在刷新后重新赋值并注入监听器
             videoFrame = null;
-            await page.reload({ waitUntil: 'domcontentloaded' });
+
+            if (waitResult === 'enc_expired') {
+              encExpired = false;
+              const curChapterId = extractChapterId(currentUrl);
+              logger.info('resume_repair', { message: '执行 enc 安全刷新换签机制，正在从主页抓取新鲜链接...' });
+              if (curChapterId) {
+                await page.goto(config.DEFAULT_COURSE_URL, { waitUntil: 'domcontentloaded' });
+                await page.waitForTimeout(2000);
+                await parseChapterList(page, config.DEFAULT_COURSE_URL);
+                const targetNode = chapterList.find(c => c.chapterId === curChapterId);
+                if (targetNode && targetNode.url) {
+                  currentUrl = targetNode.url;
+                }
+              }
+              await page.goto(currentUrl, { waitUntil: 'domcontentloaded' });
+            } else {
+              logger.warn('video_stuck_refresh', { lessonIndex, refreshCount, url: currentUrl });
+              await page.reload({ waitUntil: 'domcontentloaded' });
+            }
 
             // 等待 framenavigated 处理器完成帧定位与监听器注入（最多 12s）
             let waited = 0;
