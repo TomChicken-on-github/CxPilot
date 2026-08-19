@@ -5,6 +5,12 @@ const prompts = require('prompts');
 const config = require('./config');
 const logger = require('./lib/logger');
 
+// ─── 兼容 EXE 打包：如果是工作进程模式，直接接管执行主逻辑 ───
+if (process.argv[2] === '--worker') {
+  require('./main.js');
+  return;
+}
+
 const progressPath = path.join(process.cwd(), 'data', 'progress.json');
 
 // ─── 拦截 Ctrl+C 信号 (兼容终端原生行为) ───
@@ -87,7 +93,19 @@ async function runInteractiveMenu() {
 
 function runMainProcess(mainScript, startUrl, env) {
   return new Promise((resolve) => {
-    currentChild = spawn('node', [mainScript, startUrl], {
+    // 探测当前是否被 pkg 打包，或者以 .exe 运行
+    const isPackaged = process.pkg || process.execPath.endsWith('.exe');
+
+    let command, args;
+    if (isPackaged && !process.execPath.includes('node.exe')) {
+      command = process.execPath;
+      args = ['--worker', startUrl];
+    } else {
+      command = 'node';
+      args = [mainScript, startUrl];
+    }
+
+    currentChild = spawn(command, args, {
       stdio: 'inherit',
       env
     });

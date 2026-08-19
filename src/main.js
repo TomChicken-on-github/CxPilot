@@ -26,10 +26,20 @@ if (!lockResult.ok) {
   const outCaptured = 'data/captured_requests.json';
   const completedPath = 'data/completed_lessons.json';
   const progressPath = 'data/progress.json';
-  const startUrl = process.argv[2] || config.DEFAULT_COURSE_URL;
+  const args = process.argv.slice(1);
+  const startUrl = args.find(a => a && a.startsWith('http')) || process.env.PLAY_START_URL || config.DEFAULT_COURSE_URL;
   const maxLessons = config.MAX_LESSONS; // 从 config 引入
 
-  let browser = null;
+  let browser = await chromium.launch({
+    headless: false,
+    channel: 'msedge', // 直接调用系统自带的 Edge
+    args: [
+      '--autoplay-policy=no-user-gesture-required',
+      '--mute-audio',
+      '--disable-web-security',
+      '--disable-features=IsolateOrigins,site-per-process'
+    ]
+  });
   let context = null;
   let page = null;
   const captured = [];
