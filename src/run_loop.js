@@ -139,19 +139,19 @@ function runMainProcess(mainScript, startUrl, env) {
       args = [mainScript, startUrl];
     }
 
-    // 阻止 pkg 内部覆盖 PKG_EXECPATH 强制开启 Node.js 解释器模式
-    if (command === process.execPath) {
-      Object.defineProperty(env, 'PKG_EXECPATH', {
-        get: () => '',
-        set: () => {},
-        enumerable: true
-      });
-    }
-
     const spawnEnv = { ...env };
     if (isPackaged) {
       delete spawnEnv.PKG_EXECPATH;
       delete spawnEnv.PKG_IGNORE_NODE_FIPS;
+    }
+
+    // 阻止 pkg 内部覆盖 PKG_EXECPATH 强制开启 Node.js 解释器模式
+    if (command === process.execPath) {
+      Object.defineProperty(spawnEnv, 'PKG_EXECPATH', {
+        get: () => '',
+        set: () => {},
+        enumerable: true
+      });
     }
 
     currentChild = spawn(command, args, {
