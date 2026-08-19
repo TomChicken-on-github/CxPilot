@@ -41,7 +41,7 @@ if (!lockResult.ok) {
     if (fs.existsSync(exePath)) return exePath;
 
     console.log('\n[环境检测] 系统中未找到 Chromium 内核浏览器 (Edge/Chrome)。');
-    console.log('[环境修复] 发起 Chromium 内核浏览器下载任务 (自动化专用轻量版)...');
+    console.log('[补齐依赖] 发起 Chromium 内核浏览器下载任务 (自动化专用轻量版)...');
     
     if (!fs.existsSync(chromeDir)) fs.mkdirSync(chromeDir, { recursive: true });
     const zipPath = path.join(chromeDir, 'chromium.zip');
@@ -58,11 +58,11 @@ if (!lockResult.ok) {
       }).on('error', reject);
     });
 
-    console.log('[环境修复] 下载完成，正在部署本地执行环境...');
+    console.log('[补齐依赖] 下载完成，正在部署本地执行环境...');
     execSync(`powershell -Command "Expand-Archive -Path '${zipPath}' -DestinationPath '${chromeDir}' -Force"`);
     try { fs.unlinkSync(zipPath); } catch (e) {}
     
-    console.log('[环境修复] 浏览器内核部署完毕，即将启动...');
+    console.log('[补齐依赖] 浏览器内核部署完毕，即将启动...');
     return exePath;
   }
 
