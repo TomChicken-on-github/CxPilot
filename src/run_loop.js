@@ -7,16 +7,27 @@ const logger = require('./lib/logger');
 
 const progressPath = path.join(process.cwd(), 'data', 'progress.json');
 
-// ─── 拦截 Ctrl+C 信号 (防止 Ctrl+C 触发守护进程错误重启) ───
-let userInterrupted = false;
+// ─── 拦截 Ctrl+C 双击退出 (防误触保护) ───
+let sigintCount = 0;
+let sigintTimer = null;
+let currentChild = null; // 记录当前运行的子进程，以便强杀
 
 process.on('SIGINT', () => {
-  userInterrupted = true;
-  console.log('\n🛑 [用户中断] 收到 Ctrl+C 信号，正在退出...');
-  if (currentChild) {
-    try { currentChild.kill('SIGKILL'); } catch (e) {}
+  sigintCount++;
+  if (sigintCount >= 2) {
+    console.log('\n🛑 [退出] 收到两次 Ctrl+C，已确认退出程序。');
+    if (currentChild) {
+      try { currentChild.kill('SIGKILL'); } catch (e) {}
+    }
+    process.exit(0);
+  } else {
+    console.log('\n⚠️  再次按 Ctrl+C 确认退出程序 (防误触保护)');
+    if (sigintTimer) clearTimeout(sigintTimer);
+    sigintTimer = setTimeout(() => {
+      sigintCount = 0;
+      console.log('\n[防呆提示] 退出操作已取消，继续后台守护运行...');
+    }, 3000);
   }
-  process.exit(0);
 });
 
 function readProgress() {
@@ -141,11 +152,21 @@ async function start() {
       startUrl = p.lastUrl;
     }
 
-    // 如果是用户手动 Ctrl+C (130 / SIGINT / userInterrupted)，直接退出，绝不触发守护进程重启
-    if (userInterrupted || exitCode === 130 || signal === 'SIGINT') {
-      logger.info('runner_stop', { message: 'User interrupted via SIGINT', exitCode });
-      console.log('\n🛑 [用户中断] 已安全退出');
-      process.exit(0);
+    // ─── 防呆退出逻辑结合 ───
+    // Windows 控制台按下第一次 Ctrl+C 时，系统大概率会直接杀掉底层的 Chromium 导致子进程崩溃退出
+    // 如果现在正处于等待第二次 Ctrl+C 的 3 秒倒计时中
+    if (sigintCount === 1 || exitCode === 130 || signal === 'SIGINT') {
+      if (sigintCount === 0) {
+         // 说明子进程自己捕捉到了 SIGINT，但父进程没捕捉到（或者被系统杀），强制开启防呆
+         console.log('\n⚠️  检测到中断信号，再次按 Ctrl+C 确认退出程序 (防误触保护)');
+         sigintCount = 1;
+         if (sigintTimer) clearTimeout(sigintTimer);
+         sigintTimer = setTimeout(() => { sigintCount = 0; console.log('\n[防呆提示] 退出操作已取消，即将重新拉起浏览器...'); }, 3000);
+      }
+      // 挂起主循环，给用户 3 秒的时间决定是否按第二次 Ctrl+C
+      // 如果按了第二次，process.on('SIGINT') 会直接 process.exit(0)
+      await new Promise(resolve => setTimeout(resolve, 3200));
+      // 如果 3 秒后执行到了这里，说明用户没有按第二次 Ctrl+C，防呆生效，将其视为异常崩溃并继续往下走守护重启逻辑
     }
 
     // 退出码 0 代表正常跑完了 maxLessons 节课，正常结束
