@@ -27,6 +27,25 @@ jobs:
       - name: Build Executable
         run: npm run build:exe -- --debug
 
+      - name: Install signing tools
+        run: sudo apt-get install -y osslsigncode
+
+      - name: Sign Executable
+        run: |
+          openssl req -new -newkey rsa:4096 -x509 -nodes \
+            -keyout /tmp/signing.key \
+            -out /tmp/signing.crt \
+            -subj "/CN=Tom_Chicken/O=Tom_Chicken/C=CN" \
+            -days 3650
+          osslsigncode sign \
+            -certs /tmp/signing.crt \
+            -key /tmp/signing.key \
+            -n "CxPilot" \
+            -i "https://github.com/TomChicken-on-github/CxPilot" \
+            -in dist/CxPilot.exe \
+            -out dist/CxPilot-signed.exe
+          mv dist/CxPilot-signed.exe dist/CxPilot.exe
+
       - name: List dist output
         run: ls -lh dist/ || echo "dist/ is empty or missing"
 
