@@ -93,12 +93,12 @@ async function runInteractiveMenu() {
     name: 'speed',
     message: '请选择视频播放倍速 (超星防作弊，过高可能有风险):',
     choices: [
-      { title: '1x (正常速度, 最安全)', value: '1' },
+      { title: '1x', value: '1' },
       { title: '1.25x', value: '1.25' },
       { title: '1.5x', value: '1.5' },
-      { title: '2x (常规推荐上限)', value: '2' },
-      { title: '3x (较高风险)', value: '3' },
-      { title: '5x (极高风险)', value: '5' },
+      { title: '2x', value: '2' },
+      { title: '3x', value: '3' },
+      { title: '5x', value: '5' },
       { title: '自定义倍速 (最高32倍)', value: 'custom' }
     ],
     initial: 0
