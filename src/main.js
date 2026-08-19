@@ -423,7 +423,8 @@ if (!lockResult.ok) {
         const targetNode = chapterList.find(c => c.chapterId === targetChapterId);
         if (targetNode && targetNode.url) {
           currentUrl = targetNode.url;
-          logger.info('resume_repair', { message: '成功获取全新签名的安全链接' });
+          saveProgress({ lastUrl: currentUrl });
+          logger.info('resume_repair', { message: '成功获取全新签名的安全链接并已持久化' });
         }
       }
     }
@@ -547,6 +548,7 @@ if (!lockResult.ok) {
           const fresh = chapterList.find(c => c.chapterId === curChapterId);
           if (fresh && fresh.url) {
             currentUrl = fresh.url;
+            saveProgress({ lastUrl: currentUrl });
             logger.info('resume_repair', { message: '成功获取全新链接，准备重试...' });
             lessonIndex -= 1; // 保持本节不变，重新循环
             continue;
@@ -588,6 +590,7 @@ if (!lockResult.ok) {
           const fresh = chapterList.find(c => c.chapterId === curChapterId);
           if (fresh && fresh.url) {
             currentUrl = fresh.url;
+            saveProgress({ lastUrl: currentUrl });
             logger.info('resume_repair', { message: '成功获取全新链接，准备重试...' });
             lessonIndex -= 1; // 保持本节不变，重新循环
             continue;
@@ -822,6 +825,7 @@ if (!lockResult.ok) {
                 const targetNode = chapterList.find(c => c.chapterId === curChapterId);
                 if (targetNode && targetNode.url) {
                   currentUrl = targetNode.url;
+                  saveProgress({ lastUrl: currentUrl });
                 }
               }
               await page.goto(currentUrl, { waitUntil: 'domcontentloaded' });
