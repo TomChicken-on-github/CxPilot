@@ -55,9 +55,9 @@ if (!lockResult.ok) {
     await cleanup(1);
   });
 
-  // 拦截 SIGINT，防呆保护交给 supervisor (run_loop.js) 处理，避免按一次 Ctrl+C 就直接干掉浏览器导致触发重启
-  process.on('SIGINT', () => {
-    // 故意留空
+  // 拦截 SIGINT 并清理退出，退出码使用约定的 130，告知父进程这是用户中断而非崩溃
+  process.on('SIGINT', async () => {
+    await cleanup(130);
   });
 
   // ─── Helper: 提取 URL 参数 ───
