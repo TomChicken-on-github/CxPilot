@@ -140,9 +140,12 @@ function runMainProcess(mainScript, startUrl, env) {
     }
 
     currentChild = spawn(command, args, {
-      stdio: 'inherit',
+      stdio: ['inherit', 'pipe', 'pipe'],
       env
     });
+
+    currentChild.stdout.on('data', (data) => process.stdout.write(data));
+    currentChild.stderr.on('data', (data) => process.stderr.write(data));
 
     currentChild.on('exit', (code, signal) => {
       currentChild = null;
@@ -177,7 +180,7 @@ async function start() {
   while (true) {
     logger.info('runner_launch', { startUrl, targetChapterNum, retries, playSpeed });
 
-    const env = { ...process.env, PLAY_START_URL: startUrl, PLAY_SPEED: playSpeed };
+    const env = { ...process.env, PLAY_START_URL: startUrl, PLAY_SPEED: playSpeed, IS_CHILD_WORKER: '1' };
     if (targetChapterNum) env.TARGET_CHAPTER_NUM = targetChapterNum;
 
     // 使用异步 spawn 代替 spawnSync，让事件循环能处理 SIGINT

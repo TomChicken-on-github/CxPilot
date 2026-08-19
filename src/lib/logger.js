@@ -38,6 +38,7 @@ fs.writeFileSync(LOG_FILE, SESSION_HEADER);
 fs.writeFileSync(LATEST_FILE, SESSION_HEADER);
 
 function appendLog(line) {
+  if (process.env.IS_CHILD_WORKER) return;
   try {
     fs.appendFileSync(LOG_FILE, line + '\n');
     fs.appendFileSync(LATEST_FILE, line + '\n');
@@ -77,29 +78,31 @@ function teeToLog(chunk, encoding) {
   _teeGuard = false;
 }
 
-process.stdout.write = function(chunk, encoding, callback) {
-  teeToLog(chunk, encoding);
-  return _origStdout(chunk, encoding, callback);
-};
+if (!process.env.IS_CHILD_WORKER) {
+  process.stdout.write = function(chunk, encoding, callback) {
+    teeToLog(chunk, encoding);
+    return _origStdout(chunk, encoding, callback);
+  };
 
-process.stderr.write = function(chunk, encoding, callback) {
-  teeToLog(chunk, encoding);
-  return _origStderr(chunk, encoding, callback);
-};
+  process.stderr.write = function(chunk, encoding, callback) {
+    teeToLog(chunk, encoding);
+    return _origStderr(chunk, encoding, callback);
+  };
 
-// ─── 捕获 Node 未处理的全局异常，写入日志后退出 ───
-process.on('uncaughtException', (err) => {
-  const msg = `[FATAL] UncaughtException: ${err.stack || err.message}`;
-  appendLog(msg);
-  _origStderr(msg + '\n');
-  process.exit(1);
-});
+  // ─── 捕获 Node 未处理的全局异常，写入日志后退出 ───
+  process.on('uncaughtException', (err) => {
+    const msg = `[FATAL] UncaughtException: ${err.stack || err.message}`;
+    appendLog(msg);
+    _origStderr(msg + '\n');
+    process.exit(1);
+  });
 
-process.on('unhandledRejection', (reason) => {
-  const msg = `[FATAL] UnhandledRejection: ${reason instanceof Error ? reason.stack : String(reason)}`;
-  appendLog(msg);
-  _origStderr(msg + '\n');
-});
+  process.on('unhandledRejection', (reason) => {
+    const msg = `[FATAL] UnhandledRejection: ${reason instanceof Error ? reason.stack : String(reason)}`;
+    appendLog(msg);
+    _origStderr(msg + '\n');
+  });
+}
 
 function formatTime(date) {
   const pad = (n) => n.toString().padStart(2, '0');
