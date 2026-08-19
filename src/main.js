@@ -55,6 +55,11 @@ if (!lockResult.ok) {
     await cleanup(1);
   });
 
+  // 拦截 SIGINT，防呆保护交给 supervisor (run_loop.js) 处理，避免按一次 Ctrl+C 就直接干掉浏览器导致触发重启
+  process.on('SIGINT', () => {
+    // 故意留空
+  });
+
   // ─── Helper: 提取 URL 参数 ───
   function extractParam(url, param) {
     if (!url) return null;
@@ -503,6 +508,9 @@ if (!lockResult.ok) {
               if (m) {
                 logger.info('video_progress', { pct: m[1], lessonIndex });
               }
+            } else if (text.includes('[VIDEO_START]')) {
+              const m = text.match(/pct=([\d.]+)/);
+              if (m) logger.info('video_start', { pct: m[1] });
             } else if (text.includes('[VIDEO_REACHED_90]') || text.includes('[VIDEO_REACHED_END]')) {
               captured.push({ type: 'videolog', timestamp: Date.now(), text });
             }
@@ -518,9 +526,16 @@ if (!lockResult.ok) {
               window._reached90 = false;
 
               let lastLogTime = 0;
+              let hasLoggedStart = false;
               const checkProgress = () => {
                 if (window._reached90) return;
                 const pct = video.duration ? (video.currentTime / video.duration) : 0;
+                
+                if (!hasLoggedStart && video.duration) {
+                  hasLoggedStart = true;
+                  console.log(`[VIDEO_START] pct=${(pct * 100).toFixed(2)}`);
+                }
+
                 const now = Date.now();
                 if (now - lastLogTime > 5000) {
                   console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);

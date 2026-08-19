@@ -70,6 +70,7 @@ function log(level, event, data = {}) {
     case 'stop': humanMsg = `✅ [任务完成] 共处理 ${data.lessonsProcessed} 节课`; break;
     case 'lesson_start': humanMsg = `📚 [章节开始] 第 ${data.lessonIndex} 节，等待页面加载...`; break;
     case 'video_found': humanMsg = `🎥 [视频就绪] 正在注入进度检测与防作弊点击`; break;
+    case 'video_start': humanMsg = `▶️ [开始播放] 从 ${data.pct}% 处开始播放。💡 提示：如需退出请在终端按 Ctrl+C，直接关闭浏览器会导致异常重启！`; break;
     case 'video_progress':
       // 进度条专门逻辑：单行覆盖
       clearProgress();
