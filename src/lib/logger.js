@@ -7,10 +7,42 @@
  */
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const logsDir = path.join(process.cwd(), 'logs');
 if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir, { recursive: true });
-const LOG_FILE = path.join(logsDir, 'run.log');
+
+// ─── 生成本次运行的日志文件名 YYMMDD_hhmmss_platform_os_arch.log ───
+function makeLogFileName() {
+  const now = new Date();
+  const pad = (n) => n.toString().padStart(2, '0');
+  const yy  = now.getFullYear().toString().slice(-2);
+  const mm  = pad(now.getMonth() + 1);
+  const dd  = pad(now.getDate());
+  const hh  = pad(now.getHours());
+  const min = pad(now.getMinutes());
+  const ss  = pad(now.getSeconds());
+  const platform = process.platform;          // win32 / linux / darwin
+  const osType   = os.type().replace(/\s/g, '-'); // Windows_NT / Linux / Darwin
+  const arch     = os.arch();                 // x64 / arm64
+  return `${yy}${mm}${dd}_${hh}${min}${ss}_${platform}_${osType}_${arch}.log`;
+}
+
+const LOG_FILE    = path.join(logsDir, makeLogFileName());
+const LATEST_FILE = path.join(logsDir, 'latest.log');
+
+// 初始化日志文件（写入头部信息）
+const SESSION_HEADER = `# CxPilot Log — ${new Date().toISOString()} | ${process.platform} ${os.type()} ${os.arch()} Node ${process.version}\n`;
+fs.writeFileSync(LOG_FILE, SESSION_HEADER);
+// latest.log 直接复制为同一份（每次运行覆盖）
+fs.writeFileSync(LATEST_FILE, SESSION_HEADER);
+
+function appendLog(line) {
+  try {
+    fs.appendFileSync(LOG_FILE, line + '\n');
+    fs.appendFileSync(LATEST_FILE, line + '\n');
+  } catch (e) { /* ignore */ }
+}
 
 function formatTime(date) {
   const pad = (n) => n.toString().padStart(2, '0');
