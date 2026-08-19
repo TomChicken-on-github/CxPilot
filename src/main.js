@@ -678,7 +678,11 @@ if (!lockResult.ok) {
               };
 
               // 彻底剥夺前端业务脚本主动暂停视频的权利
-              video.pause = () => { console.log('[DEFENSE] 拦截到网页前端的 pause() 请求，已静默驳回。'); };
+              try {
+                video.pause = () => { console.log('[DEFENSE] 拦截到网页前端的 pause() 请求，已静默驳回。'); };
+              } catch (e) {
+                console.log('[DEFENSE] 无法覆写 pause 方法: ' + e.message);
+              }
 
               // 开启高频状态守护进程（无论几倍速都开启防暂停）
               setInterval(() => {

@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install pnpm
         run: npm install -g pnpm
@@ -31,7 +31,7 @@ jobs:
         run: pnpm run build:exe
 
       - name: Update Development Release (Push to main)
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main'
         with:
           tag_name: dev-latest
@@ -45,7 +45,7 @@ jobs:
             ⚠️ *注意：此版本包含最新功能，但可能不稳定。*
 
       - name: Publish Stable Release (Push tag v*)
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/v')
         with:
           files: dist/CxPilot.exe
