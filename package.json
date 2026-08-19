@@ -8,7 +8,7 @@
 		"start": "node src/run_loop.js",
 		"capture": "node src/main.js",
 		"analyze": "node tools/analyze_enc.js",
-		"build:exe": "pkg . -t node24-win-x64 --out-path dist"
+		"build:exe": "pkg . -t node24-win-x64 --output dist/CxPilot.exe"
 	},
 	"pkg": {
 		"assets": [
