@@ -31,21 +31,22 @@ pnpm exec playwright install chromium
 
 ### 登录态准备
 
-首次使用需手动登录一次并导出 `storage.json`：
+首次使用需手动登录一次并导出登录态到 `data/storage.json`：
 
 ```bash
-npx playwright open --save-storage=storage.json https://mooc1.chaoxing.com
+mkdir data
+npx playwright open --save-storage=data/storage.json https://mooc1.chaoxing.com
 ```
 
-在打开的浏览器中完成登录，关闭窗口后 `storage.json` 即生成。
+在打开的浏览器中完成登录，关闭窗口后 `data/storage.json` 即生成。
 
-> ⚠️ **不要将 `storage.json` 提交到版本库！** 它包含你的登录凭据。
+> ⚠️ **不要将 `data/storage.json` 提交到版本库！** 它包含你的登录凭据。
 
 ### 运行
 
 ```bash
 # 传入 chapterId（纯数字）或完整播放页 URL
-node run_loop.js 1172050672
+node src/run_loop.js 1172050672
 
 # 或使用 npm 脚本
 pnpm start 1172050672
@@ -57,19 +58,24 @@ pnpm start 1172050672
 
 ```
 CxPilot/
-├── capture_play_requests_entry.js  # 主脚本：自动化播放 & 进度检测
-├── capture_play_requests.js        # 早期探测脚本（一次性抓包）
-├── run_loop.js                     # 启动器（单次运行模式）
-├── analyze_enc.js                  # 签名/enc 分析工具
-├── analyze_capture.js              # 抓包分析工具
-├── inspect_next_button.js          # 下一节按钮检测工具
-├── lib/
-│   ├── lock.js                     # 进程锁模块
-│   └── logger.js                   # 日志模块
-├── storage.json                    # 登录态（⚠️ 勿提交）
-├── captured_requests.json          # 抓包与事件日志（运行时追加）
-├── completed_lessons.json          # 已完成章节列表
-└── run.log                         # 运行日志
+├── src/
+│   ├── main.js                     # 主脚本：自动化播放 & 进度检测
+│   ├── run_loop.js                 # 启动器（单次运行模式）
+│   └── lib/
+│       ├── lock.js                 # 进程锁模块
+│       └── logger.js               # 日志模块
+├── tools/
+│   ├── analyze_enc.js              # 签名/enc 分析工具
+│   ├── analyze_capture.js          # 抓包分析工具
+│   ├── capture_play_requests.js    # 早期探测脚本（一次性抓包）
+│   └── inspect_next_button.js      # 下一节按钮检测工具
+├── data/                           # 运行时产生的数据（被 git 忽略）
+│   ├── storage.json                # 登录态（⚠️ 包含敏感凭据）
+│   ├── captured_requests.json      # 抓包与事件日志（运行时追加）
+│   ├── completed_lessons.json      # 已完成章节列表
+│   └── runner.lock                 # 进程锁文件
+└── logs/                           # 运行日志目录
+    └── run.log
 ```
 
 ---

@@ -4,9 +4,9 @@
 	"description": "Automated Chaoxing lecture pilot — auto-plays recorded courses and advances chapters hands-free.",
 	"license": "MIT",
 	"scripts": {
-		"start": "node run_loop.js",
-		"capture": "node capture_play_requests_entry.js",
-		"analyze": "node analyze_enc.js"
+		"start": "node src/run_loop.js",
+		"capture": "node src/main.js",
+		"analyze": "node tools/analyze_enc.js"
 	},
 	"devDependencies": {
 		"playwright": "^1.62.1"

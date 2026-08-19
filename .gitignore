@@ -1,18 +1,8 @@
 # ── 依赖 ──────────────────────────────────────────
 node_modules/
 
-# ── 敏感文件（登录态，勿提交）──────────────────────
-storage.json
-
-# ── 运行时产物（每次运行自动生成）────────────────────
-captured_requests.json
-chapter_list.json
-completed_lessons.json
-next_button_capture.json
-progress.json
-
-# ── 进程锁 ────────────────────────────────────────
-runner.lock
+# ── 敏感文件与运行时产物（每次运行自动生成）──────────
+data/
 
 # ── 日志 ──────────────────────────────────────────
 *.log

@@ -9,7 +9,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const LOCK_FILE = path.join(process.cwd(), 'runner.lock');
+const dataDir = path.join(process.cwd(), 'data');
+if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+const LOCK_FILE = path.join(dataDir, 'runner.lock');
 const STALE_THRESHOLD_MS = 30 * 60 * 1000; // 30 minutes
 
 let _acquired = false;

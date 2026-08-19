@@ -8,7 +8,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const LOG_FILE = path.join(process.cwd(), 'run.log');
+const logsDir = path.join(process.cwd(), 'logs');
+if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir, { recursive: true });
+const LOG_FILE = path.join(logsDir, 'run.log');
 
 /**
  * 写入一行 JSON Lines 日志

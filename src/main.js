@@ -7,6 +7,10 @@ const lock = require('./lib/lock');
 //   node capture_play_requests_entry.js <start_playback_url>
 // If no URL provided, falls back to course listing URL.
 
+// ─── 初始化数据目录 ───
+if (!fs.existsSync('data')) fs.mkdirSync('data', { recursive: true });
+if (!fs.existsSync('logs')) fs.mkdirSync('logs', { recursive: true });
+
 // ─── T2: 进程锁 ───
 const lockResult = lock.acquire();
 if (!lockResult.ok) {
@@ -17,10 +21,10 @@ if (!lockResult.ok) {
 
 // ─── T1: 全局错误处理 ───
 (async () => {
-  const storagePath = 'storage.json';
-  const outCaptured = 'captured_requests.json';
-  const completedPath = 'completed_lessons.json';
-  const progressPath = 'progress.json';
+  const storagePath = 'data/storage.json';
+  const outCaptured = 'data/captured_requests.json';
+  const completedPath = 'data/completed_lessons.json';
+  const progressPath = 'data/progress.json';
   const defaultCourseUrl = 'https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu?courseid=263837700&clazzid=147110605&cpi=517019981&enc=1c0c74b9a48543e4ae307613f2ebf9ad&t=1787037581265&pageHeader=1';
   const startUrl = process.argv[2] || defaultCourseUrl;
   const maxLessons = 20; // safety limit
@@ -97,7 +101,7 @@ if (!lockResult.ok) {
 
   // ─── T6+: 章节列表缓存（解决 chapterId 乱序问题）───
   // 保存格式：[{ chapterId, url }, ...]，按页面侧边栏显示顺序排列
-  const chapterListPath = 'chapter_list.json';
+  const chapterListPath = 'data/chapter_list.json';
   let chapterList = [];
   try {
     if (fs.existsSync(chapterListPath)) {
