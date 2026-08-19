@@ -30,16 +30,63 @@ if (!lockResult.ok) {
   const startUrl = args.find(a => a && a.startsWith('http')) || process.env.PLAY_START_URL || config.DEFAULT_COURSE_URL;
   const maxLessons = config.MAX_LESSONS; // 从 config 引入
 
-  let browser = await chromium.launch({
-    headless: false,
-    channel: 'msedge', // 直接调用系统自带的 Edge
-    args: [
-      '--autoplay-policy=no-user-gesture-required',
-      '--mute-audio',
-      '--disable-web-security',
-      '--disable-features=IsolateOrigins,site-per-process'
-    ]
-  });
+  // ─── 自动下载备用浏览器逻辑 ───
+  async function downloadChromiumFallback() {
+    const fs = require('fs');
+    const https = require('https');
+    const { execSync } = require('child_process');
+    const chromeDir = path.join(process.cwd(), 'data', 'chromium-fallback');
+    const exePath = path.join(chromeDir, 'chrome-win64', 'chrome.exe');
+    
+    if (fs.existsSync(exePath)) return exePath;
+
+    console.log('\n[环境检测] 系统中未找到 Chromium 内核浏览器 (Edge/Chrome)。');
+    console.log('[环境修复] 发起 Chromium 内核浏览器下载任务 (自动化专用轻量版)...');
+    
+    if (!fs.existsSync(chromeDir)) fs.mkdirSync(chromeDir, { recursive: true });
+    const zipPath = path.join(chromeDir, 'chromium.zip');
+
+    // 下载自动化专用的稳定轻量版 Chromium (Chrome for Testing)
+    const url = 'https://storage.googleapis.com/chrome-for-testing-public/121.0.6167.85/win64/chrome-win64.zip';
+    
+    await new Promise((resolve, reject) => {
+      const file = fs.createWriteStream(zipPath);
+      https.get(url, (response) => {
+        if (response.statusCode !== 200) return reject(new Error('下载失败'));
+        response.pipe(file);
+        file.on('finish', () => { file.close(); resolve(); });
+      }).on('error', reject);
+    });
+
+    console.log('[环境修复] 下载完成，正在部署本地执行环境...');
+    execSync(`powershell -Command "Expand-Archive -Path '${zipPath}' -DestinationPath '${chromeDir}' -Force"`);
+    try { fs.unlinkSync(zipPath); } catch (e) {}
+    
+    console.log('[环境修复] 浏览器内核部署完毕，即将启动...');
+    return exePath;
+  }
+
+  const launchArgs = [
+    '--autoplay-policy=no-user-gesture-required',
+    '--mute-audio',
+    '--disable-web-security',
+    '--disable-features=IsolateOrigins,site-per-process'
+  ];
+
+  let browser;
+  try {
+    // 1. 尝试调用内置 Edge (一定会新开一个独立的无痕化隔离窗口，而非在当前浏览器的标签页中打开)
+    browser = await chromium.launch({ headless: false, channel: 'msedge', args: launchArgs });
+  } catch (e1) {
+    try {
+      // 2. 尝试调用内置 Chrome
+      browser = await chromium.launch({ headless: false, channel: 'chrome', args: launchArgs });
+    } catch (e2) {
+      // 3. 实在没有，自动拉取轻量内核
+      const customExePath = await downloadChromiumFallback();
+      browser = await chromium.launch({ headless: false, executablePath: customExePath, args: launchArgs });
+    }
+  }
   let context = null;
   let page = null;
   const captured = [];
