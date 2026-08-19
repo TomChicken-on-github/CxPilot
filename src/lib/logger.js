@@ -45,7 +45,7 @@ function log(level, event, data = {}) {
     case 'video_found': humanMsg = `🎥 [视频就绪] 正在注入进度检测与防作弊点击`; break;
     case 'progress_90': humanMsg = `🎉 [进度达标] 视频进度已 >= 90% (将等待 ${data.waitMs}ms 后跳章)`; break;
     case 'complete': humanMsg = `💾 [保存记录] 章节 ${data.chapterId} 已标记为完成`; break;
-    case 'click_next_method': humanMsg = `🖱️ [触发跳章] 采用方案: ${data.method}`; break;
+    case 'click_next_method': humanMsg = `🖱️ [触发跳章] 采用方案: ${data.method === 'bottom_next_button' ? '播放器下方按钮' : data.method}`; break;
     case 'click_next': humanMsg = `🖱️ [点击下一节] 触发结果: ${data.clicked ? '成功' : '失败'}`; break;
     case 'navigate': humanMsg = `🧭 [导航跳转] 方式: ${data.source} ${data.chapterId ? `-> 章节 ${data.chapterId}` : ''}`; break;
     case 'skip': humanMsg = `⏭️ [跳过当前] 章节 ${data.chapterId} 此前已完成`; break;

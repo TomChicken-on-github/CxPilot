@@ -206,19 +206,58 @@ if (!lockResult.ok) {
   // ─── T6: 章节列表解析 ───
   async function parseChapterList(page, currentUrl) {
     try {
-      // 方法1：从页面 DOM 解析完整章节列表，同时更新本地缓存
+      // 方法1：从侧边栏 DOM 解析并根据章节前缀序号 (如 1.1, 1.2) 严格排序
       const rawChapters = await safeEval(page, () => {
-        const links = Array.from(document.querySelectorAll('a[href*="chapterId"], .chapter_item a, .catalogFolder a, .posCatalog_select a'));
-        const seen = new Set();
-        return links.reduce((acc, a) => {
-          const href = a.href || null;
-          if (!href) return acc;
+        // 尽量只在侧边栏容器中寻找，排除顶部或底部的无关推荐链接
+        const containers = document.querySelectorAll('.posCatalog_box, #courselist, .side-catalog, .chapter_item, .timeline');
+        let links = [];
+        if (containers.length > 0) {
+          containers.forEach(c => { links.push(...Array.from(c.querySelectorAll('a[href*="chapterId"]'))); });
+        } else {
+          links = Array.from(document.querySelectorAll('a[href*="chapterId"]'));
+        }
+
+        // 提取带序号的节点
+        let parsed = links.map(a => {
+          const href = a.href || '';
+          const text = (a.innerText || a.textContent || '').trim();
           const m = href.match(/[?&]chapterId=(\d+)/);
-          if (!m || seen.has(m[1])) return acc;
-          seen.add(m[1]);
-          acc.push({ chapterId: m[1], url: href });
-          return acc;
-        }, []);
+          if (!m) return null;
+          
+          let nums = [];
+          const numMatch = text.match(/^(\d+(?:\.\d+)*)/);
+          if (numMatch) {
+            nums = numMatch[1].split('.').map(Number);
+          }
+          return { chapterId: m[1], url: href, text, nums };
+        }).filter(Boolean);
+
+        // 去重
+        const seen = new Set();
+        const unique = [];
+        for (const item of parsed) {
+          if (!seen.has(item.chapterId)) {
+            seen.add(item.chapterId);
+            unique.push(item);
+          }
+        }
+
+        // 如果存在序号，则按照序号严格排序 (例如 1.1 -> 1.2 -> 2.1)
+        const hasNumbering = unique.some(i => i.nums.length > 0);
+        if (hasNumbering) {
+          unique.sort((a, b) => {
+            if (a.nums.length === 0 && b.nums.length > 0) return 1;
+            if (b.nums.length === 0 && a.nums.length > 0) return -1;
+            const len = Math.max(a.nums.length, b.nums.length);
+            for (let i = 0; i < len; i++) {
+              const valA = a.nums[i] || 0;
+              const valB = b.nums[i] || 0;
+              if (valA !== valB) return valA - valB;
+            }
+            return 0;
+          });
+        }
+        return unique.map(u => ({ chapterId: u.chapterId, url: u.url }));
       }, []);
 
       if (rawChapters && rawChapters.length > 1) {
@@ -364,31 +403,6 @@ if (!lockResult.ok) {
               continue;
             }
 
-            // 回退1: 调用 PCount.next() 跳到下一节
-            let skipped = false;
-            try {
-              const chId = extractChapterId(currentUrl);
-              const coId = extractCourseId(currentUrl);
-              const clId = extractClazzId(currentUrl);
-              skipped = await page.evaluate(({ chId, coId, clId }) => {
-                if (typeof PCount !== 'undefined' && typeof PCount.next === 'function') {
-                  try { PCount.next('1', chId, coId, clId, ''); return true; } catch (e) { return false; }
-                }
-                return false;
-              }, { chId, coId, clId });
-            } catch (e) { /* ignore */ }
-
-            if (skipped) {
-              // PCount.next 会触发页面跳转，等待 URL 变化
-              logger.info('navigate', { source: 'PCount.next_skip', url: currentUrl });
-              for (let w = 0; w < 30; w++) {
-                await page.waitForTimeout(1000);
-                if (page.url() !== currentUrl) break;
-              }
-              currentUrl = page.url();
-              await page.waitForTimeout(500);
-              continue;
-            }
 
             // 回退2: 点击侧边栏下一个章节
             try {
@@ -591,25 +605,25 @@ if (!lockResult.ok) {
         // ─── T3: 点击"下一节" ───
         let clicked = false;
 
-        // 方法1 (最优): 直接调用页面上的 PCount.next() 函数
-        // 所有"下一节"按钮都是 display:none，但 onclick 都调用 PCount.next()
+        // 方法1 (优先): 直接点击播放器下方的"下一节"按钮 (处理 display:none)
         if (!clicked) {
           try {
-            const chId = extractChapterId(currentUrl);
-            const coId = extractCourseId(currentUrl);
-            const clId = extractClazzId(currentUrl);
-            clicked = await page.evaluate(({ chId, coId, clId }) => {
-              if (typeof PCount !== 'undefined' && typeof PCount.next === 'function') {
-                try { PCount.next('1', chId, coId, clId, ''); return true; } catch (e) { return false; }
+            clicked = await page.evaluate(() => {
+              const el = document.querySelector('.nextChapter, #prevNextFocusNext, .prev_next.next');
+              if (el) {
+                el.style.display = '';
+                el.click();
+                return true;
               }
               return false;
-            }, { chId, coId, clId });
-            if (clicked) logger.info('click_next_method', { method: 'PCount.next', lessonIndex });
+            });
+            if (clicked) logger.info('click_next_method', { method: 'bottom_next_button', lessonIndex });
           } catch (e) { /* ignore */ }
         }
 
-        // 方法2: 通过侧边栏章节目录点击下一节
-        // .posCatalog_active 是当前章节，取其下一个兄弟 .posCatalog_select 并点击
+        // 方法2 (回退): 按照右侧目录栏的顺序 (通过在 fallback 中执行 parseChapterList 来处理)
+
+        // 方法3 (再回退): 通过侧边栏章节目录点击下一节
         if (!clicked) {
           try {
             clicked = await page.evaluate(() => {
@@ -627,22 +641,6 @@ if (!lockResult.ok) {
               return false;
             });
             if (clicked) logger.info('click_next_method', { method: 'sidebar_click', lessonIndex });
-          } catch (e) { /* ignore */ }
-        }
-
-        // 方法3: 回退 — 强制点击 display:none 的下一节按钮(移除 display:none 后点击)
-        if (!clicked) {
-          try {
-            clicked = await page.evaluate(() => {
-              const el = document.querySelector('.nextChapter, #prevNextFocusNext');
-              if (el) {
-                el.style.display = '';
-                el.click();
-                return true;
-              }
-              return false;
-            });
-            if (clicked) logger.info('click_next_method', { method: 'force_show_click', lessonIndex });
           } catch (e) { /* ignore */ }
         }
 
