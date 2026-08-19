@@ -34,7 +34,7 @@ async function runInteractiveMenu() {
   const p = readProgress();
   const hasHistory = !!(p.nextLesson || p.lastUrl);
 
-  console.log(`\n📚 欢迎使用 CxPilot - 自动化学习助手`);
+  console.log(`\n📚 欢迎使用 CxPilot - 自动网课挂机程序`);
   console.log(`====================================\n`);
 
   const choices = [];

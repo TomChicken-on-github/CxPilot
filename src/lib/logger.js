@@ -13,13 +13,23 @@ if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir, { recursive: true });
 const LOG_FILE = path.join(logsDir, 'run.log');
 
 function formatTime(date) {
-  const yy = String(date.getFullYear()).slice(-2);
-  const MM = String(date.getMonth() + 1).padStart(2, '0');
-  const DD = String(date.getDate()).padStart(2, '0');
-  const HH = String(date.getHours()).padStart(2, '0');
-  const mm = String(date.getMinutes()).padStart(2, '0');
-  const ss = String(date.getSeconds()).padStart(2, '0');
-  return `${yy}-${MM}-${DD} ${HH}:${mm}:${ss}`;
+  const pad = (n) => n.toString().padStart(2, '0');
+  const y = date.getFullYear().toString().slice(-2);
+  const m = pad(date.getMonth() + 1);
+  const d = pad(date.getDate());
+  const h = pad(date.getHours());
+  const min = pad(date.getMinutes());
+  const s = pad(date.getSeconds());
+  return `${y}-${m}-${d} ${h}:${min}:${s}`;
+}
+
+function createProgressBar(pctString, length = 25) {
+  const pct = Math.min(100, Math.max(0, parseFloat(pctString) || 0));
+  const filledLength = Math.round(length * pct / 100);
+  const emptyLength = length - filledLength;
+  const filledStr = '█'.repeat(filledLength);
+  const emptyStr = '░'.repeat(emptyLength);
+  return `[${filledStr}${emptyStr}]`;
 }
 
 let currentProgress = '';
@@ -75,7 +85,8 @@ function log(level, event, data = {}) {
       // 进度条专门逻辑：单行覆盖
       clearProgress();
       const timeStr = formatTime(new Date());
-      currentProgress = `[${timeStr}] 📈 [播放进度] 当前已播放 ${data.pct}%`;
+      const bar = createProgressBar(data.pct);
+      currentProgress = `[${timeStr}] 📈 [播放进度] ${bar} ${data.pct}%`;
       process.stdout.write(currentProgress);
       return;
     case 'progress_90': 
