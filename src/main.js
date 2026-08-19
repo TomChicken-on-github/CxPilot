@@ -535,9 +535,37 @@ if (!lockResult.ok) {
       await page.goto(currentUrl, { waitUntil: 'domcontentloaded' });
       await page.waitForTimeout(1500);
 
+      // ─── 页面级 enc 过期检测 (应对报错直接写在 DOM 里的情况) ───
+      const pageHasEncError = await page.evaluate(() => document.body ? document.body.innerText.includes('enc校验') : false).catch(() => false);
+      if (pageHasEncError) {
+        logger.warn('enc_expired', { message: '检测到页面内嵌 enc 校验失败报错！正在返回主页换签...' });
+        const curChapterId = extractChapterId(currentUrl);
+        if (curChapterId) {
+          await page.goto(config.DEFAULT_COURSE_URL, { waitUntil: 'domcontentloaded' });
+          await page.waitForTimeout(2000);
+          await parseChapterList(page, config.DEFAULT_COURSE_URL);
+          const fresh = chapterList.find(c => c.chapterId === curChapterId);
+          if (fresh && fresh.url) {
+            currentUrl = fresh.url;
+            logger.info('resume_repair', { message: '成功获取全新链接，准备重试...' });
+            lessonIndex -= 1; // 保持本节不变，重新循环
+            continue;
+          }
+        }
+      }
+
       // ─── T3: 等待 video 元素（带重试） ───
       let videoFrame = null;
+      let encErrorDuringWait = false;
+      
       for (let i = 0; i < 30; i++) {
+        // 轮询时顺便检测是否弹出了页面级的 enc 错误
+        const hasEncError = await page.evaluate(() => document.body ? document.body.innerText.includes('enc校验') : false).catch(() => false);
+        if (hasEncError) {
+          encErrorDuringWait = true;
+          break;
+        }
+
         // check main frame
         const mainVideo = await safeFind(page, 'video', 1, 0);
         if (mainVideo) { videoFrame = page.mainFrame(); break; }
@@ -548,6 +576,23 @@ if (!lockResult.ok) {
         }
         if (videoFrame) break;
         await page.waitForTimeout(1000);
+      }
+
+      if (encErrorDuringWait) {
+        logger.warn('enc_expired', { message: '在寻找视频框架时检测到页面内嵌 enc 校验失败报错！正在返回主页换签...' });
+        const curChapterId = extractChapterId(currentUrl);
+        if (curChapterId) {
+          await page.goto(config.DEFAULT_COURSE_URL, { waitUntil: 'domcontentloaded' });
+          await page.waitForTimeout(2000);
+          await parseChapterList(page, config.DEFAULT_COURSE_URL);
+          const fresh = chapterList.find(c => c.chapterId === curChapterId);
+          if (fresh && fresh.url) {
+            currentUrl = fresh.url;
+            logger.info('resume_repair', { message: '成功获取全新链接，准备重试...' });
+            lessonIndex -= 1; // 保持本节不变，重新循环
+            continue;
+          }
+        }
       }
 
       if (!videoFrame) {
