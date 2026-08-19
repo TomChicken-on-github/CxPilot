@@ -579,11 +579,12 @@ if (!lockResult.ok) {
                 checkProgress();
               };
               video.addEventListener('timeupdate', handler);
-              // ⑤ 自动播放：视频已就绪直接 play()，否则等 canplay 事件后再触发
+              // ⑤ 自动播放：无论 readyState 如何，立即调用 play() 触发视频加载和播放。
+              // play() 本身会启动数据加载；若被浏览器拒绝（autoplay policy），
+              // 则等待 canplay 事件（数据已缓冲足够时）再重试一次。
               const tryPlay = () => video.play().catch(() => {});
-              if (video.readyState >= 3) { // HAVE_FUTURE_DATA or better
-                tryPlay();
-              } else {
+              tryPlay();
+              if (video.readyState < 3) {
                 video.addEventListener('canplay', tryPlay, { once: true });
               }
             } catch (e) { console.error(e); }
