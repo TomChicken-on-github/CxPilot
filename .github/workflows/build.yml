@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 允许创建和更新 Release
+      contents: write
 
     steps:
       - name: Checkout Code
@@ -21,14 +21,11 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
       - name: Install Dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build Executable
-        run: pnpm run build:exe
+        run: npm run build:exe
 
       - name: Update Development Release (Push to main)
         uses: softprops/action-gh-release@v2
@@ -41,7 +38,7 @@ jobs:
           body: |
             自动构建的最新开发版。
             **Commit:** ${{ github.sha }}
-            
+
             ⚠️ *注意：此版本包含最新功能，但可能不稳定。*
 
       - name: Publish Stable Release (Push tag v*)
