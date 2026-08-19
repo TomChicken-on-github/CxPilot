@@ -44,6 +44,63 @@ function appendLog(line) {
   } catch (e) { /* ignore */ }
 }
 
+// ─── 剥离 ANSI 转义码，让日志文件可读 ───
+function stripAnsi(str) {
+  // 去掉颜色/光标控制码，去掉 \r（进度条回车覆盖）
+  return str
+    .replace(/\x1b\[[0-9;]*[A-Za-z]/g, '')
+    .replace(/\x1b\][^\x07]*\x07/g, '')
+    .replace(/\r/g, '');
+}
+
+// ─── 劫持 stdout / stderr，所有输出全部 tee 到日志文件 ───
+let _teeGuard = false;
+const _origStdout = process.stdout.write.bind(process.stdout);
+const _origStderr = process.stderr.write.bind(process.stderr);
+
+function teeToLog(chunk, encoding) {
+  if (_teeGuard) return;
+  _teeGuard = true;
+  try {
+    const text = Buffer.isBuffer(chunk)
+      ? chunk.toString(encoding || 'utf8')
+      : (typeof chunk === 'string' ? chunk : String(chunk));
+    const clean = stripAnsi(text);
+    // 过滤掉纯空白或进度条清除的残留
+    if (clean.trim()) {
+      const lines = clean.split('\n');
+      for (const ln of lines) {
+        if (ln.trim()) appendLog(ln);
+      }
+    }
+  } catch (e) { /* ignore */ }
+  _teeGuard = false;
+}
+
+process.stdout.write = function(chunk, encoding, callback) {
+  teeToLog(chunk, encoding);
+  return _origStdout(chunk, encoding, callback);
+};
+
+process.stderr.write = function(chunk, encoding, callback) {
+  teeToLog(chunk, encoding);
+  return _origStderr(chunk, encoding, callback);
+};
+
+// ─── 捕获 Node 未处理的全局异常，写入日志后退出 ───
+process.on('uncaughtException', (err) => {
+  const msg = `[FATAL] UncaughtException: ${err.stack || err.message}`;
+  appendLog(msg);
+  _origStderr(msg + '\n');
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason) => {
+  const msg = `[FATAL] UnhandledRejection: ${reason instanceof Error ? reason.stack : String(reason)}`;
+  appendLog(msg);
+  _origStderr(msg + '\n');
+});
+
 function formatTime(date) {
   const pad = (n) => n.toString().padStart(2, '0');
   const y = date.getFullYear().toString().slice(-2);
