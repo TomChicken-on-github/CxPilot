@@ -545,111 +545,174 @@ if (!lockResult.ok) {
           }
         });
 
-        // clear auto-click interval when navigation occurs
-        page.on('framenavigated', async f => {
+        // ─── 进度监听注入（可复用，刷新后重新调用）───
+        const injectProgressListener = async (frame) => {
+          await safeEval(frame, () => {
+            try {
+              const video = document.querySelector('video');
+              if (!video) return;
+              window._reached90 = false;
+
+              let lastLogTime = 0;
+              const checkProgress = () => {
+                if (window._reached90) return;
+                const pct = video.duration ? (video.currentTime / video.duration) : 0;
+                const now = Date.now();
+                if (now - lastLogTime > 5000) {
+                  console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);
+                  lastLogTime = now;
+                }
+                if (pct >= 0.90) {
+                  window._reached90 = true;
+                  console.log('[VIDEO_REACHED_90]');
+                }
+              };
+
+              if (video.readyState >= 1 && video.duration) checkProgress();
+              if (!window._reached90) video.addEventListener('loadedmetadata', checkProgress, { once: true });
+              const progressInterval = setInterval(() => {
+                if (window._reached90) { clearInterval(progressInterval); return; }
+                checkProgress();
+              }, 500);
+              const handler = () => {
+                if (window._reached90) { video.removeEventListener('timeupdate', handler); return; }
+                checkProgress();
+              };
+              video.addEventListener('timeupdate', handler);
+              // ⑤ 自动播放：视频已就绪直接 play()，否则等 canplay 事件后再触发
+              const tryPlay = () => video.play().catch(() => {});
+              if (video.readyState >= 3) { // HAVE_FUTURE_DATA or better
+                tryPlay();
+              } else {
+                video.addEventListener('canplay', tryPlay, { once: true });
+              }
+            } catch (e) { console.error(e); }
+          });
+        };
+
+        // ─── 自动重新注入：监听 iframe 刷新 / 用户手动刷新 / 视频页重建 ───
+        // 当任何非主框架发生跳转且该框架含有 video 元素时，自动更新 videoFrame 并重新注入监听器。
+        // 这同时覆盖了：用户手动刷新、stuck-refresh 触发的 page.reload()、视频 iframe 异步重建等场景。
+        page.on('framenavigated', async (frame) => {
+          // 清理主框架上的自动点击定时器
           try { await page.evaluate(() => { if (window._autoClickInterval) { clearInterval(window._autoClickInterval); window._autoClickInterval = null; } }); } catch (e) { }
-        });
 
-        // ─── 注入进度监听 ───
-        // 录播课不可拖拽进度，但每次启动会从上次断点续播。
-        // 若断点进度已 ≥90%，需在注入时立即检测，避免等待 timeupdate 触发超时。
-        await safeEval(videoFrame, () => {
+          // 只关心非主框架（避免在章节跳转时误触发）
+          if (frame === page.mainFrame()) return;
+
+          // 等待帧内容稳定（视频播放器异步挂载）
+          await page.waitForTimeout(800).catch(() => {});
+
           try {
-            const video = document.querySelector('video');
-            if (!video) return;
-            if (window._reached90 == null) window._reached90 = false;
+            const hasVideo = await frame.evaluate(() => !!document.querySelector('video'));
+            if (!hasVideo) return;
 
-            let lastLogTime = 0;
-            const checkProgress = () => {
-              if (window._reached90) return;
-              const pct = video.duration ? (video.currentTime / video.duration) : 0;
-              const now = Date.now();
-              if (now - lastLogTime > 5000) {
-                console.log(`[VIDEO_PROGRESS] current=${video.currentTime} duration=${video.duration} pct=${(pct * 100).toFixed(2)}`);
-                lastLogTime = now;
-              }
-              if (pct >= 0.90) {
-                window._reached90 = true;
-                console.log('[VIDEO_REACHED_90]');
-              }
-            };
-
-            // ① 立即检查：视频已从断点恢复，可能进度已 ≥90%
-            if (video.readyState >= 1 && video.duration) {
-              checkProgress();
-            }
-
-            // ② loadedmetadata 兜底：元数据尚未就绪时，加载后再检查一次
-            if (!window._reached90) {
-              video.addEventListener('loadedmetadata', checkProgress, { once: true });
-            }
-
-            // ③ setInterval 主动轮询：防止视频被浏览器拦截自动播放（处于暂停状态）导致 timeupdate 不触发
-            // 播放器通常会异步从服务器获取上次进度并 seek 到该位置，此时即使视频没播放，currentTime 也会更新。
-            const progressInterval = setInterval(() => {
-              if (window._reached90) {
-                clearInterval(progressInterval);
-                return;
-              }
-              checkProgress();
-            }, 500);
-
-            // ④ timeupdate 持续监听 (双保险)
-            const handler = () => {
-              if (window._reached90) { video.removeEventListener('timeupdate', handler); return; }
-              checkProgress();
-            };
-            video.addEventListener('timeupdate', handler);
-
-            // ⑤ 尝试继续播放（不可拖拽但可以 play）
-            video.play().catch(() => {});
-          } catch (e) { console.error(e); }
+            videoFrame = frame;
+            logger.info('frame_reinjected', { lessonIndex, url: currentUrl });
+            await injectProgressListener(frame);
+          } catch (e) { /* frame may have been destroyed right after navigating */ }
         });
+
+        // 首次注入
+        await injectProgressListener(videoFrame);
 
         // ─── T8: 播放期间的行为模拟 ───
         const behaviorInterval = setInterval(async () => {
           try { await simulateHumanBehavior(page); } catch (e) { /* ignore */ }
         }, 15000 + Math.floor(Math.random() * 30000)); // 每 15-45s 做一次
 
-        // 超时策略：不设总时长上限，只要视频在正常播放（currentTime 有变化）就一直等。
-        // 若 5 分钟内 currentTime 完全没有任何变化，才判定为卡死并超时退出。
-        const STUCK_TIMEOUT_MS = 5 * 60 * 1000; // 5 分钟进度不动才算超时
+        // ─── 超时策略 ───
+        // 正常：只要 currentTime 在动，不论课程多长都不超时。
+        // 卡死：3 分钟内 currentTime 没有变化 → 自动刷新页面（最多 3 次）。
+        // 刷新后：framenavigated 事件自动重新注入监听器；等 8s 宽限期后再 30s 快速判定。
+        // 三次刷新均失败 → 中断退出。
+        const STUCK_TIMEOUT_MS    = 3 * 60 * 1000; // 卡死判定：3 分钟
+        const REFRESH_TIMEOUT_MS  = 30 * 1000;      // 刷新后快速判定：30 秒
+        const MAX_REFRESH_RETRIES = 3;              // 最多自动刷新次数
         const lessonStartTimestamp = Date.now();
-        const reached90 = await (async () => {
+
+        /**
+         * 等待视频进度达到 90%，或检测到卡死后返回 'stuck'。
+         * 通过 getter 函数动态读取最新的 videoFrame，自动感知 framenavigated 后的帧替换。
+         * @param {()=>Frame} getFrame   返回当前 videoFrame 的 getter
+         * @param {number} stuckLimitMs  多久没有进度变化算卡死
+         * @param {number} gracePeriodMs 初始缓冲期（视频加载中时不纳入卡死计算）
+         */
+        const waitFor90 = async (getFrame, stuckLimitMs, gracePeriodMs = 0) => {
           let lastCurrentTime = -1;
-          let lastProgressTime = Date.now();
+          let lastProgressTime = Date.now() + gracePeriodMs;
 
           while (true) {
-            // Primary: check the flag directly in the video frame
-            try {
-              const state = await videoFrame.evaluate(() => ({
-                reached: window._reached90,
-                currentTime: document.querySelector('video')?.currentTime ?? -1,
-              }));
-              if (state.reached) return true;
+            const frame = getFrame();
+            if (frame) {
+              try {
+                const state = await frame.evaluate(() => ({
+                  reached:     window._reached90,
+                  currentTime: document.querySelector('video')?.currentTime ?? -1,
+                }));
+                if (state.reached) return 'done';
 
-              // 进度有变化，刷新"最后有进度时间"
-              if (state.currentTime !== lastCurrentTime && state.currentTime >= 0) {
-                lastCurrentTime = state.currentTime;
-                lastProgressTime = Date.now();
-              }
-            } catch (e) { /* frame may have been detached */ }
+                if (state.currentTime !== lastCurrentTime && state.currentTime >= 0) {
+                  lastCurrentTime  = state.currentTime;
+                  lastProgressTime = Date.now();
+                }
+              } catch (e) { /* frame detached — framenavigated handler will update videoFrame */ }
+            }
 
             // Fallback: check captured console logs
-            const idx = captured.findIndex(c => c.type === 'videolog' && c.timestamp > lessonStartTimestamp && c.text && c.text.includes('[VIDEO_REACHED_90]'));
-            if (idx !== -1) return true;
+            const idx = captured.findIndex(c =>
+              c.type === 'videolog' &&
+              c.timestamp > lessonStartTimestamp &&
+              c.text?.includes('[VIDEO_REACHED_90]')
+            );
+            if (idx !== -1) return 'done';
 
-            // 超时判断：仅在进度卡死（5分钟内毫无变化）时才退出
-            if (Date.now() - lastProgressTime > STUCK_TIMEOUT_MS) return false;
+            if (Date.now() - lastProgressTime > stuckLimitMs) return 'stuck';
 
             await page.waitForTimeout(1000);
           }
-        })();
+        };
+
+        let reached90 = false;
+        let refreshCount = 0;
+
+        // 初次等待（卡死限制：3 分钟，无宽限期）
+        let waitResult = await waitFor90(() => videoFrame, STUCK_TIMEOUT_MS);
+
+        while (waitResult === 'stuck' && refreshCount < MAX_REFRESH_RETRIES) {
+          refreshCount++;
+          logger.warn('video_stuck_refresh', { lessonIndex, refreshCount, url: currentUrl });
+          try {
+            // 重置 videoFrame，让 framenavigated 处理器在刷新后重新赋值并注入监听器
+            videoFrame = null;
+            await page.reload({ waitUntil: 'domcontentloaded' });
+
+            // 等待 framenavigated 处理器完成帧定位与监听器注入（最多 12s）
+            let waited = 0;
+            while (!videoFrame && waited < 12000) {
+              await page.waitForTimeout(500);
+              waited += 500;
+            }
+
+            if (!videoFrame) {
+              logger.warn('video_frame_lost', { lessonIndex, refreshCount });
+              break;
+            }
+
+            // 刷新后 8s 宽限期（视频从服务器恢复上次进度需要时间），再开始 30s 卡死计时
+            waitResult = await waitFor90(() => videoFrame, REFRESH_TIMEOUT_MS, 8000);
+          } catch (e) {
+            logger.warn('video_stuck_refresh_error', { lessonIndex, refreshCount, message: e.message });
+            break;
+          }
+        }
+
+        if (waitResult === 'done') reached90 = true;
 
         clearInterval(behaviorInterval);
 
         if (!reached90) {
-          logger.warn('timeout_90', { url: currentUrl, lessonIndex });
+          logger.warn('timeout_90', { url: currentUrl, lessonIndex, refreshCount });
           saveCaptured();
           break;
         }

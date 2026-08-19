@@ -7,7 +7,8 @@
 ## 功能特性
 
 - 🎬 **自动播放**：基于 Playwright，在真实浏览器中打开录播课页面并注入进度监听器
-- 📊 **进度检测**：`setInterval` 与 `timeupdate` 双保险轮询，无惧视频断点异步恢复与防自动播放拦截，精准捕捉 90% 进度
+- 📊 **进度检测**：`setInterval` 与 `timeupdate` 双保险轮询，无惧视频断点异步恢复与防自动播放拦截，精准捕捉 90% 进度；**监听 `framenavigated` 事件自动检测 iframe 刷新**，用户手动刷新或卡死自动刷新后均自动重新注入监听器
+- ♻️ **卡死自动恢复**：视频进度 3 分钟静止 → 自动刷新页面，最多重试 3 次；刷新后给 8s 宽限期，再进行 30s 快速判定；全部失败才中断退出
 - ⏭️ **智能跳章**：优先触发播放器下方“下一节”按钮；自动跳过已完成章节；首创**侧边栏智能序号解析**引擎，按自然序号（1.1 -> 1.2 -> 2.1）回退跳转，彻底解决跳乱、跳测验的问题
 - 🔒 **进程锁**：`runner.lock` 机制防止多实例并发打开浏览器
 - 📝 **完整日志**：请求抓包（`captured_requests.json`）、章节记录（`completed_lessons.json`）、运行日志（`run.log`）
@@ -87,23 +88,30 @@ CxPilot/
 
 ```mermaid
 flowchart TD
-  Start[开始：准备 storage.json] --> Open[Playwright 打开播放页]
+  Start["开始: 准备 storage.json"] --> Open[Playwright 打开播放页]
   Open --> Locate{定位 video 元素}
   Locate -- 未找到 --> Wait[等待/重试/找下一节]
   Locate -- 找到 --> Inject[注入 setInterval 双保险监听]
-  Inject --> Monitor[轮询检查 & 防全局旧日志穿透]
-  Monitor --> Check{进度 ≥ 90%?}
-  Check -- 否 --> Monitor
+  Inject --> Monitor[实时轮询 currentTime & _reached90 标志]
+  Monitor --> Check{进度 >= 90%?}
+  Check -- 否 --> Stuck{3 分钟内进度静止?}
+  Stuck -- 否 --> Monitor
+  Stuck -- 是 --> Retry{已刷新 < 3 次?}
+  Retry -- 是 --> Reload[刷新页面, 重定位 iframe]
+  Reload --> Monitor
+  Retry -- 否 --> Abort[中断当前章节]
   Check -- 是 --> Save[记录 completed_lessons.json]
   Save --> RandWait[随机等待 1~3s]
-  RandWait --> ClickNext[点击底部“下一节”按钮]
+  RandWait --> ClickNext["点击底部'下一节'按钮"]
   ClickNext --> Nav{导航成功?}
-  Nav -- 是 --> SaveProgress[写 progress.json，开始下一节]
-  Nav -- 否 --> Fallback[侧边栏序号智能跳转 (如 1.1 -> 1.2)]
+  Nav -- 是 --> SaveProgress["写 progress.json，开始下一节"]
+  Nav -- 否 --> Fallback[侧边栏序号智能跳转]
   Fallback --> SaveProgress
 
+  classDef warn fill:#ffd;
   classDef err fill:#fdd;
-  class Fallback err;
+  class Stuck,Retry,Reload warn;
+  class Abort err;
 ```
 
 ---
